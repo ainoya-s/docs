@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Growthbeat Android Gudeliene | Growthbeat | docs">
+  <meta property="og:url" content="http://support.growthbeat.com/sdk/android/guide/">
+  <meta property="og:description" content="Growthbeat Android の導入方法について説明します">
+  
+  <meta property="article:author" content="" />
+  <meta property="fb:app_id" content="" />
+  <meta property="og:site_name" content="Growthbeat | docs">
+
+  <title>
+      
+        Growthbeat Android Gudeliene | Growthbeat | docs
+      
+  </title>
+
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link rel="stylesheet" href="http://support.growthbeat.com/css/main.css">
+</head>
+
+<body>
+
+
+
+  
+
+
+
+
+  
+
+
+<div class="wrapper">
+
+
+
+<header class="navbar-header" role="banner">
+  <div class="container">
+    <nav class="header-nav">
+      <h1 class="logo">
+        <a class="link"href="https://growthbeat.com/">
+          <img src="http://support.growthbeat.com//img/lp_growthbeat_logo_big.png" alt="Growthbeat logo">
+        </a>
+      </h1>
+
+      <div class="sighup">
+        <a class="btn" role="button" href="https://growthbeat.com/register">会員登録（無料）</a>
+      </div>
+      <div class="login">
+        <a class="link" href="https://growthbeat.com/login">ログイン</a>
+      </div>
+      <div class="feature">
+        <a class="link" href="https://growthbeat.com/features">ツール紹介</a>
+      </div>
+      <div class="about">
+        <a class="link"  href="https://growthbeat.com/about">Growthbeatについて</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="navbar-subheader">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/">サポートページ</a>
+      </li>
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/sdk/">SDKドキュメント</a>
+      </li>
+      
+      
+        <li class="item"><a class="link">ガイド</a></li>
+      
+      
+    </ul>
+  </div>
+</section>
+
+
+
+<div class="content">
+  <div class="container">
+
+<div class="page">
+  <h1 class="title">
+    
+      ガイド
+　　 
+    <span class="updated">最終更新日 Sun, Sep 27, 2015</span>
+  </h1>
+  <a class="edit" href="https://github.com/growthbeat/docs/blob/master/content/sdk/android/guide.md">Edit on GitHub</a>
+</div>
+
+
+<section class="row markdown">
+    <div class="column column-sidebar">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#概要:8c27d0d0b409c1de1867fdc9a128c72c">概要</a>
+<ul>
+<li><a href="#sdkについて:8c27d0d0b409c1de1867fdc9a128c72c">SDKについて</a>
+<ul>
+<li><a href="#sdk機能:8c27d0d0b409c1de1867fdc9a128c72c">SDK機能</a></li>
+</ul></li>
+<li><a href="#sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c">SDK導入について</a>
+<ul>
+<li><a href="#導入方法:8c27d0d0b409c1de1867fdc9a128c72c">導入方法</a></li>
+<li><a href="#依存について:8c27d0d0b409c1de1867fdc9a128c72c">依存について</a></li>
+<li><a href="#実装方法:8c27d0d0b409c1de1867fdc9a128c72c">実装方法</a></li>
+</ul></li>
+<li><a href="#growth-push-sdkからの乗り換え方法:8c27d0d0b409c1de1867fdc9a128c72c">Growth Push SDKからの乗り換え方法</a>
+<ul>
+<li><a href="#前準備:8c27d0d0b409c1de1867fdc9a128c72c">前準備</a></li>
+<li><a href="#実装方法-1:8c27d0d0b409c1de1867fdc9a128c72c">実装方法</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+    <div class="column column-main">
+      <div class="typeset">
+        
+
+<h1 id="概要:8c27d0d0b409c1de1867fdc9a128c72c">概要</h1>
+
+<p>グロースハックツールプラットホーム <a href="https://growthbeat.com/">Growthbeat</a> の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。</p>
+
+<p>現在、下記サービスを提供しています：</p>
+
+<table>
+<thead>
+<tr>
+<th>サービス名</th>
+<th>機能</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Growthbeat</td>
+<td>ユーザー総合管理</td>
+</tr>
+
+<tr>
+<td>Growth Push</td>
+<td>プッシュ通知</td>
+</tr>
+
+<tr>
+<td>Growth Analytics</td>
+<td>総合分析・解析</td>
+</tr>
+
+<tr>
+<td>Growth Message</td>
+<td>ポップアップ通知</td>
+</tr>
+
+<tr>
+<td>Growth Link</td>
+<td>ディープリンクツール</td>
+</tr>
+</tbody>
+</table>
+
+<p>Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。</p>
+
+<h2 id="sdkについて:8c27d0d0b409c1de1867fdc9a128c72c">SDKについて</h2>
+
+<p>各種 SDK は <a href="https://github.com/SIROK">GitHub</a> 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。</p>
+
+<p>Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。</p>
+
+<ul>
+<li><a href="https://github.com/SIROK/growthbeat-ios">Growthbeat iOS SDK</a></li>
+<li><a href="https://github.com/SIROK/growthbeat-android">Growthbeat Android SDK</a></li>
+<li><a href="https://github.com/SIROK/growthbeat-unity">Growthbeat Unity SDK</a></li>
+<li><a href="https://github.com/SIROK/growthbeat-cocos2dx">Growthbeat Growthbeat Cocos2D-X SDK SDK</a></li>
+</ul>
+
+<h3 id="sdk機能:8c27d0d0b409c1de1867fdc9a128c72c">SDK機能</h3>
+
+<p>1つの SDK で Growthbeat 全てのサービスの機能が利用できます。(Growth Link のご利用には別途 SDK の導入が必要です)</p>
+
+<h2 id="sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c">SDK導入について</h2>
+
+<h3 id="導入方法:8c27d0d0b409c1de1867fdc9a128c72c">導入方法</h3>
+
+<p><strong>手動</strong></p>
+
+<p><a href="https://github.com/SIROK/growthbeat-android/archive/latest.zip">最新版Android SDK ダウンロードページ</a></p>
+
+<p>ダウンロードしたファイルを解凍します。その後、そのフォルダの中の <strong>growthbeat.jar</strong> をプロジェクトへ組み込みます。任意のアプリのプロジェクトに Android が他ライブラリを自動で参照する <strong>libs</strong> ディレクトリの中に growthbeat.jar を移動もしくはコピーしてください。</p>
+
+<h3 id="依存について:8c27d0d0b409c1de1867fdc9a128c72c">依存について</h3>
+
+<p>growthbeat.jar は下記設定が必須となります：</p>
+
+<ol>
+<li>ライブラリプロジェクトとして google_play_service_lib をビルドパスに設定</li>
+<li>AndroidManifest.xmlの <code>&lt;application&gt;</code> 内に以下を追加</li>
+</ol>
+
+<pre><code class="language-xml">&lt;meta-data
+    android:name=&quot;com.google.android.gms.version&quot;
+    android:value=&quot;@integer/google_play_services_version&quot; /&gt;
+</code></pre>
+
+<h3 id="実装方法:8c27d0d0b409c1de1867fdc9a128c72c">実装方法</h3>
+
+<p>SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。</p>
+
+<p>Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。</p>
+
+<ul>
+<li>API キー（REST API を使用時の認証に必須となるキー）</li>
+<li>SDK キー（SDK の認証のために必須となるキー）</li>
+</ul>
+
+<p>各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから <strong>マイページ</strong> をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます</p>
+
+<p>また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。</p>
+
+<h2 id="growth-push-sdkからの乗り換え方法:8c27d0d0b409c1de1867fdc9a128c72c">Growth Push SDKからの乗り換え方法</h2>
+
+<h3 id="前準備:8c27d0d0b409c1de1867fdc9a128c72c">前準備</h3>
+
+<p>GrowthPushのApplicationIdから、GrowthbeatのApplicationIdに移行されるた
+め、<a href="https://growthbeat.com/">Growthbeat</a>にアクセスして、ApplicationId、SDKキー（CredentialID）を確認します。</p>
+
+<h3 id="実装方法-1:8c27d0d0b409c1de1867fdc9a128c72c">実装方法</h3>
+
+<ul>
+<li>GrowthPush SDK</li>
+</ul>
+
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+
+	GrowthPush.getInstance().initialize(getApplicationContext(), YOUR_APPLICATION_ID, &quot;APPLICATION_SECRET&quot;, BuildConfig.DEBUG ? Environment.development : Environment.production, true).register(&quot;YOUR_SENDER_ID&quot;);
+	GrowthPush.getInstance().trackEvent(&quot;Launch&quot;);
+	GrowthPush.getInstance().setDeviceTags();
+}
+</code></pre>
+
+<ul>
+<li>Growthbeat SDK</li>
+</ul>
+
+<pre><code>protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+	// Growthbeat SDKの初期化
+	Growthbeat.getInstance().initialize(this, &quot;YOUR_APPLICATION_ID&quot;, &quot;CREDENTIAL_ID&quot;);
+	// Registration IDを明示的に要求
+	GrowthPush.getInstance().requestRegistrationId(&quot;YOUR_SENDER_ID&quot;, BuildConfig.DEBUG ? Environment.development : Environment.production);
+	// Launchイベントの取得
+	GrowthPush.getInstance().trackEvent(&quot;Launch&quot;);
+	// DeviceTagの取得
+	GrowthPush.getInstance().setDeviceTags();
+}
+</code></pre>
+
+      </div>
+    </div>
+</section>
+
+
+  </div>
+</div>
+
+
+<footer class="footer">
+  <small class="copyright">Designed by SIROK</small>
+</footer>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('pre code, code').each(function(i, block) {
+    hljs.highlightBlock(block)
+  })
+});
+</script>
+
+
+</div>
+</body>
+</html>

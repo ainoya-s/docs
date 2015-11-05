@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Growthbeat Cocos2dx API | Growthbeat | docs">
+  <meta property="og:url" content="http://support.growthbeat.com/sdk/cocos2dx/tutorial/">
+  <meta property="og:description" content="Growthbeat Cocos2dx の API について説明します">
+  
+  <meta property="article:author" content="" />
+  <meta property="fb:app_id" content="" />
+  <meta property="og:site_name" content="Growthbeat | docs">
+
+  <title>
+      
+        Growthbeat Cocos2dx API | Growthbeat | docs
+      
+  </title>
+
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link rel="stylesheet" href="http://support.growthbeat.com/css/main.css">
+</head>
+
+<body>
+
+
+
+  
+
+
+
+
+  
+
+
+<div class="wrapper">
+
+
+
+<header class="navbar-header" role="banner">
+  <div class="container">
+    <nav class="header-nav">
+      <h1 class="logo">
+        <a class="link"href="https://growthbeat.com/">
+          <img src="http://support.growthbeat.com//img/lp_growthbeat_logo_big.png" alt="Growthbeat logo">
+        </a>
+      </h1>
+
+      <div class="sighup">
+        <a class="btn" role="button" href="https://growthbeat.com/register">会員登録（無料）</a>
+      </div>
+      <div class="login">
+        <a class="link" href="https://growthbeat.com/login">ログイン</a>
+      </div>
+      <div class="feature">
+        <a class="link" href="https://growthbeat.com/features">ツール紹介</a>
+      </div>
+      <div class="about">
+        <a class="link"  href="https://growthbeat.com/about">Growthbeatについて</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="navbar-subheader">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/">サポートページ</a>
+      </li>
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/sdk/">SDKドキュメント</a>
+      </li>
+      
+        <li class="item"><a class="link">チュートリアル</a></li>
+      
+      
+      
+    </ul>
+  </div>
+</section>
+
+
+
+<div class="content">
+  <div class="container">
+
+<div class="page">
+  <h1 class="title">
+    
+      チュートリアル
+　　 
+    <span class="updated">最終更新日 Mon, Sep 14, 2015</span>
+  </h1>
+  <a class="edit" href="https://github.com/growthbeat/docs/blob/master/content/sdk/cocos2dx/tutorial.md">Edit on GitHub</a>
+</div>
+
+
+<section class="row markdown">
+    <div class="column column-sidebar">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#growthbeat-cocos2dx-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat Cocos2dx API</a></li>
+<li><a href="#初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c">初期化 デバイス登録・認証</a>
+<ul>
+<li><a href="#ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c">ユーザー属性、行動ログの付与 (Growth Analyticsの利用)</a></li>
+<li><a href="#端末-ユーザー情報を送信方法と-実装の説明:94d9a081cd1256334373c8ca6fb6276c">端末・ユーザー情報を送信方法と、実装の説明</a>
+<ul>
+<li><a href="#端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c">端末のデータを送信</a></li>
+<li><a href="#起動-終了イベントを送信:94d9a081cd1256334373c8ca6fb6276c">起動/終了イベントを送信</a>
+<ul>
+<li><a href="#起動-open:94d9a081cd1256334373c8ca6fb6276c">起動 (open)</a></li>
+<li><a href="#終了-close:94d9a081cd1256334373c8ca6fb6276c">終了 (close)</a></li>
+<li><a href="#課金情報を送信する:94d9a081cd1256334373c8ca6fb6276c">課金情報を送信する</a></li>
+<li><a href="#ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c">ユニークなユーザーIDを送信</a></li>
+<li><a href="#ユーザー名を送信:94d9a081cd1256334373c8ca6fb6276c">ユーザー名を送信</a></li>
+<li><a href="#年齢を送信:94d9a081cd1256334373c8ca6fb6276c">年齢を送信</a></li>
+<li><a href="#性別を送信:94d9a081cd1256334373c8ca6fb6276c">性別を送信</a></li>
+<li><a href="#レベルを送信:94d9a081cd1256334373c8ca6fb6276c">レベルを送信</a></li>
+<li><a href="#開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c">開発用の紐付け</a></li>
+<li><a href="#端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c">端末モデル名を送信</a></li>
+<li><a href="#端末osを送信:94d9a081cd1256334373c8ca6fb6276c">端末OSを送信</a></li>
+<li><a href="#端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c">端末の言語設定を送信</a></li>
+<li><a href="#タイムゾーンを送信する:94d9a081cd1256334373c8ca6fb6276c">タイムゾーンを送信する</a></li>
+<li><a href="#タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c">タイムゾーンオフセットを送信</a></li>
+<li><a href="#アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c">アプリバージョンを送信</a></li>
+<li><a href="#乱数を送信:94d9a081cd1256334373c8ca6fb6276c">乱数を送信</a></li>
+<li><a href="#広告idを送信:94d9a081cd1256334373c8ca6fb6276c">広告IDを送信</a></li>
+<li><a href="#広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c">広告オプトアウトの送信</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#カスタムイベント-タグを送信する:94d9a081cd1256334373c8ca6fb6276c">カスタムイベント・タグを送信する</a>
+<ul>
+<li><a href="#カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントとは？</a>
+<ul>
+<li><a href="#カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</a></li>
+<li><a href="#パラメータ:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+<li><a href="#trackoption:94d9a081cd1256334373c8ca6fb6276c">TrackOption</a></li>
+</ul></li>
+<li><a href="#カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c">カスタムタグとは？</a>
+<ul>
+<li><a href="#カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムタグの送信</a></li>
+<li><a href="#パラメータ-1:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#フルカスタマイズなイベント-タグの送信:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズなイベント・タグの送信</a>
+<ul>
+<li><a href="#フルカスタマイズイベントを送信する:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズイベントを送信する</a>
+<ul>
+<li><a href="#パラメータ-2:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+<li><a href="#trackoption-1:94d9a081cd1256334373c8ca6fb6276c">TrackOption</a></li>
+</ul></li>
+<li><a href="#フルカスタマイズタグを送信する:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズタグを送信する</a>
+<ul>
+<li><a href="#パラメータ-3:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c">プッシュ通知の実装 (Growth Pushの利用)</a>
+<ul>
+<li><a href="#デバイストークンの取得:94d9a081cd1256334373c8ca6fb6276c">デバイストークンの取得</a>
+<ul>
+<li>
+<ul>
+<li><a href="#カスタムペイロードの取得:94d9a081cd1256334373c8ca6fb6276c">カスタムペイロードの取得</a></li>
+<li><a href="#android-カスタムアイコンの設定:94d9a081cd1256334373c8ca6fb6276c">(Android) カスタムアイコンの設定</a></li>
+</ul></li>
+<li><a href="#イベント-タグの取得:94d9a081cd1256334373c8ca6fb6276c">イベント・タグの取得</a>
+<ul>
+<li><a href="#イベントを送信する:94d9a081cd1256334373c8ca6fb6276c">イベントを送信する</a></li>
+<li><a href="#パラメータ-4:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+</ul></li>
+<li><a href="#タグを送信する:94d9a081cd1256334373c8ca6fb6276c">タグを送信する</a>
+<ul>
+<li><a href="#パラメータ-5:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c">アプリ内ポップアップメッセージの実装 (Growth Messageの利用)</a>
+<ul>
+<li><a href="#初期設定:94d9a081cd1256334373c8ca6fb6276c">初期設定</a></li>
+<li><a href="#メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c">メッセージを表示するViewを指定</a>
+<ul>
+<li><a href="#デフォルトで用意しているイベントの送信:94d9a081cd1256334373c8ca6fb6276c">デフォルトで用意しているイベントの送信</a></li>
+<li><a href="#カスタムイベントの送信-1:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ディープリンクの実装-growth-linkの利用:94d9a081cd1256334373c8ca6fb6276c">ディープリンクの実装 (Growth Linkの利用)</a>
+<ul>
+<li><a href="#初期設定-1:94d9a081cd1256334373c8ca6fb6276c">初期設定</a></li>
+<li><a href="#ディープリンクアクションの実装:94d9a081cd1256334373c8ca6fb6276c">ディープリンクアクションの実装</a></li>
+<li><a href="#備考:94d9a081cd1256334373c8ca6fb6276c">備考</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+    <div class="column column-main">
+      <div class="typeset">
+        
+
+<h1 id="growthbeat-cocos2dx-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat Cocos2dx API</h1>
+
+<h1 id="初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c">初期化 デバイス登録・認証</h1>
+
+<p>Growthbeatへデバイス登録・認証を行います。</p>
+
+<pre><code class="language-cpp">Growthbeat::getInstance()-&gt;initialize(&quot;YOUR_APPLICATION_ID&quot;, &quot;YOUR_CREDENTIAL_ID&quot;);
+</code></pre>
+
+<p>Androidの場合は、初期起動時のActivityに下記を実装してください。</p>
+
+<pre><code class="language-java">GrowthbeatJNI.setContext(this);
+</code></pre>
+
+<h2 id="ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c">ユーザー属性、行動ログの付与 (Growth Analyticsの利用)</h2>
+
+<p>Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。</p>
+
+<p>送信されたデータは、Growth Analytics管理画面をご覧ください。</p>
+
+<h2 id="端末-ユーザー情報を送信方法と-実装の説明:94d9a081cd1256334373c8ca6fb6276c">端末・ユーザー情報を送信方法と、実装の説明</h2>
+
+<p>端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。</p>
+
+<p>あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。</p>
+
+<ul>
+<li><em>setBasicTags</em> 基本情報となるタグのセットです。</li>
+<li><em>open</em> 起動イベントを送信します。</li>
+<li><em>close</em> 終了イベントを送信します。</li>
+<li><em>purchase</em> 課金イベントを送信します。</li>
+<li><em>setUserId</em> アプリのユニークなUserIdを送信します。</li>
+<li><em>setName</em> アプリのユーザー名を送信します。</li>
+<li><em>setAge</em> アプリのユーザーの年齢を送信します。</li>
+<li><em>setGender</em> アプリのユーザーの性別を送信します。</li>
+<li><em>setLevel</em> アプリのユーザーのレベルを送信します。</li>
+<li><em>setDevelopment</em> 開発用のフラグを送信します。</li>
+<li><em>setDeviceModel</em> 端末のモデルを送信します。</li>
+<li><em>setOS</em> 端末のOS</li>
+<li><em>setLanguage</em> 端末の言語設定</li>
+<li><em>setTimeZone</em> 端末のタイムゾーン</li>
+<li><em>setTimeZoneOffset</em> 端末の標準時刻からの差</li>
+<li><em>setAppVersion</em> アプリの設定されているバージョン</li>
+<li><em>setRandom</em> 乱数を送信します。</li>
+<li><em>setAdvertisingId</em> 広告IDを送信します。</li>
+</ul>
+
+<p>また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。</p>
+
+<ul>
+<li><em>track</em> カスタムイベントを送信します。</li>
+<li><em>tag</em> カスタムタグを送信します。</li>
+</ul>
+
+<h3 id="端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c">端末のデータを送信</h3>
+
+<p>setBasicTagsメソッドは端末のデータを送信します。</p>
+
+<p>このメソッドには、下記が含まれます。</p>
+
+<ul>
+<li>setDeviceModel</li>
+<li>setOs</li>
+<li>setLanguage</li>
+<li>setTimeZone</li>
+<li>setTimeZoneOffset</li>
+<li>setAppVersion</li>
+<li>setAdvertisingId</li>
+<li>setTrackingEnabled</li>
+</ul>
+
+<pre><code class="language-cpp">GrowthAnalytics::getInstance()-&gt;setBasicTags();
+</code></pre>
+
+<h3 id="起動-終了イベントを送信:94d9a081cd1256334373c8ca6fb6276c">起動/終了イベントを送信</h3>
+
+<h4 id="起動-open:94d9a081cd1256334373c8ca6fb6276c">起動 (open)</h4>
+
+<p>ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。</p>
+
+<p>起動後に開かれるところに以下を実装してください。</p>
+
+<pre><code class="language-cpp">GrowthAnalytics::getInstance()-&gt;open();
+</code></pre>
+
+<h4 id="終了-close:94d9a081cd1256334373c8ca6fb6276c">終了 (close)</h4>
+
+<p>アプリの終了イベントを送信します。セッション時間の計測を停止します。</p>
+
+<p>プロセスが終了する場所に実装してください。</p>
+
+<pre><code class="language-cpp">GrowthAnalytics::getInstance()-&gt;close();
+</code></pre>
+
+<h4 id="課金情報を送信する:94d9a081cd1256334373c8ca6fb6276c">課金情報を送信する</h4>
+
+<p>課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。</p>
+
+<pre><code class="language-cpp">GrowthAnalytics::getInstance()-&gt;purchase(price, &quot;ITEM_CATEGORY&quot;, &quot;ITEM_NAME&quot;);
+</code></pre>
+
+<h4 id="ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c">ユニークなユーザーIDを送信</h4>
+
+<p>アプリのユニークなユーザーIDを送信します。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setUserId(&quot;YOUR_USER_ID&quot;);
+</code></pre>
+
+<h4 id="ユーザー名を送信:94d9a081cd1256334373c8ca6fb6276c">ユーザー名を送信</h4>
+
+<p>アプリのユーザー名を送信します。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setName(&quot;YOUR_NAME&quot;);
+</code></pre>
+
+<h4 id="年齢を送信:94d9a081cd1256334373c8ca6fb6276c">年齢を送信</h4>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setAge(age);
+</code></pre>
+
+<h4 id="性別を送信:94d9a081cd1256334373c8ca6fb6276c">性別を送信</h4>
+
+<p>変数は、Genderのenumを用いてどちらか性別を送信してください</p>
+
+<pre><code class="language-java">// 男性
+GrowthAnalytics::getInstance()-&gt;setGender(GAGenderMale);
+
+// 女性
+GrowthAnalytics::getInstance()-&gt;setGender(GAGenderFemale);
+</code></pre>
+
+<h4 id="レベルを送信:94d9a081cd1256334373c8ca6fb6276c">レベルを送信</h4>
+
+<p>アプリのユーザーのレベルを送信します。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setLevel(level);
+</code></pre>
+
+<h4 id="開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c">開発用の紐付け</h4>
+
+<p>開発用のフラグをつける</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setDevelopment(true);
+</code></pre>
+
+<h4 id="端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c">端末モデル名を送信</h4>
+
+<p>端末のモデル名を送信します。</p>
+
+<p>例.) SO-03C, SC-03D</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setDeviceModel();
+</code></pre>
+
+<h4 id="端末osを送信:94d9a081cd1256334373c8ca6fb6276c">端末OSを送信</h4>
+
+<p>端末のOSを送信します。</p>
+
+<p>例.) Android 4.4, Android 5.0.1</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setOS();
+</code></pre>
+
+<h4 id="端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c">端末の言語設定を送信</h4>
+
+<p>端末の設定言語を送信します。</p>
+
+<p>例.) ja, en</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setLanguage();
+</code></pre>
+
+<h4 id="タイムゾーンを送信する:94d9a081cd1256334373c8ca6fb6276c">タイムゾーンを送信する</h4>
+
+<p>端末で設定されたタイムゾーンを送信する。</p>
+
+<p>例.) Asia/Tokyo, America/Los_Angeles</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setTimeZone();
+</code></pre>
+
+<h4 id="タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c">タイムゾーンオフセットを送信</h4>
+
+<p>端末の設定された時刻から、標準時刻の差分時間を送信します。</p>
+
+<p>例.) 9, -11</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setTimeZoneOffset();
+</code></pre>
+
+<h4 id="アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c">アプリバージョンを送信</h4>
+
+<p>アプリに設定されたアプリバージョンを送信します。</p>
+
+<p>AndroidManifest.xmlの<code>&lt;manifest&gt;</code> android:versionNameに設定される値が入ります。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setAppVersion();
+</code></pre>
+
+<h4 id="乱数を送信:94d9a081cd1256334373c8ca6fb6276c">乱数を送信</h4>
+
+<p>乱数を端末の情報として紐付けます。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setRandom();
+</code></pre>
+
+<h4 id="広告idを送信:94d9a081cd1256334373c8ca6fb6276c">広告IDを送信</h4>
+
+<p>広告IDを送信します。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setAdvertisingId();
+</code></pre>
+
+<h4 id="広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c">広告オプトアウトの送信</h4>
+
+<p>ユーザーが広告IDを利用するのを拒否しているかを送信します。</p>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;setTrackingEnabled();
+</code></pre>
+
+<h2 id="カスタムイベント-タグを送信する:94d9a081cd1256334373c8ca6fb6276c">カスタムイベント・タグを送信する</h2>
+
+<h3 id="カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントとは？</h3>
+
+<p>任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。</p>
+
+<ul>
+<li>EventID: <code>Event:&lt;YOUR_APPLICATION_ID&gt;:Custom:&lt;CUSTOM_EVENT_ID&gt;</code><br />
+
+<ul>
+<li>上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。</li>
+<li><code>YOUR_APPLICATION_ID</code>: ApplicationIDを指定されます。</li>
+<li><code>CUSTOM_EVENT_ID</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+</ul></li>
+</ul>
+
+<h4 id="カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</h4>
+
+<pre><code class="language-java">void track(const std::string&amp; eventId);
+void track(const std::string&amp; eventId, const std::map&lt;std::string, std::string&gt;&amp; properties);
+void track(const std::string&amp; eventId, GATrackOption option);
+void track(const std::string&amp; eventId, const std::map&lt;std::string, std::string&gt;&amp; properties, GATrackOption option);
+</code></pre>
+
+<h4 id="パラメータ:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">カスタムイベントID</td>
+</tr>
+
+<tr>
+<td align="left">properties</td>
+<td align="left">カスタムイベントに持たせる任意のMap</td>
+</tr>
+
+<tr>
+<td align="left">option</td>
+<td align="left">任意のパラメータ。ONCE, COUNTERのいずれかを指定します。</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="trackoption:94d9a081cd1256334373c8ca6fb6276c">TrackOption</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">ONCE</td>
+<td align="left">このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）</td>
+</tr>
+
+<tr>
+<td align="left">COUNTER</td>
+<td align="left">このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, properties);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, GATrackOptionONCE);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, properties, GATrackOptionONCE);
+</code></pre>
+
+<h3 id="カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c">カスタムタグとは？</h3>
+
+<p>任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。</p>
+
+<ul>
+<li>TagID: <code>Tag:&lt;YOUR_APPLICATION_ID&gt;:Custom:&lt;LAST_ID&gt;</code><br />
+
+<ul>
+<li>上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。</li>
+<li><code>YOUR_APPLICATION_ID</code>: ApplicationIDを指定されます。</li>
+<li><code>LAST_ID</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+</ul></li>
+</ul>
+
+<h4 id="カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムタグの送信</h4>
+
+<pre><code class="language-java">void tag(const std::string&amp; tagId);
+void tag(const std::string&amp; tagId, const std::string&amp; value);
+</code></pre>
+
+<h4 id="パラメータ-1:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">カスタムタグID</td>
+</tr>
+
+<tr>
+<td align="left">value</td>
+<td align="left">カスタムタグに持たせる任意のValue</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;tag(&quot;CUSTOM_TAG_ID&quot;);
+GrowthAnalytics::getInstance()-&gt;tag(&quot;CUSTOM_TAG_ID&quot;, &quot;value&quot;);
+</code></pre>
+
+<h2 id="フルカスタマイズなイベント-タグの送信:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズなイベント・タグの送信</h2>
+
+<h3 id="フルカスタマイズイベントを送信する:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズイベントを送信する</h3>
+
+<p>特定のネームスペース、イベントIDを設定していただくことが可能です。下記、イベントID発行例となります。</p>
+
+<ul>
+<li>EventID: <code>Event:&lt;YOUR_APPLICATION_ID&gt;:&lt;NAMESPACE&gt;:&lt;EVENT_ID&gt;</code>
+
+<ul>
+<li>上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。</li>
+<li><code>YOUR_APPLICATION_ID</code>: ApplicationIDを指定されます。</li>
+<li><code>NAMESPACE</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+<li><code>EVENT_ID</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-java">void track(const std::string&amp; _namespace,const std::string&amp; eventId, const std::map&lt;std::string, std::string&gt;&amp; properties, GATrackOption option);
+</code></pre>
+
+<h4 id="パラメータ-2:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">namespace</td>
+<td align="left">ネームスペース</td>
+</tr>
+
+<tr>
+<td align="left">name</td>
+<td align="left">イベントID</td>
+</tr>
+
+<tr>
+<td align="left">properties</td>
+<td align="left">イベントに持たせる任意のMap</td>
+</tr>
+
+<tr>
+<td align="left">option</td>
+<td align="left">任意のパラメータ。ONCE, COUNTERのいずれかを指定します。</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="trackoption-1:94d9a081cd1256334373c8ca6fb6276c">TrackOption</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">ONCE</td>
+<td align="left">このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）</td>
+</tr>
+
+<tr>
+<td align="left">COUNTER</td>
+<td align="left">このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;track(&quot;NAMESPACE&quot;, &quot;CUSTOM_EVENT_ID&quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+</code></pre>
+
+<h3 id="フルカスタマイズタグを送信する:94d9a081cd1256334373c8ca6fb6276c">フルカスタマイズタグを送信する</h3>
+
+<p>特定のネームスペース、タグIDを設定していただくことが可能です。下記、タグID発行例となります。</p>
+
+<ul>
+<li>TagID: <code>Tag:&lt;YOUR_APPLICATION_ID&gt;:&lt;NAMESPACE&gt;:&lt;TAG_ID&gt;</code><br />
+
+<ul>
+<li>上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。</li>
+<li><code>YOUR_APPLICATION_ID</code>: ApplicationIDを指定されます。</li>
+<li><code>NAMESPACE</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+<li><code>TAG_ID</code>: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-java">void tag(const std::string&amp; _namespace,const std::string&amp; tagId, const std::string&amp; value);
+</code></pre>
+
+<h4 id="パラメータ-3:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">namespace</td>
+<td align="left">ネームスペース</td>
+</tr>
+
+<tr>
+<td align="left">name</td>
+<td align="left">タグID</td>
+</tr>
+
+<tr>
+<td align="left">value</td>
+<td align="left">タグに持たせる任意のValue</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;tag(&quot;NAMESPACE&quot;, &quot;TAG_ID&quot;, &quot;value&quot;);
+</code></pre>
+
+<h1 id="プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c">プッシュ通知の実装 (Growth Pushの利用)</h1>
+
+<h2 id="デバイストークンの取得:94d9a081cd1256334373c8ca6fb6276c">デバイストークンの取得</h2>
+
+<p>Growth Push管理画面、証明書設定ページにて、各OSごとに証明書の設定を行ってください。</p>
+
+<p><a href="http://growthhack.sirok.co.jp/growthpush/ios-p12/">iOSプッシュ通知証明書作成方法</a>
+<a href="http://growthhack.sirok.co.jp/growthpush/gcm-api/">Android SenderId, APIキー取得方法</a></p>
+
+<p>** Cocos実装方法 **</p>
+
+<p>プッシュ通知の許可を取りたいタイミングの場所に、下記を実装してください。</p>
+
+<pre><code class="language-cpp">GrowthPush::getInstance()-&gt;requestDeviceToken(&quot;YOUR_SENDER_ID&quot;, environment);
+</code></pre>
+
+<p>iOSのみ送信する場合は、下記実装も可能です。</p>
+
+<pre><code class="language-cpp">GrowthPush::getInstance()-&gt;requestDeviceToken(environment);
+</code></pre>
+
+<p><code>GPEnvironment</code> は、デバッグビルド・リリースビルドで変更するようにしてください。</p>
+
+<ul>
+<li><p>デバッグビルド時 =&gt; GPEnvironmentDevelopment</p></li>
+
+<li><p>リリースビルド時 =&gt; GPEnvironmentProduction</p></li>
+</ul>
+
+<p>** Android実装方法 **</p>
+
+<p>AndroidManifest.xmlの設定を行う必要がございます。</p>
+
+<p>パーミッションは下記が必須となります。</p>
+
+<pre><code class="language-xml">&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.GET_ACCOUNTS&quot; /&gt;
+&lt;uses-permission android:name=&quot;com.google.android.c2dm.permission.RECEIVE&quot; /&gt;
+
+&lt;permission
+    android:name=&quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&quot;
+    android:protectionLevel=&quot;signature&quot; /&gt;
+
+&lt;uses-permission android:name=&quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&quot; /&gt;
+</code></pre>
+
+<p>オプションで、下記パーミッションを設定してください。</p>
+
+<p>・ 通知音を鳴らす場合</p>
+
+<pre><code class="language-xml">&lt;uses-permission android:name=&quot;android.permission.VIBRATE&quot; /&gt;
+</code></pre>
+
+<p>・ アラートダイアログのプッシュ通知を表示する場合</p>
+
+<pre><code class="language-xml">&lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;
+</code></pre>
+
+<p>また、プッシュ通知を受け取るために必要な設定を、<code>&lt;application&gt;</code>タグ内に実装してください。</p>
+
+<pre><code class="language-xml">&lt;activity
+    android:name=&quot;com.growthpush.view.AlertActivity&quot;
+    android:configChanges=&quot;orientation|keyboardHidden&quot;
+    android:launchMode=&quot;singleInstance&quot;
+    android:theme=&quot;@android:style/Theme.Translucent&quot; /&gt;
+
+&lt;receiver
+    android:name=&quot;com.growthpush.Cocos2dxBroadcastReceiver&quot;
+    android:permission=&quot;com.google.android.c2dm.permission.SEND&quot; &gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;com.google.android.c2dm.intent.RECEIVE&quot; /&gt;
+        &lt;action android:name=&quot;com.google.android.c2dm.intent.REGISTRATION&quot; /&gt;
+        &lt;category android:name=&quot;YOUR_PACKAGE_NAME&quot; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+</code></pre>
+
+<ul>
+<li>YOUR_PACKAGE_NAMEは、実装するアプリのパッケージ名に変更してください。</li>
+</ul>
+
+<h4 id="カスタムペイロードの取得:94d9a081cd1256334373c8ca6fb6276c">カスタムペイロードの取得</h4>
+
+<p>Growth Pushでは、表示メッセージ以外に、JSONフォーマットのカスタムペイロードを持たせることができます。</p>
+
+<p>AppDelegate.hに下記インターフェイスを実装してください。</p>
+
+<pre><code class="language-cpp">virtual void didReceiveRemoteNotification(cocos2d::Value extra);
+</code></pre>
+
+<p>AppDelegate.mに、セレクターの実装と受け取り後の処理を記述します。</p>
+
+<pre><code class="language-cpp">bool AppDelegate::applicationDidFinishLaunching() {
+
+	// 略
+	GrowthPush::getInstance()-&gt;setOpenNotificationCallback(this, gp_remote_notification_selector(AppDelegate::didReceiveRemoteNotification));
+
+	// ...
+}
+
+void AppDelegate::didReceiveRemoteNotification(cocos2d::Value extra) {
+    CCLOG(&quot;%s&quot;, extra.getDescription().c_str());
+}
+</code></pre>
+
+<p>JSONを展開して、任意の処理を実装してください。</p>
+
+<h4 id="android-カスタムアイコンの設定:94d9a081cd1256334373c8ca6fb6276c">(Android) カスタムアイコンの設定</h4>
+
+<p>Googleのポリシーに合わせ、アイコンを変更できるようにしました。</p>
+
+<p>AndroidManifest.xml <code>&lt;application&gt;</code> 内に、下記項目を加えてください。</p>
+
+<pre><code>```
+
+&lt;!-- 通知バーのアイコンを変更する場合 (例.) @drawable/sample_notification_icon --&gt;
+&lt;meta-data android:name=&quot;com.growthpush.notification.icon&quot; android:resource=&quot;表示したいアイコンのパス&quot; /&gt;
+
+&lt;!-- 通知バーのアイコンのバックグラウンドカラーを変更する場合 (例.) @color/black --&gt;
+&lt;meta-data android:name=&quot;com.growthpush.notification.icon.background.color&quot; android:resource=&quot;表示したい色のID&quot; /&gt;
+
+&lt;!-- ダイアログ通知のアイコンを変更したい場合 (例.) @drawable/sample_dialog_icon --&gt;
+&lt;meta-data android:name=&quot;com.growthpush.dialog.icon&quot; android:resource=&quot;表示したいアイコンのパス&quot; /&gt;
+```
+</code></pre>
+
+<h3 id="イベント-タグの取得:94d9a081cd1256334373c8ca6fb6276c">イベント・タグの取得</h3>
+
+<p><em>注意: こちらのメソッドは、Growth Pushが、Growth Analyticsに統合されました段階で削除予定となっております。これまでGrowth Push SDKをご利用しておりました方は、Growth Analyticsのイベント・タグの送信にお乗り換えくださいませ。</em></p>
+
+<h4 id="イベントを送信する:94d9a081cd1256334373c8ca6fb6276c">イベントを送信する</h4>
+
+<pre><code class="language-java">void trackEvent(final String name);
+void trackEvent(final String name, final String value);
+</code></pre>
+
+<h4 id="パラメータ-4:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">イベント名</td>
+</tr>
+
+<tr>
+<td align="left">value</td>
+<td align="left">イベントに持たせる値</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthPush::getInstance()-&gt;trackEvent(&quot;EVENT_NAME&quot;);
+GrowthPush::getInstance()-&gt;trackEvent(&quot;EVENT_NAME&quot;, &quot;EVENT_VALUE&quot;);
+</code></pre>
+
+<h3 id="タグを送信する:94d9a081cd1256334373c8ca6fb6276c">タグを送信する</h3>
+
+<pre><code class="language-java">void setTag(final String name);
+void setTag(final String name, final String value);
+</code></pre>
+
+<h4 id="パラメータ-5:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">タグ名</td>
+</tr>
+
+<tr>
+<td align="left">value</td>
+<td align="left">タグに持たせる値</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="language-java">GrowthPush::getInstance()-&gt;setTag(&quot;TAG_NAME&quot;);
+GrowthPush::getInstance()-&gt;setTag(&quot;TAG_NAME&quot;, &quot;TAG_VALUE&quot;);
+</code></pre>
+
+<h1 id="アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c">アプリ内ポップアップメッセージの実装 (Growth Messageの利用)</h1>
+
+<h2 id="初期設定:94d9a081cd1256334373c8ca6fb6276c">初期設定</h2>
+
+<p>Androidはメッセージを表示するためのActivityを追記します。</p>
+
+<p>AndroidManifest.xmlの <code>&lt;application&gt;</code> 要素内に下記を記述します。</p>
+
+<pre><code class="language-xml">&lt;activity
+	android:name=&quot;com.growthbeat.message.view.MessageActivity&quot;
+	android:theme=&quot;@android:style/Theme.Translucent&quot; /&gt;
+</code></pre>
+
+<h2 id="メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c">メッセージを表示するViewを指定</h2>
+
+<h3 id="デフォルトで用意しているイベントの送信:94d9a081cd1256334373c8ca6fb6276c">デフォルトで用意しているイベントの送信</h3>
+
+<ul>
+<li><em>open</em> 起動イベントを送信します。</li>
+<li><em>close</em> 終了イベントを送信します。</li>
+<li><em>purchase</em> 課金イベントを送信します。</li>
+</ul>
+
+<h3 id="カスタムイベントの送信-1:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</h3>
+
+<pre><code class="language-java">GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, properties);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, GrowthAnalytics.TrackOption.ONCE);
+GrowthAnalytics::getInstance()-&gt;track(&quot;CUSTOM_EVENT_ID&quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+</code></pre>
+
+<p>Growth Analyticsの実装を参照してください。</p>
+
+<h1 id="ディープリンクの実装-growth-linkの利用:94d9a081cd1256334373c8ca6fb6276c">ディープリンクの実装 (Growth Linkの利用)</h1>
+
+<h2 id="初期設定-1:94d9a081cd1256334373c8ca6fb6276c">初期設定</h2>
+
+<ol>
+<li><p>初期化処理を実装します。</p>
+
+<pre><code class="language-cpp">GrowthLink::getInstance()-&gt;initialize(&quot;APPLICATION_ID&quot;, &quot;CREDENTIAL_ID&quot;);
+</code></pre></li>
+</ol>
+
+<p>** Androidの設定について **
+1. Install Referrerの取得のための設定を、AndoridManifest.xmlの <code>&lt;application/&gt;</code> 内の記述する。</p>
+
+<pre><code>```xml
+&lt;receiver
+    android:name=&quot;com.growthbeat.link.InstallReferrerReceiver&quot;
+    android:enabled=&quot;true&quot;
+    android:exported=&quot;true&quot;&gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;com.android.vending.INSTALL_REFERRER&quot; /&gt;
+    &lt;/intent-filter&gt;
+&lt;/receiver&gt;
+```
+</code></pre>
+
+<ol>
+<li><p>カスタムURLスキームでアプリを起動できるように、AndroidManifest.xmlを設定する</p></li>
+
+<li><p>IntentFilterを設定したActivityのonCreateで、handleOpenUrlメソッドを呼び出す</p>
+
+<pre><code class="language-java">GrowthLinkJNI.handleOpenUrl(getIntent().getData());
+</code></pre></li>
+</ol>
+
+<h2 id="ディープリンクアクションの実装:94d9a081cd1256334373c8ca6fb6276c">ディープリンクアクションの実装</h2>
+
+<p>SDKには、<code>IntentHandler</code> というインタフェースが定義されており、この実装でディープリンク時のアクションを実装することができます。</p>
+
+<p>たとえば下記のような形で実装できます。</p>
+
+<pre><code class="language-java">GrowthbeatCore::getInstance()-&gt;initializeIntentHandlers();
+GrowthbeatCore::getInstance()-&gt;addNoopIntentHandler();
+GrowthbeatCore::getInstance()-&gt;addUrlIntentHandler();
+GrowthbeatCore::getInstance()-&gt;addCustomIntentHandler([](std::map&lt;std::string,std::string&gt; extra)-&gt;bool{
+    log(&quot;cutomintenthandler called.&quot;);
+    return true;
+});
+</code></pre>
+
+<h2 id="備考:94d9a081cd1256334373c8ca6fb6276c">備考</h2>
+
+<p>SDK導入について、ご不明な点などございます場合は、Growthbeat<a href="https://growthbeat.com/inquiry">お問い合わせフォーム</a>からお問い合わせください。また、<a href="http://support.growthbeat.com/sdk/ios/release/">リリースノート</a>もご参照ください。</p>
+
+      </div>
+    </div>
+</section>
+
+
+  </div>
+</div>
+
+
+<footer class="footer">
+  <small class="copyright">Designed by SIROK</small>
+</footer>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('pre code, code').each(function(i, block) {
+    hljs.highlightBlock(block)
+  })
+});
+</script>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Growthbeat Web API | Growthbeat | docs">
+  <meta property="og:url" content="http://support.growthbeat.com/sdk/web/tutorial/">
+  <meta property="og:description" content="Growthbeat Web の API について説明します">
+  
+  <meta property="article:author" content="" />
+  <meta property="fb:app_id" content="" />
+  <meta property="og:site_name" content="Growthbeat | docs">
+
+  <title>
+      
+        Growthbeat Web API | Growthbeat | docs
+      
+  </title>
+
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link rel="stylesheet" href="http://support.growthbeat.com/css/main.css">
+</head>
+
+<body>
+
+
+
+  
+
+
+
+
+  
+
+
+<div class="wrapper">
+
+
+
+<header class="navbar-header" role="banner">
+  <div class="container">
+    <nav class="header-nav">
+      <h1 class="logo">
+        <a class="link"href="https://growthbeat.com/">
+          <img src="http://support.growthbeat.com//img/lp_growthbeat_logo_big.png" alt="Growthbeat logo">
+        </a>
+      </h1>
+
+      <div class="sighup">
+        <a class="btn" role="button" href="https://growthbeat.com/register">会員登録（無料）</a>
+      </div>
+      <div class="login">
+        <a class="link" href="https://growthbeat.com/login">ログイン</a>
+      </div>
+      <div class="feature">
+        <a class="link" href="https://growthbeat.com/features">ツール紹介</a>
+      </div>
+      <div class="about">
+        <a class="link"  href="https://growthbeat.com/about">Growthbeatについて</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="navbar-subheader">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/">サポートページ</a>
+      </li>
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/sdk/">SDKドキュメント</a>
+      </li>
+      
+        <li class="item"><a class="link">チュートリアル</a></li>
+      
+      
+      
+    </ul>
+  </div>
+</section>
+
+
+
+<div class="content">
+  <div class="container">
+
+<div class="page">
+  <h1 class="title">
+    
+      チュートリアル
+　　 
+    <span class="updated">最終更新日 Tue, May 19, 2015</span>
+  </h1>
+  <a class="edit" href="https://github.com/growthbeat/docs/blob/master/content/sdk/web/tutorial.md">Edit on GitHub</a>
+</div>
+
+
+<section class="row markdown">
+    <div class="column column-sidebar">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#growthbeat-web-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat Web API</a>
+<ul>
+<li><a href="#初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c">初期化 デバイス登録・認証</a></li>
+<li><a href="#ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c">ユーザー属性、行動ログの付与 (Growth Analyticsの利用)</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#端末-ユーザー情報を送信する:94d9a081cd1256334373c8ca6fb6276c">端末・ユーザー情報を送信する</a></li>
+<li><a href="#起動-open:94d9a081cd1256334373c8ca6fb6276c">起動 (open)</a></li>
+<li><a href="#終了-close:94d9a081cd1256334373c8ca6fb6276c">終了 (close)</a></li>
+<li><a href="#カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントとは？</a>
+<ul>
+<li><a href="#カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</a></li>
+<li><a href="#パラメータ:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+<li><a href="#option:94d9a081cd1256334373c8ca6fb6276c">option</a></li>
+</ul></li>
+<li><a href="#カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c">カスタムタグとは？</a></li>
+<li><a href="#カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムタグの送信</a>
+<ul>
+<li><a href="#パラメータ-1:94d9a081cd1256334373c8ca6fb6276c">パラメータ</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#備考:94d9a081cd1256334373c8ca6fb6276c">備考</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+    <div class="column column-main">
+      <div class="typeset">
+        
+
+<h1 id="growthbeat-web-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat Web API</h1>
+
+<h2 id="初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c">初期化 デバイス登録・認証</h2>
+
+<p>Growthbeatへデバイス登録・認証を行います。</p>
+
+<pre><code> &lt;script&gt;
+    Growthbeat.init({
+        applicationId: 'YOUR_APPLICATION_ID',
+        credentialId: 'YOUR_CREDENTIAL_ID'
+    }, function() {
+        // 認証完了後の処理
+    });
+ &lt;/script&gt;
+</code></pre>
+
+<h2 id="ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c">ユーザー属性、行動ログの付与 (Growth Analyticsの利用)</h2>
+
+<p>Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。</p>
+
+<p>送信されたデータは、Growth Analytics管理画面をご覧ください。</p>
+
+<h5 id="端末-ユーザー情報を送信する:94d9a081cd1256334373c8ca6fb6276c">端末・ユーザー情報を送信する</h5>
+
+<p>端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。</p>
+
+<p>あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。</p>
+
+<ul>
+<li><em>setBasicTags</em> 基本情報となるタグのセットです。</li>
+<li><em>open</em> 起動イベントを送信します。</li>
+<li><em>close</em> 終了イベントを送信します。</li>
+<li><em>purchase</em> 課金イベントを送信します。</li>
+<li><em>setUserId</em> アプリのユニークなUserIdを送信します。</li>
+<li><em>setName</em> アプリのユーザー名を送信します。</li>
+<li><em>setAge</em> アプリのユーザーの年齢を送信します。</li>
+<li><em>setGender</em> アプリのユーザーの性別を送信します。</li>
+<li><em>setLevel</em> アプリのユーザーのレベルを送信します。</li>
+<li><em>setDevelopment</em> 開発用のフラグを送信します。</li>
+<li><em>setUserAgent</em> ユーザーエージェントを送信します。</li>
+<li><em>setLanguage</em> 端末の言語設定</li>
+<li><em>setRandom</em> 乱数を送信します。</li>
+<li><em>setAdvertisingId</em> 広告IDを送信します。</li>
+</ul>
+
+<p>また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。</p>
+
+<ul>
+<li><em>track</em> カスタムイベントを送信します。</li>
+<li><em>tag</em> カスタムタグを送信します。</li>
+</ul>
+
+<p><strong>端末のデータを送信</strong></p>
+
+<p>SetBasicTagsメソッドは端末のデータを送信します。</p>
+
+<p>このメソッドには、下記が含まれます。</p>
+
+<ol>
+<li>setLanguage</li>
+<li>setUserAgent</li>
+</ol>
+
+<pre><code>GrowthAnalytics.setBasicTags();
+</code></pre>
+
+<p><strong>起動/終了イベントを送信する</strong></p>
+
+<h5 id="起動-open:94d9a081cd1256334373c8ca6fb6276c">起動 (open)</h5>
+
+<p>ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。</p>
+
+<pre><code>GrowthAnalytics.open();
+</code></pre>
+
+<h5 id="終了-close:94d9a081cd1256334373c8ca6fb6276c">終了 (close)</h5>
+
+<p>アプリの終了イベントを送信します。セッション時間の計測を停止します。</p>
+
+<pre><code>GrowthAnalytics.close();
+</code></pre>
+
+<p><strong>課金情報を送信する</strong></p>
+
+<p>課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。</p>
+
+<pre><code>GrowthAnalytics.purchase(price, 'ITEM_CATEGORY', 'ITEM_NAME');
+</code></pre>
+
+<p><strong>ユニークなユーザーIDを送信</strong></p>
+
+<p>アプリのユニークなユーザーIDを送信します。</p>
+
+<pre><code>GrowthAnalytics.setUserId('YOUR_USER_ID');
+</code></pre>
+
+<p><strong>ユーザー名を送信</strong></p>
+
+<p>アプリのユーザー名を送信します。</p>
+
+<pre><code>GrowthAnalytics.setName('YOUR_NAME');
+</code></pre>
+
+<p><strong>年齢を送信</strong></p>
+
+<p>アプリのユーザーの年齢を送信します。</p>
+
+<pre><code>GrowthAnalytics.setAge(age);
+</code></pre>
+
+<p><strong>性別を送信</strong></p>
+
+<pre><code>GrowthAnalytics.SetGender(gender);
+</code></pre>
+
+<p><strong>レベルを送信</strong></p>
+
+<p>アプリのユーザーのレベルを送信します。</p>
+
+<pre><code>GrowthAnalytics.setLevel(level);
+</code></pre>
+
+<p><strong>開発用の紐付け</strong></p>
+
+<p>開発用のフラグをつける</p>
+
+<pre><code>GrowthAnalytics.setDevelopment(true);
+</code></pre>
+
+<p><strong>ユーザーエージェントを送信</strong></p>
+
+<p>ユーザーエージェントを送信します。</p>
+
+<p>例.) Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) &hellip;</p>
+
+<pre><code>GrowthAnalytics.setUserAgent();
+</code></pre>
+
+<p><strong>端末の言語設定を送信</strong></p>
+
+<p>端末の設定言語を送信します。</p>
+
+<p>例.) ja, en</p>
+
+<pre><code>GrowthAnalytics.setLanguage();
+</code></pre>
+
+<p><strong>乱数を送信</strong></p>
+
+<p>乱数を端末の情報として紐付けます。</p>
+
+<pre><code>GrowthAnalytics.setRandom();
+</code></pre>
+
+<p><strong>広告IDを送信</strong></p>
+
+<p>広告IDを送信します。</p>
+
+<pre><code>GrowthAnalytics.setAdvertisingId(advertisingId);
+</code></pre>
+
+<p><strong>広告オプトアウトの送信</strong></p>
+
+<p>ユーザーが広告IDを利用するのを拒否しているかを送信します。</p>
+
+<pre><code>GrowthAnalytics.setTrackingEnabled(true);
+</code></pre>
+
+<p><strong>カスタムイベントを送信する</strong></p>
+
+<h5 id="カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントとは？</h5>
+
+<p>任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。</p>
+
+<ul>
+<li><p>EventID<br />
+<code>Event:&lt;YOUR_APPLICATION_ID&gt;:Custom:&lt;CUSTOM_EVENT_NAME&gt;</code><br />
+上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。</p>
+
+<ul>
+<li><p>YOUR_APPLICATION_ID<br />
+ApplicationIDを指定します。</p></li>
+
+<li><p>CUSTOM_EVENT_NAME<br />
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</p></li>
+</ul></li>
+</ul>
+
+<h6 id="カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムイベントの送信</h6>
+
+<h6 id="パラメータ:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h6>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">カスタムイベント名</td>
+</tr>
+
+<tr>
+<td align="left">properties</td>
+<td align="left">カスタムイベントに持たせる任意のObject</td>
+</tr>
+
+<tr>
+<td align="left">option</td>
+<td align="left">任意のパラメータ。ONCE, COUNTERのいずれかを指定します。</td>
+</tr>
+</tbody>
+</table>
+
+<h6 id="option:94d9a081cd1256334373c8ca6fb6276c">option</h6>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">GrowthAnalytics.TrackOptionDefault</td>
+<td align="left">デフォルト値。特に何もしません。</td>
+</tr>
+
+<tr>
+<td align="left">GrowthAnalytics.TrackOptionOnce</td>
+<td align="left">このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）</td>
+</tr>
+
+<tr>
+<td align="left">GrowthAnalytics.TrackOptionCounter</td>
+<td align="left">このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code>GrowthAnalytics.track({
+    name: 'CUSTOM_EVENT_NAME',
+    properties: {
+        param1: 'test',
+        param2: 'hoge'
+    }
+    option: GrowthAnalytics.TrackOptionOnce
+});
+</code></pre>
+
+<p><strong>カスタムタグを送信する</strong></p>
+
+<h5 id="カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c">カスタムタグとは？</h5>
+
+<p>任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。</p>
+
+<ul>
+<li><p>TagID<br />
+<code>Tag:&lt;YOUR_APPLICATION_ID&gt;:Custom:&lt;CUSTOM_TAG_NAME&gt;</code><br />
+上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。</p>
+
+<ul>
+<li><p>YOUR_APPLICATION_ID<br />
+ApplicationIDを指定されます。</p></li>
+
+<li><p>CUSTOM_TAG_NAME<br />
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）</p></li>
+</ul></li>
+</ul>
+
+<h5 id="カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c">カスタムタグの送信</h5>
+
+<h6 id="パラメータ-1:94d9a081cd1256334373c8ca6fb6276c">パラメータ</h6>
+
+<table>
+<thead>
+<tr>
+<th align="left">項目名</th>
+<th align="left">詳細</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">name</td>
+<td align="left">カスタムタグ名</td>
+</tr>
+
+<tr>
+<td align="left">value</td>
+<td align="left">カスタムタグに持たせる任意のValue</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code>GrowthAnalytics.tag({
+    name: 'CUSTOM_TAG_NAME',
+    value: 'test'
+});
+</code></pre>
+
+<h2 id="備考:94d9a081cd1256334373c8ca6fb6276c">備考</h2>
+
+<p>SDK導入について、ご不明な点などございます場合は、Growthbeat<a href="https://growthbeat.com/inquiry">お問い合わせフォーム</a>からお問い合わせください。<a href="http://support.growthbeat.com/sdk/ios/release/">リリースノート</a>もご参照ください。</p>
+
+      </div>
+    </div>
+</section>
+
+
+  </div>
+</div>
+
+
+<footer class="footer">
+  <small class="copyright">Designed by SIROK</small>
+</footer>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('pre code, code').each(function(i, block) {
+    hljs.highlightBlock(block)
+  })
+});
+</script>
+
+
+</div>
+</body>
+</html>

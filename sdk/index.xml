@@ -1,0 +1,4242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdks on Growthbeat | docs</title>
+    <link>http://support.growthbeat.com/sdk/</link>
+    <description>Recent content in Sdks on Growthbeat | docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 28 Sep 2015 14:32:58 +0900</lastBuildDate>
+    <atom:link href="http://support.growthbeat.com/sdk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Growthbeat Cocos2dx Gudeliene</title>
+      <link>http://support.growthbeat.com/sdk/cocos2dx/guide/</link>
+      <pubDate>Mon, 28 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/cocos2dx/guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;概要:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;概要&lt;/h1&gt;
+
+&lt;p&gt;グロースハックツールプラットホーム &lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt; の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。&lt;/p&gt;
+
+&lt;p&gt;現在、下記サービスを提供しています：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;サービス名&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Growthbeat&lt;/td&gt;
+&lt;td&gt;ユーザー総合管理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Push&lt;/td&gt;
+&lt;td&gt;プッシュ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Analytics&lt;/td&gt;
+&lt;td&gt;総合分析・解析&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Message&lt;/td&gt;
+&lt;td&gt;ポップアップ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Link&lt;/td&gt;
+&lt;td&gt;ディープリンクツール&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。&lt;/p&gt;
+
+&lt;h2 id=&#34;sdkについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDKについて&lt;/h2&gt;
+
+&lt;p&gt;各種 SDK は &lt;a href=&#34;https://github.com/SIROK&#34;&gt;GitHub&lt;/a&gt; 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios&#34;&gt;Growthbeat iOS SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android&#34;&gt;Growthbeat Android SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-unity&#34;&gt;Growthbeat Unity SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx&#34;&gt;Growthbeat Growthbeat Cocos2D-X SDK SDK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sdk機能:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK機能&lt;/h3&gt;
+
+&lt;p&gt;1つの SDK で Growthbeat 全てのサービスの機能が利用できます。(Growth Link のご利用には別途 SDK の導入が必要です)&lt;/p&gt;
+
+&lt;h2 id=&#34;sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK導入について&lt;/h2&gt;
+
+&lt;h3 id=&#34;導入方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;導入方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx/archive/latest.zip&#34;&gt;最新版Cocos 2d-x SDK ダウンロードページ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ファイルのコピーについて&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Classes ディレクトリの中身をコピーしてください&lt;/li&gt;
+&lt;li&gt;proj.android の中身は src ディレクトリ以下にコピーしてください&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;プロジェクトの導入について&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ヘッダーファイルのインポート設定&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;AppDelegate.cpp にヘッダーのインクルードと namespace を下記の実装してください：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;quot;Growthbeat.h&amp;quot;
+#include &amp;quot;GrowthPush.h&amp;quot;
+#include &amp;quot;GrowthbeatCore.h&amp;quot;
+#include &amp;quot;GrowthAnalytics.h&amp;quot;
+#include &amp;quot;GrowthLink.h&amp;quot;
+
+USING_NS_GROWTHBEAT;
+USING_NS_GROWTHPUSH;
+USING_NS_GROWTHBEATCORE;
+USING_NS_GROWTHLINK;
+USING_NS_GROWTHANALYTICS;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Android でもビルドする場合&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;proj.android/jni ディレクトリにある &lt;code&gt;Android.mk&lt;/code&gt; に C++ のファイルを参照します。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LOCAL_SRC_FILES&lt;/code&gt; に下記を追加してください：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;../../Classes/Growthbeat/GrowthbeatInstance.cpp \
+../../Classes/Growthbeat/android/Growthbeat.cpp \
+../../Classes/GrowthbeatCore/GrowthbeatCoreInstance.cpp \
+../../Classes/GrowthbeatCore/android/GrowthbeatCore.cpp \
+../../Classes/GrowthPush/GrowthPushInstance.cpp \
+../../Classes/GrowthPush/android/GrowthPush.cpp \
+../../Classes/GrowthAnalytics/GrowthAnalyticsInstance.cpp \
+../../Classes/GrowthAnalytics/android/GrowthAnalytics.cpp \
+../../Classes/GrowthLink/GrowthLinkInstance.cpp \
+../../Classes/GrowthLink/android/GrowthLink.cpp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;LOCAL_C_INCLUDES&lt;/code&gt; に下記を追加してください：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$(LOCAL_PATH)/../../Classes/Growthbeat/ \
+$(LOCAL_PATH)/../../Classes/Growthbeat/android \
+$(LOCAL_PATH)/../../Classes/GrowthPush/ \
+$(LOCAL_PATH)/../../Classes/GrowthPush/android \
+$(LOCAL_PATH)/../../Classes/GrowthAnalytics/ \
+$(LOCAL_PATH)/../../Classes/GrowthAnalytics/android \
+$(LOCAL_PATH)/../../Classes/GrowthbeatCore/ \
+$(LOCAL_PATH)/../../Classes/GrowthbeatCore/android \
+$(LOCAL_PATH)/../../Classes/GrowthLink/ \
+$(LOCAL_PATH)/../../Classes/GrowthLink/android
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;依存について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;依存について&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios/archive/latest.zip&#34;&gt;growthbeat-iosをダウンロード&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Growthbeat.framework&lt;/p&gt;
+
+&lt;p&gt;growthbeat-ios のディレクトリからコピーしてください。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;GrowthLink.framework&lt;/p&gt;
+
+&lt;p&gt;ディープリンク機能を利用する場合は growthbeat-ios/source/GrowthLink/ ディレクトリからコピーしてください。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;iOS Framework&lt;/p&gt;
+
+&lt;p&gt;Xcode プロジェクトから Targets の Build Phases → Link Binary With Librarys にて下記 Framework を追加してください：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Foundation.framework&lt;/li&gt;
+&lt;li&gt;UIKit.framework&lt;/li&gt;
+&lt;li&gt;CoreGraphics.framework&lt;/li&gt;
+&lt;li&gt;Security.framework&lt;/li&gt;
+&lt;li&gt;SystemConfiguration.framework&lt;/li&gt;
+&lt;li&gt;AdSupport.framework&lt;/li&gt;
+&lt;li&gt;CFNetwork.framework&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android/archive/latest.zip&#34;&gt;growthbeat-androidをダウンロード&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;growthbeat.jar&lt;/p&gt;
+
+&lt;p&gt;growthbeat-android のディレクトリからコピーしてください。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;growthlink.jar&lt;/p&gt;
+
+&lt;p&gt;ディープリンク機能を利用する場合は growthbeat-android/source/library/ ディレクトリからコピーしてください。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;google_play_service_lib&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ライブラリプロジェクトとして google_play_service_lib をビルドパスに設定&lt;/li&gt;
+&lt;li&gt;AndroidManifest.xml の &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 内に以下を追加&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;meta-data
+    android:name=&amp;quot;com.google.android.gms.version&amp;quot;
+    android:value=&amp;quot;@integer/google_play_services_version&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;実装方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;p&gt;SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;API キー（REST API を使用時の認証に必須となるキー）&lt;/li&gt;
+&lt;li&gt;SDK キー（SDK の認証のために必須となるキー）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから &lt;strong&gt;マイページ&lt;/strong&gt; をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます&lt;/p&gt;
+
+&lt;p&gt;また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。&lt;/p&gt;
+
+&lt;h2 id=&#34;growth-push-sdkからの乗り換えについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;Growth Push SDKからの乗り換えについて&lt;/h2&gt;
+
+&lt;p&gt;Growthbeat SDKには、従来のGrowth Push SDKの実装も含まれておりますが、Growth Push SDKをこれまでお使いいただいた方は、一部実装の差し替えが必要となります。&lt;/p&gt;
+
+&lt;h4 id=&#34;前準備:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;前準備&lt;/h4&gt;
+
+&lt;p&gt;GrowthPushのApplicationIdから、GrowthbeatのApplicationIdに移行されるた
+め、&lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt;にアクセスして、ApplicationId、SDKキー（CredentialID）を確認します。&lt;/p&gt;
+
+&lt;h4 id=&#34;実装方法-1:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;[1] SDKの初期化&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;SDKを利用するための初期化方法の乗り換えについてです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cocos(C++)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush::initialize(YOUR_APP_ID, &amp;quot;YOUR_APP_SECRET&amp;quot;, GPEnvironmentDevelopment, true);
+GrowthPush::registerDeviceToken(&amp;quot;YOUR_SENDER_ID&amp;quot;);
+GrowthPush::setDeviceTags();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Android (Java)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class AppActivity extends Cocos2dxActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GrowthPushJNI.setContext(getApplicationContext());
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cocos (C++)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Growthbeatの初期化 (Growth Pushの初期化も含まれます。)
+Growthbeat::getInstance()-&amp;gt;initialize(&amp;quot;YOUR_APPLICATION_ID&amp;quot;, &amp;quot;YOUR_CREDENTIAL_ID&amp;quot;);
+
+// デバイストークンの取得
+GrowthPush::getInstance()-&amp;gt;requestDeviceToken(&amp;quot;YOUR_SENDER_ID&amp;quot;, environment);
+
+GrowthPush::getInstance()-&amp;gt;setDeviceTags();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Android (Java)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class AppActivity extends Cocos2dxActivity {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    GrowthbeatJNI.setContext(this);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;[2] タグ・イベントの取得について&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush::trackEvent(&amp;quot;EventName&amp;quot;);
+GrowthPush::tag(&amp;quot;TagName&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush::getInstance()-&amp;gt;trackEvent(&amp;quot;EventName&amp;quot;);
+GrowthPush::getInstance()-&amp;gt;tag(&amp;quot;TagName&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Android Gudeliene</title>
+      <link>http://support.growthbeat.com/sdk/android/guide/</link>
+      <pubDate>Sun, 27 Sep 2015 23:50:00 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/android/guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;概要:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;概要&lt;/h1&gt;
+
+&lt;p&gt;グロースハックツールプラットホーム &lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt; の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。&lt;/p&gt;
+
+&lt;p&gt;現在、下記サービスを提供しています：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;サービス名&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Growthbeat&lt;/td&gt;
+&lt;td&gt;ユーザー総合管理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Push&lt;/td&gt;
+&lt;td&gt;プッシュ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Analytics&lt;/td&gt;
+&lt;td&gt;総合分析・解析&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Message&lt;/td&gt;
+&lt;td&gt;ポップアップ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Link&lt;/td&gt;
+&lt;td&gt;ディープリンクツール&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。&lt;/p&gt;
+
+&lt;h2 id=&#34;sdkについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDKについて&lt;/h2&gt;
+
+&lt;p&gt;各種 SDK は &lt;a href=&#34;https://github.com/SIROK&#34;&gt;GitHub&lt;/a&gt; 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios&#34;&gt;Growthbeat iOS SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android&#34;&gt;Growthbeat Android SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-unity&#34;&gt;Growthbeat Unity SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx&#34;&gt;Growthbeat Growthbeat Cocos2D-X SDK SDK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sdk機能:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK機能&lt;/h3&gt;
+
+&lt;p&gt;1つの SDK で Growthbeat 全てのサービスの機能が利用できます。(Growth Link のご利用には別途 SDK の導入が必要です)&lt;/p&gt;
+
+&lt;h2 id=&#34;sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK導入について&lt;/h2&gt;
+
+&lt;h3 id=&#34;導入方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;導入方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;手動&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android/archive/latest.zip&#34;&gt;最新版Android SDK ダウンロードページ&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ダウンロードしたファイルを解凍します。その後、そのフォルダの中の &lt;strong&gt;growthbeat.jar&lt;/strong&gt; をプロジェクトへ組み込みます。任意のアプリのプロジェクトに Android が他ライブラリを自動で参照する &lt;strong&gt;libs&lt;/strong&gt; ディレクトリの中に growthbeat.jar を移動もしくはコピーしてください。&lt;/p&gt;
+
+&lt;h3 id=&#34;依存について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;依存について&lt;/h3&gt;
+
+&lt;p&gt;growthbeat.jar は下記設定が必須となります：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ライブラリプロジェクトとして google_play_service_lib をビルドパスに設定&lt;/li&gt;
+&lt;li&gt;AndroidManifest.xmlの &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 内に以下を追加&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;meta-data
+    android:name=&amp;quot;com.google.android.gms.version&amp;quot;
+    android:value=&amp;quot;@integer/google_play_services_version&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;実装方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;p&gt;SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;API キー（REST API を使用時の認証に必須となるキー）&lt;/li&gt;
+&lt;li&gt;SDK キー（SDK の認証のために必須となるキー）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから &lt;strong&gt;マイページ&lt;/strong&gt; をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます&lt;/p&gt;
+
+&lt;p&gt;また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。&lt;/p&gt;
+
+&lt;h2 id=&#34;growth-push-sdkからの乗り換え方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;Growth Push SDKからの乗り換え方法&lt;/h2&gt;
+
+&lt;h3 id=&#34;前準備:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;前準備&lt;/h3&gt;
+
+&lt;p&gt;GrowthPushのApplicationIdから、GrowthbeatのApplicationIdに移行されるた
+め、&lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt;にアクセスして、ApplicationId、SDKキー（CredentialID）を確認します。&lt;/p&gt;
+
+&lt;h3 id=&#34;実装方法-1:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GrowthPush SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+
+	GrowthPush.getInstance().initialize(getApplicationContext(), YOUR_APPLICATION_ID, &amp;quot;APPLICATION_SECRET&amp;quot;, BuildConfig.DEBUG ? Environment.development : Environment.production, true).register(&amp;quot;YOUR_SENDER_ID&amp;quot;);
+	GrowthPush.getInstance().trackEvent(&amp;quot;Launch&amp;quot;);
+	GrowthPush.getInstance().setDeviceTags();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;protected void onCreate(Bundle savedInstanceState) {
+	super.onCreate(savedInstanceState);
+	setContentView(R.layout.activity_main);
+	// Growthbeat SDKの初期化
+	Growthbeat.getInstance().initialize(this, &amp;quot;YOUR_APPLICATION_ID&amp;quot;, &amp;quot;CREDENTIAL_ID&amp;quot;);
+	// Registration IDを明示的に要求
+	GrowthPush.getInstance().requestRegistrationId(&amp;quot;YOUR_SENDER_ID&amp;quot;, BuildConfig.DEBUG ? Environment.development : Environment.production);
+	// Launchイベントの取得
+	GrowthPush.getInstance().trackEvent(&amp;quot;Launch&amp;quot;);
+	// DeviceTagの取得
+	GrowthPush.getInstance().setDeviceTags();
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat iOS Gudeliene</title>
+      <link>http://support.growthbeat.com/sdk/ios/guide/</link>
+      <pubDate>Sun, 27 Sep 2015 23:47:00 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/ios/guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;概要:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;概要&lt;/h1&gt;
+
+&lt;p&gt;グロースハックツールプラットホーム &lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt; の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。&lt;/p&gt;
+
+&lt;p&gt;現在、下記サービスを提供しています：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;サービス名&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Growthbeat&lt;/td&gt;
+&lt;td&gt;ユーザー総合管理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Push&lt;/td&gt;
+&lt;td&gt;プッシュ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Analytics&lt;/td&gt;
+&lt;td&gt;総合分析・解析&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Message&lt;/td&gt;
+&lt;td&gt;ポップアップ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Link&lt;/td&gt;
+&lt;td&gt;ディープリンクツール&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。&lt;/p&gt;
+
+&lt;h2 id=&#34;sdkについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDKについて&lt;/h2&gt;
+
+&lt;p&gt;各種 SDK は &lt;a href=&#34;https://github.com/SIROK&#34;&gt;GitHub&lt;/a&gt; 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios&#34;&gt;Growthbeat iOS SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android&#34;&gt;Growthbeat Android SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-unity&#34;&gt;Growthbeat Unity SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx&#34;&gt;Growthbeat Growthbeat Cocos2D-X SDK SDK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sdk機能:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK機能&lt;/h3&gt;
+
+&lt;p&gt;1つの SDK で Growthbeat 全てのサービスの機能が利用できます。(Growth Link のご利用には別途 SDK の導入が必要です)&lt;/p&gt;
+
+&lt;h2 id=&#34;sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK導入について&lt;/h2&gt;
+
+&lt;h3 id=&#34;導入方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;導入方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;手動&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios/archive/latest.zip&#34;&gt;最新版iOS SDK ダウンロードページ &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ダウンロードしたファイルを解凍します。その後、そのフォルダ内の&lt;strong&gt;Growthbeat.framework&lt;/strong&gt; をプロジェクトへ組み込みます。任意の Xcode プロジェクトを開き Growthbeat.framework をインポートしてください。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Growthbeat.framework のインポートの方法は以下の2つ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Xcode プロジェクトに Growthbeat.framework をドラッグアンドドロップ&lt;/li&gt;
+&lt;li&gt;Bulid Phases → Link Binary With Libraries の+ボタンを押し Add Other&amp;hellip; からGrowthbeat.framework を選択。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Growthbeat の import 文を記述&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;#import &amp;lt;Growthbeat/Growthbeat.h&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;CocoaPods&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;CocoaPodsを使用してライブラリをインポートすることも可能です。その際は、&lt;code&gt;Podfile&lt;/code&gt; に下記を記述し &lt;code&gt;pod install&lt;/code&gt; を実行してください：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;pod &#39;Growthbeat&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;依存について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;依存について&lt;/h3&gt;
+
+&lt;p&gt;Growthbeat.framework　には下記 Framework が必須となります：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Foundation.framework&lt;/li&gt;
+&lt;li&gt;UIKit.framework&lt;/li&gt;
+&lt;li&gt;CoreGraphics.framework&lt;/li&gt;
+&lt;li&gt;SystemConfiguration.framework&lt;/li&gt;
+&lt;li&gt;AdSupport.framework&lt;/li&gt;
+&lt;li&gt;CFNetwork.framework&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;実装方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;p&gt;SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;API キー（REST API を使用時の認証に必須となるキー）&lt;/li&gt;
+&lt;li&gt;SDK キー（SDK の認証のために必須となるキー）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから &lt;strong&gt;マイページ&lt;/strong&gt; をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます&lt;/p&gt;
+
+&lt;p&gt;また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Android API</title>
+      <link>http://support.growthbeat.com/sdk/android/tutorial/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/android/tutorial/</guid>
+      <description>
+
+&lt;h1 id=&#34;growthbeat-android-api:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growthbeat Android API&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期化 デバイス登録・認証&lt;/h1&gt;
+
+&lt;p&gt;Growthbeatへデバイス登録・認証を行います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;Growthbeat.getInstance().initialize(context, &amp;quot;YOUR_APPLICATION_ID&amp;quot;, &amp;quot;YOUR_CREDENTIAL_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー属性、行動ログの付与 (Growth Analyticsの利用)&lt;/h1&gt;
+
+&lt;p&gt;Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。&lt;/p&gt;
+
+&lt;p&gt;送信されたデータは、Growth Analytics管理画面をご覧ください。&lt;/p&gt;
+
+&lt;h2 id=&#34;端末-ユーザー情報を送信方法と-実装の説明:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末・ユーザー情報を送信方法と、実装の説明&lt;/h2&gt;
+
+&lt;p&gt;端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。&lt;/p&gt;
+
+&lt;p&gt;あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;setBasicTags&lt;/em&gt; 基本情報となるタグのセットです。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setUserId&lt;/em&gt; アプリのユニークなUserIdを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setName&lt;/em&gt; アプリのユーザー名を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAge&lt;/em&gt; アプリのユーザーの年齢を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setGender&lt;/em&gt; アプリのユーザーの性別を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLevel&lt;/em&gt; アプリのユーザーのレベルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDevelopment&lt;/em&gt; 開発用のフラグを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDeviceModel&lt;/em&gt; 端末のモデルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setOS&lt;/em&gt; 端末のOS&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLanguage&lt;/em&gt; 端末の言語設定&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZone&lt;/em&gt; 端末のタイムゾーン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZoneOffset&lt;/em&gt; 端末の標準時刻からの差&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAppVersion&lt;/em&gt; アプリの設定されているバージョン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setRandom&lt;/em&gt; 乱数を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAdvertisingId&lt;/em&gt; 広告IDを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;track&lt;/em&gt; カスタムイベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;tag&lt;/em&gt; カスタムタグを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末のデータを送信&lt;/h2&gt;
+
+&lt;p&gt;setBasicTagsメソッドは端末のデータを送信します。&lt;/p&gt;
+
+&lt;p&gt;このメソッドには、下記が含まれます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setDeviceModel&lt;/li&gt;
+&lt;li&gt;setOs&lt;/li&gt;
+&lt;li&gt;setLanguage&lt;/li&gt;
+&lt;li&gt;setTimeZone&lt;/li&gt;
+&lt;li&gt;setTimeZoneOffset&lt;/li&gt;
+&lt;li&gt;setAppVersion&lt;/li&gt;
+&lt;li&gt;setAdvertisingId&lt;/li&gt;
+&lt;li&gt;setTrackingEnabled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setBasicTags();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;起動-終了イベントを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動/終了イベントを送信&lt;/h3&gt;
+
+&lt;h4 id=&#34;起動-open:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動 (open)&lt;/h4&gt;
+
+&lt;p&gt;ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。起動後に開かれるActivityのonStartに以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void onStart() {
+	super.onStart();
+	GrowthAnalytics.getInstance().open();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;終了-close:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;終了 (close)&lt;/h4&gt;
+
+&lt;p&gt;アプリの終了イベントを送信します。セッション時間の計測を停止します。Activityが閉じプロセスが終了する場所に実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void onStop() {
+	super.onStop();
+	GrowthAnalytics.getInstance().close();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;課金情報を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;課金情報を送信&lt;/h4&gt;
+
+&lt;p&gt;課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().purchase(price, &amp;quot;ITEM_CATEGORY&amp;quot;, &amp;quot;ITEM_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユニークなユーザーIDを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユニークなユーザーIDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setUserId(&amp;quot;YOUR_USER_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユーザー名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー名を送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザー名を送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setName(&amp;quot;YOUR_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;年齢を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;年齢を送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setAge(age);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;性別を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;性別を送信&lt;/h4&gt;
+
+&lt;p&gt;変数は、Genderのenumを用いてどちらか性別を送信してください&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// 男性
+GrowthAnalytics.getInstance().setGender(Gender.MALE);
+
+// 女性
+GrowthAnalytics.getInstance().setGender(Gender.FEMALE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;レベルを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;レベルを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザーのレベルを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setLevel(level);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;開発用の紐付け&lt;/h4&gt;
+
+&lt;p&gt;開発用のフラグをつける&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstnace().setDevelopment(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末モデル名を送信&lt;/h4&gt;
+
+&lt;p&gt;端末のモデル名を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) SO-03C, SC-03D&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setDeviceModel();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末osを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末OSを送信&lt;/h4&gt;
+
+&lt;p&gt;端末のOSを送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) Android 4.4, Android 5.0.1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setOS();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末の言語設定を送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定言語を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) ja, en&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setLanguage();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンを送信する&lt;/h4&gt;
+
+&lt;p&gt;端末で設定されたタイムゾーンを送信する。&lt;/p&gt;
+
+&lt;p&gt;例.) Asia/Tokyo, America/Los_Angeles&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setTimeZone();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンオフセットを送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定された時刻から、標準時刻の差分時間を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) 9, -11&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setTimeZoneOffset();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリバージョンを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリに設定されたアプリバージョンを送信します。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの&lt;code&gt;&amp;lt;manifest&amp;gt;&lt;/code&gt; android:versionNameに設定される値が入ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setAppVersion();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;乱数を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;乱数を送信&lt;/h4&gt;
+
+&lt;p&gt;乱数を端末の情報として紐付けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setRandom();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;広告idを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告IDを送信&lt;/h4&gt;
+
+&lt;p&gt;広告IDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setAdvertisingId();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告オプトアウトの送信&lt;/h4&gt;
+
+&lt;p&gt;ユーザーが広告IDを利用するのを拒否しているかを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().setTrackingEnabled();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;カスタムイベント-タグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベント・タグを送信する&lt;/h2&gt;
+
+&lt;h3 id=&#34;カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;CUSTOM_EVENT_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CUSTOM_EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void track(final String name);
+public void track(final String name, final Map&amp;lt;String, String&amp;gt; properties);
+public void track(final String name, final TrackOption option);
+public void track(final String name, final Map&amp;lt;String, String&amp;gt; properties, final TrackOption option);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;パラメータ:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;trackoption:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;TrackOption&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ONCE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;COUNTER&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, GrowthAnalytics.TrackOption.ONCE);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;LAST_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LAST_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグの送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void tag(final String name);
+public void tag(final String name, final String value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;);
+GrowthAnalytics.getInstance().tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フルカスタマイズなイベント-タグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなイベント・タグの送信&lt;/h3&gt;
+
+&lt;h4 id=&#34;フルカスタマイズイベントを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズイベントを送信&lt;/h4&gt;
+
+&lt;p&gt;特定のネームスペース、イベントIDを設定していただくことが可能です。下記、イベントID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;EVENT_ID&amp;gt;&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void track(final String namespace, final String name, final Map&amp;lt;String, String&amp;gt; properties, final TrackOption option);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-2:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;trackoption-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;TrackOption&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ONCE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;COUNTER&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().track(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フルカスタマイズタグを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズタグを送信&lt;/h3&gt;
+
+&lt;p&gt;特定のネームスペース、タグIDを設定していただくことが可能です。下記、タグID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;TAG_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TAG_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void tag(final String namespace, final String name, final String value)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-3:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().tag(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;プッシュ通知の実装 (Growth Pushの利用)&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h1&gt;
+
+&lt;p&gt;Growth Push管理画面、証明書設定ページにて、各OSごとに証明書の設定を行ってください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/gcm-api/&#34;&gt;Android SenderId, APIキー取得方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの設定を行う必要がございます。&lt;/p&gt;
+
+&lt;p&gt;パーミッションは下記が必須となります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.INTERNET&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;android.permission.GET_ACCOUNTS&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;com.google.android.c2dm.permission.RECEIVE&amp;quot; /&amp;gt;
+
+&amp;lt;permission
+    android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot;
+    android:protectionLevel=&amp;quot;signature&amp;quot; /&amp;gt;
+
+&amp;lt;uses-permission android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;オプションで、下記パーミッションを設定してください。&lt;/p&gt;
+
+&lt;p&gt;・ 通知音を鳴らす場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.VIBRATE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;・ アラートダイアログのプッシュ通知を表示する場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.WAKE_LOCK&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、プッシュ通知を受け取るために必要な設定を、&lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt;タグ内に実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;activity
+    android:name=&amp;quot;com.growthpush.view.AlertActivity&amp;quot;
+    android:configChanges=&amp;quot;orientation|keyboardHidden&amp;quot;
+    android:launchMode=&amp;quot;singleInstance&amp;quot;
+    android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+
+&amp;lt;receiver
+    android:name=&amp;quot;com.growthpush.BroadcastReceiver&amp;quot;
+    android:permission=&amp;quot;com.google.android.c2dm.permission.SEND&amp;quot; &amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.RECEIVE&amp;quot; /&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.REGISTRATION&amp;quot; /&amp;gt;
+        &amp;lt;category android:name=&amp;quot;YOUR_PACKAGE_NAME&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/receiver&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;YOUR_PACKAGE_NAMEは、実装するアプリのパッケージ名に変更してください。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;registrationidの取得-送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;RegistrationIdの取得・送信&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Growthhbeat#initializeWithApplicationIdの後に下記を呼び出す&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// YOUR_SENDER_IDは、AndroidのSenderId
+GrowthPush.getInstance().requestRegistrationId(&amp;quot;YOUR_SENDER_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;カスタムアイコンの設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムアイコンの設定&lt;/h2&gt;
+
+&lt;p&gt;Googleのポリシーに合わせ、アイコンを変更できるようにしました。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xml &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 内に、下記項目を加えてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```
+
+&amp;lt;!-- 通知バーのアイコンを変更する場合 (例.) @drawable/sample_notification_icon --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.notification.icon&amp;quot; android:resource=&amp;quot;表示したいアイコンのパス&amp;quot; /&amp;gt;
+
+&amp;lt;!-- 通知バーのアイコンのバックグラウンドカラーを変更する場合 (例.) @color/black --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.notification.icon.background.color&amp;quot; android:resource=&amp;quot;表示したい色のID&amp;quot; /&amp;gt;
+
+&amp;lt;!-- ダイアログ通知のアイコンを変更したい場合 (例.) @drawable/sample_dialog_icon --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.dialog.icon&amp;quot; android:resource=&amp;quot;表示したいアイコンのパス&amp;quot; /&amp;gt;
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;イベント-タグの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベント・タグの取得&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;こちらのメソッドは、Growth Pushが、Growth Analyticsに統合されました段階で削除予定となっております。これまでGrowth Push SDKをご利用しておりました方は、Growth Analyticsのイベント・タグの送信にお乗り換えくださいませ。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;イベントを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベントを送信する&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void trackEvent(final String name);
+public void trackEvent(final String name, final String value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-4:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベント名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthPush.getInstance().trackEvent(&amp;quot;EVENT_NAME&amp;quot;);
+GrowthPush.getInstance().trackEvent(&amp;quot;EVENT_NAME&amp;quot;, &amp;quot;EVENT_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;タグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タグを送信する&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;public void setTag(final String name);
+public void setTag(final String name, final String value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-5:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグ名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthPush.getInstance().setTag(&amp;quot;TAG_NAME&amp;quot;);
+GrowthPush.getInstance().setTag(&amp;quot;TAG_NAME&amp;quot;, &amp;quot;TAG_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリ内ポップアップメッセージの実装 (Growth Messageの利用)&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期設定-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h1&gt;
+
+&lt;p&gt;Androidはメッセージを表示するためのActivityを追記します。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 要素内に下記を記述します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;activity
+	android:name=&amp;quot;com.growthbeat.message.view.MessageActivity&amp;quot;
+	android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メッセージを表示するViewを指定&lt;/h2&gt;
+
+&lt;h3 id=&#34;デフォルトで用意しているイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デフォルトで用意しているイベントの送信&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;カスタムイベントの送信-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, GrowthAnalytics.TrackOption.ONCE);
+GrowthAnalytics.getInstance().track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Growth Analyticsの実装を参照してください。&lt;/p&gt;
+
+&lt;h1 id=&#34;ディープリンクの実装-growth-linkの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクの実装 (Growth Linkの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;sdkの導入:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;SDKの導入&lt;/h2&gt;
+
+&lt;p&gt;growthbeat.jarを導入した上で、Growthbeat SDK内の &lt;code&gt;source/library&lt;/code&gt; に含まれる&lt;strong&gt;growthlink.jar&lt;/strong&gt;を導入します。任意のアプリのプロジェクトに、Androidが他ライブラリを自動で参照する&lt;strong&gt;libs&lt;/strong&gt;ディレクトリの中に、growthbeat.jarを移動もしくはコピーしてください。&lt;/p&gt;
+
+&lt;h2 id=&#34;初期設定-2:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Install Referrerの取得のための設定を、AndoridManifest.xmlの &lt;code&gt;&amp;lt;application/&amp;gt;&lt;/code&gt; 内の記述する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;receiver
+    android:name=&amp;quot;com.growthbeat.link.InstallReferrerReceiver&amp;quot;
+    android:enabled=&amp;quot;true&amp;quot;
+    android:exported=&amp;quot;true&amp;quot;&amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.android.vending.INSTALL_REFERRER&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/receiver&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Growthbeatの初期化処理の後に、Growth Linkの初期化処理を呼び出す&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthLink.getInstance().initialize(getApplicationContext(), &amp;quot;APPLICATION_ID&amp;quot;, &amp;quot;CREDENTIAL_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;カスタムURLスキームでアプリを起動できるように、AndroidManifest.xmlを設定する&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;IntentFilterを設定したActivityのonCreateで、handleOpenUrlメソッドを呼び出す&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthLink.getInstance().handleOpenUrl(getIntent().getData());
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;ディープリンクアクションの実装:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクアクションの実装&lt;/h2&gt;
+
+&lt;p&gt;SDKには、IntentHandler (iOSでは、GBIntentHandler)というインタフェースが定義されており、この実装でディープリンク時のアクションを実装することができます。&lt;/p&gt;
+
+&lt;p&gt;たとえば下記のような形で実装できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;List&amp;lt;IntentHandler&amp;gt; intentHandlers = new ArrayList&amp;lt;IntentHandler&amp;gt;();
+intentHandlers.add(new UrlIntentHandler(GrowthbeatCore.getInstance().getContext()));
+intentHandlers.add(new NoopIntentHandler());
+intentHandlers.add(new IntentHandler() {
+    public boolean handle(com.growthbeat.model.Intent intent) {
+        if (intent.getType() != com.growthbeat.model.Intent.Type.custom)
+            return false;
+        Map&amp;lt;String, String&amp;gt; extra = ((CustomIntent) intent).getExtra();
+        // TODO ここにアプリ内の画面を開く処理を実装します。
+        Log.d(&amp;quot;Growth Link&amp;quot;, &amp;quot;extra: &amp;quot; + extra);
+        return true;
+    }
+});
+GrowthbeatCore.getInstance().setIntentHandlers(intentHandlers);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;備考:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;備考&lt;/h2&gt;
+
+&lt;p&gt;SDK導入について、ご不明な点などございます場合は、Growthbeat&lt;a href=&#34;https://growthbeat.com/inquiry&#34;&gt;お問い合わせフォーム&lt;/a&gt;からお問い合わせください。また&lt;a href=&#34;http://support.growthbeat.com/sdk/ios/release/&#34;&gt;リリースノート&lt;/a&gt;もご参照ください&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Cocos2dx API</title>
+      <link>http://support.growthbeat.com/sdk/cocos2dx/tutorial/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/cocos2dx/tutorial/</guid>
+      <description>
+
+&lt;h1 id=&#34;growthbeat-cocos2dx-api:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growthbeat Cocos2dx API&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期化 デバイス登録・認証&lt;/h1&gt;
+
+&lt;p&gt;Growthbeatへデバイス登録・認証を行います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;Growthbeat::getInstance()-&amp;gt;initialize(&amp;quot;YOUR_APPLICATION_ID&amp;quot;, &amp;quot;YOUR_CREDENTIAL_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Androidの場合は、初期起動時のActivityに下記を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthbeatJNI.setContext(this);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー属性、行動ログの付与 (Growth Analyticsの利用)&lt;/h2&gt;
+
+&lt;p&gt;Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。&lt;/p&gt;
+
+&lt;p&gt;送信されたデータは、Growth Analytics管理画面をご覧ください。&lt;/p&gt;
+
+&lt;h2 id=&#34;端末-ユーザー情報を送信方法と-実装の説明:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末・ユーザー情報を送信方法と、実装の説明&lt;/h2&gt;
+
+&lt;p&gt;端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。&lt;/p&gt;
+
+&lt;p&gt;あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;setBasicTags&lt;/em&gt; 基本情報となるタグのセットです。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setUserId&lt;/em&gt; アプリのユニークなUserIdを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setName&lt;/em&gt; アプリのユーザー名を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAge&lt;/em&gt; アプリのユーザーの年齢を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setGender&lt;/em&gt; アプリのユーザーの性別を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLevel&lt;/em&gt; アプリのユーザーのレベルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDevelopment&lt;/em&gt; 開発用のフラグを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDeviceModel&lt;/em&gt; 端末のモデルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setOS&lt;/em&gt; 端末のOS&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLanguage&lt;/em&gt; 端末の言語設定&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZone&lt;/em&gt; 端末のタイムゾーン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZoneOffset&lt;/em&gt; 端末の標準時刻からの差&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAppVersion&lt;/em&gt; アプリの設定されているバージョン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setRandom&lt;/em&gt; 乱数を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAdvertisingId&lt;/em&gt; 広告IDを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;track&lt;/em&gt; カスタムイベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;tag&lt;/em&gt; カスタムタグを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末のデータを送信&lt;/h3&gt;
+
+&lt;p&gt;setBasicTagsメソッドは端末のデータを送信します。&lt;/p&gt;
+
+&lt;p&gt;このメソッドには、下記が含まれます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setDeviceModel&lt;/li&gt;
+&lt;li&gt;setOs&lt;/li&gt;
+&lt;li&gt;setLanguage&lt;/li&gt;
+&lt;li&gt;setTimeZone&lt;/li&gt;
+&lt;li&gt;setTimeZoneOffset&lt;/li&gt;
+&lt;li&gt;setAppVersion&lt;/li&gt;
+&lt;li&gt;setAdvertisingId&lt;/li&gt;
+&lt;li&gt;setTrackingEnabled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setBasicTags();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;起動-終了イベントを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動/終了イベントを送信&lt;/h3&gt;
+
+&lt;h4 id=&#34;起動-open:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動 (open)&lt;/h4&gt;
+
+&lt;p&gt;ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。&lt;/p&gt;
+
+&lt;p&gt;起動後に開かれるところに以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;open();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;終了-close:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;終了 (close)&lt;/h4&gt;
+
+&lt;p&gt;アプリの終了イベントを送信します。セッション時間の計測を停止します。&lt;/p&gt;
+
+&lt;p&gt;プロセスが終了する場所に実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;close();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;課金情報を送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;課金情報を送信する&lt;/h4&gt;
+
+&lt;p&gt;課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;purchase(price, &amp;quot;ITEM_CATEGORY&amp;quot;, &amp;quot;ITEM_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユニークなユーザーIDを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユニークなユーザーIDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setUserId(&amp;quot;YOUR_USER_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユーザー名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー名を送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザー名を送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setName(&amp;quot;YOUR_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;年齢を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;年齢を送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setAge(age);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;性別を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;性別を送信&lt;/h4&gt;
+
+&lt;p&gt;変数は、Genderのenumを用いてどちらか性別を送信してください&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;// 男性
+GrowthAnalytics::getInstance()-&amp;gt;setGender(GAGenderMale);
+
+// 女性
+GrowthAnalytics::getInstance()-&amp;gt;setGender(GAGenderFemale);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;レベルを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;レベルを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザーのレベルを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setLevel(level);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;開発用の紐付け&lt;/h4&gt;
+
+&lt;p&gt;開発用のフラグをつける&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setDevelopment(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末モデル名を送信&lt;/h4&gt;
+
+&lt;p&gt;端末のモデル名を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) SO-03C, SC-03D&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setDeviceModel();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末osを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末OSを送信&lt;/h4&gt;
+
+&lt;p&gt;端末のOSを送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) Android 4.4, Android 5.0.1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setOS();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末の言語設定を送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定言語を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) ja, en&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setLanguage();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンを送信する&lt;/h4&gt;
+
+&lt;p&gt;端末で設定されたタイムゾーンを送信する。&lt;/p&gt;
+
+&lt;p&gt;例.) Asia/Tokyo, America/Los_Angeles&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setTimeZone();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンオフセットを送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定された時刻から、標準時刻の差分時間を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) 9, -11&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setTimeZoneOffset();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリバージョンを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリに設定されたアプリバージョンを送信します。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの&lt;code&gt;&amp;lt;manifest&amp;gt;&lt;/code&gt; android:versionNameに設定される値が入ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setAppVersion();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;乱数を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;乱数を送信&lt;/h4&gt;
+
+&lt;p&gt;乱数を端末の情報として紐付けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setRandom();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;広告idを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告IDを送信&lt;/h4&gt;
+
+&lt;p&gt;広告IDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setAdvertisingId();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告オプトアウトの送信&lt;/h4&gt;
+
+&lt;p&gt;ユーザーが広告IDを利用するのを拒否しているかを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;setTrackingEnabled();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;カスタムイベント-タグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベント・タグを送信する&lt;/h2&gt;
+
+&lt;h3 id=&#34;カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;CUSTOM_EVENT_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CUSTOM_EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void track(const std::string&amp;amp; eventId);
+void track(const std::string&amp;amp; eventId, const std::map&amp;lt;std::string, std::string&amp;gt;&amp;amp; properties);
+void track(const std::string&amp;amp; eventId, GATrackOption option);
+void track(const std::string&amp;amp; eventId, const std::map&amp;lt;std::string, std::string&amp;gt;&amp;amp; properties, GATrackOption option);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;trackoption:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;TrackOption&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ONCE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;COUNTER&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, GATrackOptionONCE);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GATrackOptionONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;LAST_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LAST_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグの送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void tag(const std::string&amp;amp; tagId);
+void tag(const std::string&amp;amp; tagId, const std::string&amp;amp; value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;);
+GrowthAnalytics::getInstance()-&amp;gt;tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;フルカスタマイズなイベント-タグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなイベント・タグの送信&lt;/h2&gt;
+
+&lt;h3 id=&#34;フルカスタマイズイベントを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズイベントを送信する&lt;/h3&gt;
+
+&lt;p&gt;特定のネームスペース、イベントIDを設定していただくことが可能です。下記、イベントID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;EVENT_ID&amp;gt;&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void track(const std::string&amp;amp; _namespace,const std::string&amp;amp; eventId, const std::map&amp;lt;std::string, std::string&amp;gt;&amp;amp; properties, GATrackOption option);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-2:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;trackoption-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;TrackOption&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ONCE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;COUNTER&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フルカスタマイズタグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズタグを送信する&lt;/h3&gt;
+
+&lt;p&gt;特定のネームスペース、タグIDを設定していただくことが可能です。下記、タグID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;TAG_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TAG_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void tag(const std::string&amp;amp; _namespace,const std::string&amp;amp; tagId, const std::string&amp;amp; value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-3:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;tag(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;プッシュ通知の実装 (Growth Pushの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;デバイストークンの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デバイストークンの取得&lt;/h2&gt;
+
+&lt;p&gt;Growth Push管理画面、証明書設定ページにて、各OSごとに証明書の設定を行ってください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/ios-p12/&#34;&gt;iOSプッシュ通知証明書作成方法&lt;/a&gt;
+&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/gcm-api/&#34;&gt;Android SenderId, APIキー取得方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;** Cocos実装方法 **&lt;/p&gt;
+
+&lt;p&gt;プッシュ通知の許可を取りたいタイミングの場所に、下記を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthPush::getInstance()-&amp;gt;requestDeviceToken(&amp;quot;YOUR_SENDER_ID&amp;quot;, environment);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;iOSのみ送信する場合は、下記実装も可能です。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthPush::getInstance()-&amp;gt;requestDeviceToken(environment);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;GPEnvironment&lt;/code&gt; は、デバッグビルド・リリースビルドで変更するようにしてください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;デバッグビルド時 =&amp;gt; GPEnvironmentDevelopment&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;リリースビルド時 =&amp;gt; GPEnvironmentProduction&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;** Android実装方法 **&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの設定を行う必要がございます。&lt;/p&gt;
+
+&lt;p&gt;パーミッションは下記が必須となります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.INTERNET&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;android.permission.GET_ACCOUNTS&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;com.google.android.c2dm.permission.RECEIVE&amp;quot; /&amp;gt;
+
+&amp;lt;permission
+    android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot;
+    android:protectionLevel=&amp;quot;signature&amp;quot; /&amp;gt;
+
+&amp;lt;uses-permission android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;オプションで、下記パーミッションを設定してください。&lt;/p&gt;
+
+&lt;p&gt;・ 通知音を鳴らす場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.VIBRATE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;・ アラートダイアログのプッシュ通知を表示する場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.WAKE_LOCK&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、プッシュ通知を受け取るために必要な設定を、&lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt;タグ内に実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;activity
+    android:name=&amp;quot;com.growthpush.view.AlertActivity&amp;quot;
+    android:configChanges=&amp;quot;orientation|keyboardHidden&amp;quot;
+    android:launchMode=&amp;quot;singleInstance&amp;quot;
+    android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+
+&amp;lt;receiver
+    android:name=&amp;quot;com.growthpush.Cocos2dxBroadcastReceiver&amp;quot;
+    android:permission=&amp;quot;com.google.android.c2dm.permission.SEND&amp;quot; &amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.RECEIVE&amp;quot; /&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.REGISTRATION&amp;quot; /&amp;gt;
+        &amp;lt;category android:name=&amp;quot;YOUR_PACKAGE_NAME&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/receiver&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;YOUR_PACKAGE_NAMEは、実装するアプリのパッケージ名に変更してください。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムペイロードの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムペイロードの取得&lt;/h4&gt;
+
+&lt;p&gt;Growth Pushでは、表示メッセージ以外に、JSONフォーマットのカスタムペイロードを持たせることができます。&lt;/p&gt;
+
+&lt;p&gt;AppDelegate.hに下記インターフェイスを実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;virtual void didReceiveRemoteNotification(cocos2d::Value extra);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;AppDelegate.mに、セレクターの実装と受け取り後の処理を記述します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;bool AppDelegate::applicationDidFinishLaunching() {
+
+	// 略
+	GrowthPush::getInstance()-&amp;gt;setOpenNotificationCallback(this, gp_remote_notification_selector(AppDelegate::didReceiveRemoteNotification));
+
+	// ...
+}
+
+void AppDelegate::didReceiveRemoteNotification(cocos2d::Value extra) {
+    CCLOG(&amp;quot;%s&amp;quot;, extra.getDescription().c_str());
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;JSONを展開して、任意の処理を実装してください。&lt;/p&gt;
+
+&lt;h4 id=&#34;android-カスタムアイコンの設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;(Android) カスタムアイコンの設定&lt;/h4&gt;
+
+&lt;p&gt;Googleのポリシーに合わせ、アイコンを変更できるようにしました。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xml &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 内に、下記項目を加えてください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```
+
+&amp;lt;!-- 通知バーのアイコンを変更する場合 (例.) @drawable/sample_notification_icon --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.notification.icon&amp;quot; android:resource=&amp;quot;表示したいアイコンのパス&amp;quot; /&amp;gt;
+
+&amp;lt;!-- 通知バーのアイコンのバックグラウンドカラーを変更する場合 (例.) @color/black --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.notification.icon.background.color&amp;quot; android:resource=&amp;quot;表示したい色のID&amp;quot; /&amp;gt;
+
+&amp;lt;!-- ダイアログ通知のアイコンを変更したい場合 (例.) @drawable/sample_dialog_icon --&amp;gt;
+&amp;lt;meta-data android:name=&amp;quot;com.growthpush.dialog.icon&amp;quot; android:resource=&amp;quot;表示したいアイコンのパス&amp;quot; /&amp;gt;
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;イベント-タグの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベント・タグの取得&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;注意: こちらのメソッドは、Growth Pushが、Growth Analyticsに統合されました段階で削除予定となっております。これまでGrowth Push SDKをご利用しておりました方は、Growth Analyticsのイベント・タグの送信にお乗り換えくださいませ。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;イベントを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベントを送信する&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void trackEvent(final String name);
+void trackEvent(final String name, final String value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-4:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベント名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthPush::getInstance()-&amp;gt;trackEvent(&amp;quot;EVENT_NAME&amp;quot;);
+GrowthPush::getInstance()-&amp;gt;trackEvent(&amp;quot;EVENT_NAME&amp;quot;, &amp;quot;EVENT_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;タグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タグを送信する&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;void setTag(final String name);
+void setTag(final String name, final String value);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-5:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグ名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthPush::getInstance()-&amp;gt;setTag(&amp;quot;TAG_NAME&amp;quot;);
+GrowthPush::getInstance()-&amp;gt;setTag(&amp;quot;TAG_NAME&amp;quot;, &amp;quot;TAG_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリ内ポップアップメッセージの実装 (Growth Messageの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;初期設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;p&gt;Androidはメッセージを表示するためのActivityを追記します。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 要素内に下記を記述します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;activity
+	android:name=&amp;quot;com.growthbeat.message.view.MessageActivity&amp;quot;
+	android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メッセージを表示するViewを指定&lt;/h2&gt;
+
+&lt;h3 id=&#34;デフォルトで用意しているイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デフォルトで用意しているイベントの送信&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;カスタムイベントの送信-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, GrowthAnalytics.TrackOption.ONCE);
+GrowthAnalytics::getInstance()-&amp;gt;track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Growth Analyticsの実装を参照してください。&lt;/p&gt;
+
+&lt;h1 id=&#34;ディープリンクの実装-growth-linkの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクの実装 (Growth Linkの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;初期設定-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;初期化処理を実装します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;GrowthLink::getInstance()-&amp;gt;initialize(&amp;quot;APPLICATION_ID&amp;quot;, &amp;quot;CREDENTIAL_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;** Androidの設定について **
+1. Install Referrerの取得のための設定を、AndoridManifest.xmlの &lt;code&gt;&amp;lt;application/&amp;gt;&lt;/code&gt; 内の記述する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;```xml
+&amp;lt;receiver
+    android:name=&amp;quot;com.growthbeat.link.InstallReferrerReceiver&amp;quot;
+    android:enabled=&amp;quot;true&amp;quot;
+    android:exported=&amp;quot;true&amp;quot;&amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.android.vending.INSTALL_REFERRER&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/receiver&amp;gt;
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;カスタムURLスキームでアプリを起動できるように、AndroidManifest.xmlを設定する&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;IntentFilterを設定したActivityのonCreateで、handleOpenUrlメソッドを呼び出す&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthLinkJNI.handleOpenUrl(getIntent().getData());
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;ディープリンクアクションの実装:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクアクションの実装&lt;/h2&gt;
+
+&lt;p&gt;SDKには、&lt;code&gt;IntentHandler&lt;/code&gt; というインタフェースが定義されており、この実装でディープリンク時のアクションを実装することができます。&lt;/p&gt;
+
+&lt;p&gt;たとえば下記のような形で実装できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;GrowthbeatCore::getInstance()-&amp;gt;initializeIntentHandlers();
+GrowthbeatCore::getInstance()-&amp;gt;addNoopIntentHandler();
+GrowthbeatCore::getInstance()-&amp;gt;addUrlIntentHandler();
+GrowthbeatCore::getInstance()-&amp;gt;addCustomIntentHandler([](std::map&amp;lt;std::string,std::string&amp;gt; extra)-&amp;gt;bool{
+    log(&amp;quot;cutomintenthandler called.&amp;quot;);
+    return true;
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;備考:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;備考&lt;/h2&gt;
+
+&lt;p&gt;SDK導入について、ご不明な点などございます場合は、Growthbeat&lt;a href=&#34;https://growthbeat.com/inquiry&#34;&gt;お問い合わせフォーム&lt;/a&gt;からお問い合わせください。また、&lt;a href=&#34;http://support.growthbeat.com/sdk/ios/release/&#34;&gt;リリースノート&lt;/a&gt;もご参照ください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Unity API</title>
+      <link>http://support.growthbeat.com/sdk/unity/tutorial/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/unity/tutorial/</guid>
+      <description>
+
+&lt;h1 id=&#34;growthbeat-unity-api:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growthbeat Unity API&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期化 デバイス登録・認証&lt;/h1&gt;
+
+&lt;p&gt;Growthbeatへデバイス登録・認証を行います。&lt;/p&gt;
+
+&lt;h2 id=&#34;開発環境:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;開発環境&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Growthbeat.GetInstance().Initialize(&amp;quot;YOUR_APPLICATION_ID&amp;quot;, &amp;quot;YOUR_CREDENTIAL_ID&amp;quot;, true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ユーザー属性-行動ログの付与-growth-analyticsの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー属性、行動ログの付与 (Growth Analyticsの利用)&lt;/h2&gt;
+
+&lt;p&gt;Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。&lt;/p&gt;
+
+&lt;p&gt;送信されたデータは、Growth Analytics管理画面をご覧ください。&lt;/p&gt;
+
+&lt;h3 id=&#34;端末-ユーザー情報を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末・ユーザー情報を送信&lt;/h3&gt;
+
+&lt;p&gt;端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。&lt;/p&gt;
+
+&lt;p&gt;あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;SetBasicTags&lt;/em&gt; 基本情報となるタグのセットです。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetUserId&lt;/em&gt; アプリのユニークなUserIdを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetName&lt;/em&gt; アプリのユーザー名を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetAge&lt;/em&gt; アプリのユーザーの年齢を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetGender&lt;/em&gt; アプリのユーザーの性別を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetLevel&lt;/em&gt; アプリのユーザーのレベルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetDevelopment&lt;/em&gt; 開発用のフラグを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetDeviceModel&lt;/em&gt; 端末のモデルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetOS&lt;/em&gt; 端末のOS&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetLanguage&lt;/em&gt; 端末の言語設定&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetTimeZone&lt;/em&gt; 端末のタイムゾーン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetTimeZoneOffset&lt;/em&gt; 端末の標準時刻からの差&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetAppVersion&lt;/em&gt; アプリの設定されているバージョン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetRandom&lt;/em&gt; 乱数を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;SetAdvertisingId&lt;/em&gt; 広告IDを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Track&lt;/em&gt; カスタムイベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Tag&lt;/em&gt; カスタムタグを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末のデータを送信&lt;/h3&gt;
+
+&lt;p&gt;SetBasicTagsメソッドは端末のデータを送信します。&lt;/p&gt;
+
+&lt;p&gt;このメソッドには、下記が含まれます。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;SetDeviceModel&lt;/li&gt;
+&lt;li&gt;SetOs&lt;/li&gt;
+&lt;li&gt;SetLanguage&lt;/li&gt;
+&lt;li&gt;SetTimeZone&lt;/li&gt;
+&lt;li&gt;SetTimeZoneOffset&lt;/li&gt;
+&lt;li&gt;SetAppVersion&lt;/li&gt;
+&lt;li&gt;SetAdvertisingId&lt;/li&gt;
+&lt;li&gt;SetTrackingEnabled&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetBasicTags();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;起動-終了イベントを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動/終了イベントを送信する&lt;/h3&gt;
+
+&lt;h4 id=&#34;起動-open:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動 (open)&lt;/h4&gt;
+
+&lt;p&gt;ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;起動後に開かれるSceneのGameObjectのAwakeに以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void Awake ()
+{
+    Growthbeat.GetInstance().Start();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;終了-close:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;終了 (close)&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;アプリケーションが終了するタイミングで以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;void OnApplicationQuit()
+{
+	Growthbeat.GetInstance().Stop();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;課金情報を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;課金情報を送信&lt;/h5&gt;
+
+&lt;p&gt;課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().Purchase(price, &amp;quot;ITEM_CATEGORY&amp;quot;, &amp;quot;ITEM_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユニークなユーザーIDを送信&lt;/h5&gt;
+
+&lt;p&gt;アプリのユニークなユーザーIDを送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetUserId(&amp;quot;YOUR_USER_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;ユーザー名を送信&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;アプリのユーザー名を送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetName(&amp;quot;YOUR_NAME&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;年齢を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;年齢を送信&lt;/h5&gt;
+
+&lt;p&gt;アプリのユーザーの年齢を送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetAge(age);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;性別を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;性別を送信&lt;/h5&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;変数は、Genderのenumを用いてどちらか性別を送信してください&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// 男性
+GrowthAnalytics.GetInstance().SetGender(Gender.GenderMale);
+
+// 女性
+GrowthAnalytics.GetInstance().SetGender(Gender.GenderFemale);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;レベルを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;レベルを送信&lt;/h5&gt;
+
+&lt;p&gt;アプリのユーザーのレベルを送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetLevel(level);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;開発用の紐付け&lt;/h5&gt;
+
+&lt;p&gt;開発用のフラグをつける&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstnace().SetDevelopment(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末モデル名を送信&lt;/h5&gt;
+
+&lt;p&gt;端末のモデル名を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) SO-03C, iPhone, iPad, SC-03D&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetDeviceModel();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;端末osを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末OSを送信&lt;/h5&gt;
+
+&lt;p&gt;端末のOSを送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) iOS 8.0, Android 4.4&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetOS();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末の言語設定を送信&lt;/h5&gt;
+
+&lt;p&gt;端末の設定言語を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) ja, en&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetLanguage();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;タイムゾーンを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンを送信する&lt;/h5&gt;
+
+&lt;p&gt;端末で設定されたタイムゾーンを送信する。&lt;/p&gt;
+
+&lt;p&gt;例.) Asia/Tokyo, America/Los_Angeles&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetTimeZone();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンオフセットを送信&lt;/h5&gt;
+
+&lt;p&gt;端末の設定された時刻から、標準時刻の差分時間を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) 9, -11&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetTimeZoneOffset();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリバージョンを送信&lt;/h5&gt;
+
+&lt;p&gt;アプリに設定されたアプリバージョンを送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;iOS&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Xcodeの場合、Info.plistのCFBundleVersionに設定している値が入ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Android&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Androidの場合, AndroidManifest.xmlの&lt;code&gt;&amp;lt;manifest&amp;gt;&lt;/code&gt; android:versionNameに設定される値が入ります。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetAppVersion();
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;乱数を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;乱数を送信&lt;/h5&gt;
+
+&lt;p&gt;乱数を端末の情報として紐付けます。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetRandom();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;広告idを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告IDを送信&lt;/h5&gt;
+
+&lt;p&gt;広告IDを送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;注意: iOSの場合、広告の表示欄がないアプリで利用すると申請時にリジェクトをされる可能性が高いので設定される場合は、十分にご注意ください。&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetAdvertisingId();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告オプトアウトの送信&lt;/h5&gt;
+
+&lt;p&gt;ユーザーが広告IDを利用するのを拒否しているかを送信します。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().SetTrackingEnabled();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;カスタムイベントを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントを送信&lt;/h2&gt;
+
+&lt;h3 id=&#34;カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;EventID&lt;br /&gt;
+&lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;CUSTOM_EVENT_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;YOUR_APPLICATION_ID&lt;br /&gt;
+ApplicationIDを指定されます。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CUSTOM_EVENT_ID&lt;br /&gt;
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void Track (string name)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void Track (string name, Dictionary&amp;lt;string, string&amp;gt; properties)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void Track (string name, TrackOption option)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void Track (string name, Dictionary&amp;lt;string, string&amp;gt; properties, TrackOption option)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;option:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;option&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;TrackOptionDefault&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;デフォルト値。特に何もしません。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;TrackOptionOnce&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;TrackOptionCounter&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.getInstance().Track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;);
+GrowthAnalytics.getInstance().Track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties);
+GrowthAnalytics.getInstance().Track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, GrowthAnalytics.TrackOption.ONCE);
+GrowthAnalytics.getInstance().Track(&amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;カスタムタグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグを送信する&lt;/h3&gt;
+
+&lt;h4 id=&#34;カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグとは？&lt;/h4&gt;
+
+&lt;p&gt;任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TagID&lt;br /&gt;
+&lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;LAST_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;YOUR_APPLICATION_ID&lt;br /&gt;
+ApplicationIDを指定されます。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LAST_ID&lt;br /&gt;
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグの送信&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void Tag (string name)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void Tag (string name, string value)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;tagId&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().Tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;);
+GrowthAnalytics.GetInstance().Tag(&amp;quot;CUSTOM_TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フルカスタマイズなイベント送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなイベント送信&lt;/h3&gt;
+
+&lt;p&gt;特定のネームスペース、イベントIDを設定していただくことが可能です。下記、イベントID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;EventID&lt;br /&gt;
+&lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;EVENT_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;YOUR_APPLICATION_ID&lt;br /&gt;
+ApplicationIDを指定されます。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;NAMESPACE
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EVENT_ID&lt;br /&gt;
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void Track (string _namespace, string name, Dictionary&amp;lt;string, string&amp;gt; properties, TrackOption option)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ-2:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;任意のパラメータ。ONCE, COUNTERのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;option-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;option&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ONCE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;COUNTER&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().Track(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;CUSTOM_EVENT_ID&amp;quot;, properties, GrowthAnalytics.TrackOption.ONCE);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;フルカスタマイズなカスタムタグを送信する:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなカスタムタグを送信する&lt;/h3&gt;
+
+&lt;h4 id=&#34;カスタムタグとは-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグとは？&lt;/h4&gt;
+
+&lt;p&gt;特定のネームスペース、タグIDを設定していただくことが可能です。下記、タグID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TagID&lt;br /&gt;
+&lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;TAG_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;YOUR_APPLICATION_ID&lt;br /&gt;
+ApplicationIDを指定されます。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;NAMESPACE
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TAG_ID&lt;br /&gt;
+英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムタグの送信-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグの送信&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void Tag (string _namespace, string name, string value)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ-3:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().Tag(&amp;quot;NAMESPACE&amp;quot;, &amp;quot;TAG_ID&amp;quot;, &amp;quot;value&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;プッシュ通知の実装 (Growth Pushの利用)&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h1&gt;
+
+&lt;p&gt;Growth Push管理画面、証明書設定ページにて、各OSごとに証明書の設定を行ってください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/ios-p12/&#34;&gt;iOSプッシュ通知証明書作成方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/gcm-api/&#34;&gt;Android SenderId, APIキー取得方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;iOS&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;XCodeプロジェクトのBuild Setting &amp;gt; Provisioning Profileの設定をしてください。誤った設定方法となりますと、デバイストークンの取得ができません。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Android&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの設定を行う必要がございます。&lt;/p&gt;
+
+&lt;p&gt;パーミッションは下記が必須となります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.INTERNET&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;android.permission.GET_ACCOUNTS&amp;quot; /&amp;gt;
+&amp;lt;uses-permission android:name=&amp;quot;com.google.android.c2dm.permission.RECEIVE&amp;quot; /&amp;gt;
+
+&amp;lt;permission
+    android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot;
+    android:protectionLevel=&amp;quot;signature&amp;quot; /&amp;gt;
+
+&amp;lt;uses-permission android:name=&amp;quot;YOUR_PACKAGE_NAME.permission.C2D_MESSAGE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;オプションで、下記パーミッションを設定してください。&lt;/p&gt;
+
+&lt;p&gt;・ 通知音を鳴らす場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.VIBRATE&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;・ アラートダイアログのプッシュ通知を表示する場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;uses-permission android:name=&amp;quot;android.permission.WAKE_LOCK&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、プッシュ通知を受け取るために必要な設定を、&lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt;タグ内に実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;activity
+    android:name=&amp;quot;com.growthpush.view.AlertActivity&amp;quot;
+    android:configChanges=&amp;quot;orientation|keyboardHidden&amp;quot;
+    android:launchMode=&amp;quot;singleInstance&amp;quot;
+    android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+
+&amp;lt;receiver
+    android:name=&amp;quot;com.growthpush.BroadcastReceiver&amp;quot;
+    android:permission=&amp;quot;com.google.android.c2dm.permission.SEND&amp;quot; &amp;gt;
+    &amp;lt;intent-filter&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.RECEIVE&amp;quot; /&amp;gt;
+        &amp;lt;action android:name=&amp;quot;com.google.android.c2dm.intent.REGISTRATION&amp;quot; /&amp;gt;
+        &amp;lt;category android:name=&amp;quot;YOUR_PACKAGE_NAME&amp;quot; /&amp;gt;
+    &amp;lt;/intent-filter&amp;gt;
+&amp;lt;/receiver&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;YOUR_PACKAGE_NAMEは、実装するアプリのパッケージ名に変更してください。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実装方法:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;実装方法&lt;/h2&gt;
+
+&lt;h3 id=&#34;devicetokenの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;DeviceTokenの取得&lt;/h3&gt;
+
+&lt;h4 id=&#34;ios-apns:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;iOS(APNS)&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Growthhbeat#Initializeの後に下記を呼び出す&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;開発環境向け&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush.GetInstance().RequestDeviceToken(GrowthPush.Environment.Development);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;- 本番環境向け
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush.GetInstance().RequestDeviceToken(GrowthPush.Environment.Production);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;UpdateにてSetDeviceTokenを実装&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;bool tokenSent = false;
+
+void Update () {
+    #if UNITY_IPHONE
+	    if (!tokenSent) {
+		    byte[] token = NotificationServices.deviceToken;
+		    if (token != null) {
+			    GrowthPush.GetInstance().SetDeviceToken(System.BitConverter.ToString(token));
+			    tokenSent = true;
+		    }
+	    }
+    #endif
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;android-gcm:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Android(GCM)&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthhbeat#initializeWithApplicationIdの後に下記を呼び出す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;// YOUR_SENDER_IDは、AndroidのSenderId
+GrowthPush.GetInstance().RequestRegistrationId (&amp;quot;YOUR_SENDER_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;タグ-イベントの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タグ・イベントの取得&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void SetTag (string name)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void SetTag (string name, string value)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ-4:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグ名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush.getInstance().SetTag(&amp;quot;TAG_NAME&amp;quot;);
+GrowthPush.getInstance().SetTag(&amp;quot;TAG_NAME&amp;quot;, &amp;quot;TAG_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;public void TrackEvent(string name)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;public void TrackEvent(string name, string value)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;パラメータ-5:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベント名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthPush.getInstance().TrackEvent(&amp;quot;EVENT_NAME&amp;quot;);
+GrowthPush.getInstance().TrackEvent(&amp;quot;EVENT_NAME&amp;quot;, &amp;quot;EVENT_VALUE&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリ内ポップアップメッセージの実装 (Growth Messageの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;初期設定-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;p&gt;Androidはメッセージを表示するためのActivityを追記します。&lt;/p&gt;
+
+&lt;p&gt;AndroidManifest.xmlの &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 要素内に下記を記述します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;activity
+	android:name=&amp;quot;com.growthbeat.message.view.AlertActivity&amp;quot;
+	android:theme=&amp;quot;@android:style/Theme.Translucent&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メッセージを表示するViewを指定&lt;/h2&gt;
+
+&lt;p&gt;任意の箇所で、Growth Analyticsのtrackメソッドを呼び出します。この呼び出し箇所が、メッセージの表示箇所になります。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Unity&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;GrowthAnalytics.GetInstance().Track(&amp;quot;EVENT_ID&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;備考:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;備考&lt;/h2&gt;
+
+&lt;p&gt;SDK導入について、ご不明な点などございます場合は、Growthbeat&lt;a href=&#34;https://growthbeat.com/inquiry&#34;&gt;お問い合わせフォーム&lt;/a&gt;からお問い合わせください。また&lt;a href=&#34;http://support.growthbeat.com/sdk/ios/release/&#34;&gt;リリースノート&lt;/a&gt;もご参照ください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat iOS API</title>
+      <link>http://support.growthbeat.com/sdk/ios/tutorial/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/ios/tutorial/</guid>
+      <description>
+
+&lt;h1 id=&#34;growthbeat-ios-api:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growthbeat iOS API&lt;/h1&gt;
+
+&lt;h1 id=&#34;初期化-デバイス登録-認証:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期化 デバイス登録・認証&lt;/h1&gt;
+
+&lt;p&gt;Growthbeatへデバイス登録・認証を行います。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[Growthbeat sharedInstance] initializeWithApplicationId:@&amp;quot;YOUR_APLICATION_ID&amp;quot; credentialId:@&amp;quot;YOUR_CREDENTIAL_ID&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;ユーザー属性-行動ログの付与-growth-analytics-の利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー属性、行動ログの付与 （Growth Analytics の利用）&lt;/h1&gt;
+
+&lt;p&gt;Growth Analyticsの初期化をします。初期化の中に、端末の基本情報の送信、広告IDの取得が行われます。送信されたデータは、Growth Analytics管理画面をご覧ください。&lt;/p&gt;
+
+&lt;h2 id=&#34;端末-ユーザー情報を送信方法と-実装の説明:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末・ユーザー情報を送信方法と、実装の説明&lt;/h2&gt;
+
+&lt;p&gt;端末やユーザーの情報をGrowth Analyticsへ送信します。送信することでGrowth Analytics上で解析・分析を行うことができます。取得したい情報を、任意の場所に実装してください。&lt;/p&gt;
+
+&lt;p&gt;あらかじめ特定のタグやイベントを送信するためのメソッドを用意しております。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;setBasicTags&lt;/em&gt; 基本情報となるタグのセットです。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setUserId&lt;/em&gt; アプリのユニークなUserIdを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setName&lt;/em&gt; アプリのユーザー名を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAge&lt;/em&gt; アプリのユーザーの年齢を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setGender&lt;/em&gt; アプリのユーザーの性別を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLevel&lt;/em&gt; アプリのユーザーのレベルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDevelopment&lt;/em&gt; 開発用のフラグを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setDeviceModel&lt;/em&gt; 端末のモデルを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setOS&lt;/em&gt; 端末のOS&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setLanguage&lt;/em&gt; 端末の言語設定&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZone&lt;/em&gt; 端末のタイムゾーン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setTimeZoneOffset&lt;/em&gt; 端末の標準時刻からの差&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAppVersion&lt;/em&gt; アプリの設定されているバージョン&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setRandom&lt;/em&gt; 乱数を送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;setAdvertisingId&lt;/em&gt; 広告IDを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また、上記で予め用意されているタグ、イベント以外でも下記メソッドを使用することで、カスタムタグ、カスタムイベントが送信できます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;track&lt;/em&gt; カスタムイベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;tag&lt;/em&gt; カスタムタグを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;端末のデータを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末のデータを送信&lt;/h2&gt;
+
+&lt;p&gt;setBasicTagsメソッドは端末のデータを送信します。&lt;/p&gt;
+
+&lt;p&gt;このメソッドには、下記が含まれます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;setDeviceModel&lt;/li&gt;
+&lt;li&gt;setOs&lt;/li&gt;
+&lt;li&gt;setLanguage&lt;/li&gt;
+&lt;li&gt;setTimeZone&lt;/li&gt;
+&lt;li&gt;setTimeZoneOffset&lt;/li&gt;
+&lt;li&gt;setAppVersion&lt;/li&gt;
+&lt;li&gt;setAdvertisingId&lt;/li&gt;
+&lt;li&gt;setTrackingEnabled&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setBasicTags];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;特定のイベント-タグを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;特定のイベント・タグを送信&lt;/h3&gt;
+
+&lt;h4 id=&#34;起動-open:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;起動 (open)&lt;/h4&gt;
+
+&lt;p&gt;ユーザーの起動イベントを送信します。セッション時間の計測を開始するために必要なメソッドです。&lt;/p&gt;
+
+&lt;p&gt;AppDelegateのapplicationDidBecomeActive:に以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[GrowthAnalytics sharedInstance] open];
+    [[GrowthAnalytics sharedInstance] setBasicTags];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;終了-close:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;終了 (close)&lt;/h4&gt;
+
+&lt;p&gt;アプリの終了イベントを送信します。セッション時間の計測を停止します。AppDelegateのapplicationWillResignActive:に以下を実装してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)applicationWillResignActive:(UIApplication *)application {
+    [[GrowthAnalytics sharedInstance] close];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;課金情報を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;課金情報を送信&lt;/h4&gt;
+
+&lt;p&gt;課金時にメソッドを呼び、課金額、アイテムのカテゴリなどを送信することができます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] purchase:price setCategory:@&amp;quot;ITEM_CATEGORY&amp;quot; setProduct:@&amp;quot;ITEM_NAME&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユニークなユーザーidを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユニークなユーザーIDを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユニークなユーザーIDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setUserId:@&amp;quot;YOUR_USER_ID&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユーザー名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ユーザー名を送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザー名を送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setName:@&amp;quot;YOUR_NAME&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;年齢を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;年齢を送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザーの年齢を送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setAge:age];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;性別を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;性別を送信&lt;/h4&gt;
+
+&lt;p&gt;変数は、GAGenderを用いてどちらか性別を送信してください。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;// 男性
+[[GrowthAnalytics sharedInstance] setGender:GAGenderMale];
+
+// 女性
+[[GrowthAnalytics sharedInstance] setGender:GAGenderFemale];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;レベルを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;レベルを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリのユーザーのレベルを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setLevel:level];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;開発用の紐付け:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;開発用の紐付け&lt;/h4&gt;
+
+&lt;p&gt;開発用のフラグをつける&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setDevelopment:YES]:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末モデル名を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末モデル名を送信&lt;/h4&gt;
+
+&lt;p&gt;端末のモデル名を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.)iPhone, iPad&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setDeviceModel];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末osを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末OSを送信&lt;/h4&gt;
+
+&lt;p&gt;端末のOSを送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) iOS 8.0, iOS 8.4&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInsance] setOS];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;端末の言語設定を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;端末の言語設定を送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定言語を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) ja, en&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setLanguage];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンを送信&lt;/h4&gt;
+
+&lt;p&gt;端末で設定されたタイムゾーンを送信する。&lt;/p&gt;
+
+&lt;p&gt;例.) Asia/Tokyo, America/Los_Angeles&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setTimeZone];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;タイムゾーンオフセットを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タイムゾーンオフセットを送信&lt;/h4&gt;
+
+&lt;p&gt;端末の設定された時刻から、標準時刻の差分時間を送信します。&lt;/p&gt;
+
+&lt;p&gt;例.) 9, -11&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setTimeZoneOffset];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;アプリバージョンを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリバージョンを送信&lt;/h4&gt;
+
+&lt;p&gt;アプリに設定されたアプリバージョンを送信します。&lt;/p&gt;
+
+&lt;p&gt;Info.plistのCFBundleVersionに設定している値が入ります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setAppVersion];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;乱数を送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;乱数を送信&lt;/h4&gt;
+
+&lt;p&gt;乱数を端末の情報として紐付けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] setRandom];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;広告idを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告IDを送信&lt;/h4&gt;
+
+&lt;p&gt;広告IDを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[Growthbeat sharedInstance] setAdvertisingId];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;注意：&lt;em&gt;広告の表示欄がないアプリで利用すると申請時にリジェクトをされる可能性が高いので設定される場合は、十分にご注意ください。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;広告オプトアウトの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;広告オプトアウトの送信&lt;/h4&gt;
+
+&lt;p&gt;ユーザーが広告IDを利用するのを拒否しているかを送信します。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[Growthbeat sharedInstance] setTrackingEnabled];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;カスタムイベント-タグを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベント・タグを送信&lt;/h2&gt;
+
+&lt;h3 id=&#34;カスタムイベントとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のイベントを取得することが出来ます。カスタムイベントには、それぞれ一意のEventIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;CUSTOM_EVENT_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CUSTOM_EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)track:(NSString *)name;
+- (void)track:(NSString *)name properties:(NSDictionary *)properties;
+- (void)track:(NSString *)name option:(GATrackOption)option;
+- (void)track:(NSString *)name properties:(NSDictionary *)properties option:(GATrackOption)option;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムイベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionDefault,GATrackOptionOnce,GATrackOptionCounterのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;gatrackoption:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;GATrackOption&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionDefault&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;デフォルト値。特に何もしません。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionOnce&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionCounter&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] track:@&amp;quot;CUSTOM_EVENT_ID&amp;quot;];
+[[GrowthAnalytics sharedInstance] track:@&amp;quot;CUSTOM_EVENT_ID&amp;quot; properties:@{@&amp;quot;key&amp;quot;:@&amp;quot;value&amp;quot;}];
+[[GrowthAnalytics sharedInstance] track:@&amp;quot;CUSTOM_EVENT_ID&amp;quot; option:GATrackOptionCounter];
+[[GrowthAnalytics sharedInstance] track:@&amp;quot;CUSTOM_EVENT_ID&amp;quot; properties:@{@&amp;quot;key&amp;quot;:@&amp;quot;value&amp;quot;} option:GATrackOptionCounter];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;カスタムタグとは:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグとは？&lt;/h3&gt;
+
+&lt;p&gt;任意のタグを取得することが出来ます。カスタムタグには、それぞれ一意のTagIDを割り当てる必要があります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:Custom:&amp;lt;LAST_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なTagIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LAST_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;カスタムタグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムタグの送信&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)tag:(NSString *)name;
+- (void)tag:(NSString *)name value:(NSString *)value;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;カスタムタグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] tag:@&amp;quot;CUSTOM_TAG_ID&amp;quot;];
+[[GrowthAnalytics sharedInstance] tag:@&amp;quot;CUSTOM_TAG_ID&amp;quot; value:@&amp;quot;value&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;フルカスタマイズなイベント-タグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなイベント・タグの送信&lt;/h2&gt;
+
+&lt;h3 id=&#34;フルカスタマイズなイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなイベントの送信&lt;/h3&gt;
+
+&lt;p&gt;特定のネームスペース、イベントIDを設定していただくことが可能です。下記、イベントID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;EventID: &lt;code&gt;Event:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;EVENT_ID&amp;gt;&lt;/code&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EVENT_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;メソッド:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メソッド&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)track:(NSString *)_namespace name:(NSString *)name properties:(NSDictionary *)properties option:(GATrackOption)option completion:(void(^)(GAClientEvent * clientEvent))completion;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-2:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;_namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;properties&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる任意のMap&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;option&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionDefault,GATrackOptionOnce,GATrackOptionCounterのいずれかを指定します。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;completion&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベント作成後のコールバック&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;gatrackoption-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;GATrackOption&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionDefault&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;デフォルト値。特に何もしません。&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionOnce&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、このイベントは最初の1度しか取得されません。（例えば、インストールイベントなどで使用します。）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;GATrackOptionCounter&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;このオプションを指定した場合、自動でcounterといプロパティが付与され、イベントを呼び出した回数をインクリメントして保持していきます。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] track:@&amp;quot;NAMESPACE&amp;quot; name:@&amp;quot;EVENT_ID&amp;quot; properties:@{@&amp;quot;key&amp;quot;:@&amp;quot;value&amp;quot;} option:GATrackOptionCounter completion:nil];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;フルカスタマイズなタグの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;フルカスタマイズなタグの送信&lt;/h2&gt;
+
+&lt;p&gt;特定のネームスペース、タグIDを設定していただくことが可能です。下記、タグID発行例となります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TagID: &lt;code&gt;Tag:&amp;lt;YOUR_APPLICATION_ID&amp;gt;:&amp;lt;NAMESPACE&amp;gt;:&amp;lt;TAG_ID&amp;gt;&lt;/code&gt;&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;上記全文で一意なEventIDと認識されます。大文字小文字は区別されません。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;YOUR_APPLICATION_ID&lt;/code&gt;: ApplicationIDを指定されます。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;NAMESPACE&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;TAG_ID&lt;/code&gt;: 英数字[a-zA-Z0-9]で任意の識別子を指定してください。（大文字小文字は区別されません。）&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;メソッド-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メソッド&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)tag:(NSString *)_namespace name:(NSString *)name value:(NSString *)value completion:(void(^)(GAClientTag * clientTag))completion;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-3:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;_namespace&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;ネームスペース&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグID&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる任意のValue&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;completion&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグ作成後のコールバック&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthAnalytics sharedInstance] tag:@&amp;quot;NAMESPACE&amp;quot; name:@&amp;quot;TAG_ID&amp;quot; value:@&amp;quot;value&amp;quot; completion:nil];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;プッシュ通知の実装-growth-pushの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;プッシュ通知の実装 (Growth Pushの利用)&lt;/h1&gt;
+
+&lt;h1 id=&#34;growth-pushご利用の初期設定について:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growth Pushご利用の初期設定について&lt;/h1&gt;
+
+&lt;p&gt;Growth Push管理画面、証明書設定ページにて、各OSごとに証明書の設定を行ってください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://growthhack.sirok.co.jp/growthpush/ios-p12/&#34;&gt;iOSプッシュ通知証明書作成方法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;XCodeプロジェクトのBuild Setting &amp;gt; Provisioning Profileの設定をしてください。誤った設定方法となりますと、デバイストークンの取得ができません。&lt;/p&gt;
+
+&lt;h2 id=&#34;デバイストークンを取得-送信をする:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デバイストークンを取得・送信をする&lt;/h2&gt;
+
+&lt;p&gt;1. Growthhbeat#initializeWithApplicationIdの後に下記を呼び出す&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;  [[GrowthPush sharedInstance] requestDeviceTokenWithEnvironment:kGrowthPushEnvironment];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2. ApplicationDelegateにて下記を追加&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [[GrowthPush sharedInstance] setDeviceToken:deviceToken];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;イベント-タグの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベント・タグの取得&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;こちらのメソッドは、Growth Pushが、Growth Analyticsに統合されました段階で削除予定となっております。これまでGrowth Push SDKをご利用しておりました方は、Growth Analyticsのイベント・タグの送信にお乗り換えくださいませ。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;イベントを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;イベントを送信&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)trackEvent:(NSString *)name;
+- (void)trackEvent:(NSString *)name value:(NSString *)value;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-4:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベント名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;イベントに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthPush sharedInstance] trackEvent:@&amp;quot;EVENT_NAME&amp;quot;];
+[[GrowthPush sharedInstance] trackEvent:@&amp;quot;EVENT_NAME&amp;quot; value:@&amp;quot;EVENT_VALUE&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;タグを送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タグを送信&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)setTag:(NSString *)name;
+- (void)setTag:(NSString *)name value:(NSString *)value;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;パラメータ-5:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;パラメータ&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;項目名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;詳細&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;name&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグ名&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;value&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;タグに持たせる値&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthPush sharedInstance] setTag:@&amp;quot;TAG_NAME&amp;quot;];
+[[GrowthPush sharedInstance] setTag:@&amp;quot;TAG_NAME&amp;quot; value:@&amp;quot;TAG_VALUE&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;アプリ内ポップアップメッセージの実装-growth-messageの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリ内ポップアップメッセージの実装 (Growth Messageの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;メッセージを表示するviewを指定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;メッセージを表示するViewを指定&lt;/h2&gt;
+
+&lt;p&gt;メッセージ配信設定で、設定したイベントを、任意の箇所で、Growth Analyticsのtrackメソッドを呼び出し、イベントを送信します。この呼び出し箇所が、メッセージの表示箇所になります。&lt;/p&gt;
+
+&lt;h2 id=&#34;デフォルトで用意しているイベントの送信:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デフォルトで用意しているイベントの送信&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;open&lt;/em&gt; 起動イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;close&lt;/em&gt; 終了イベントを送信します。&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;purchase&lt;/em&gt; 課金イベントを送信します。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;カスタムイベントの送信-1:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;カスタムイベントの送信&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)track:(NSString *)name;
+- (void)track:(NSString *)name properties:(NSDictionary *)properties;
+- (void)track:(NSString *)name option:(GATrackOption)option;
+- (void)track:(NSString *)name properties:(NSDictionary *)properties option:(GATrackOption)option;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Growth Analyticsの実装方法を参照してください。&lt;/p&gt;
+
+&lt;h1 id=&#34;ディープリンクの実装-growth-linkの利用:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクの実装 (Growth Linkの利用)&lt;/h1&gt;
+
+&lt;h2 id=&#34;sdkの導入:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;SDKの導入&lt;/h2&gt;
+
+&lt;p&gt;Growthbeat.frameworkを導入した上で、Growthbeat SDK内の &lt;code&gt;source/GrowthLink&lt;/code&gt; に含まれる&lt;strong&gt;GrowthLink.framework&lt;/strong&gt;を導入します。任意のXcodeプロジェクトを開き、Growthbeat.frameworkをインポートしてください。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Growthbeat.frameworkのインポートの方法は2つあります。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Xcodeプロジェクトに、GrowthLink.frameworkをドラッグアンドドロップする。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Bulid Phases -&amp;gt; Link Binary With Librariesの+ボタンを押し、Add Other&amp;hellip;からGrowthLink.frameworkを選択。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;GrowthLinkのimport文を記述します。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;#import &amp;lt;GrowthLink/GrowthLink.h&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;初期設定:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Growthbeatへデバイス登録・認証を行います。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Growthbeatの初期化処理の後に、Growth Linkの初期化処理を呼び出す&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;[[GrowthLink sharedInstance] initializeWithApplicationId:@&amp;quot;APPLICATION_ID&amp;quot; credentialId:@&amp;quot;CREDENTIAL_ID&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;カスタムURLスキームでアプリを起動できるように、Info.plistを設定する。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;URL起動の処理で、handleOpenUrl:urlメソッドを呼び出す&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    [[GrowthLink sharedInstance] handleOpenUrl:url];
+    return YES;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ディープリンクアクションの実装:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;ディープリンクアクションの実装&lt;/h2&gt;
+
+&lt;p&gt;SDKには、GBIntentHandler (Androidでは、IntentHandler)というプロトコルが定義されており、この実装でディープリンク時のアクションを実装することができます。&lt;/p&gt;
+
+&lt;p&gt;たとえば下記のような形で実装できます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;@interface MyCustomIntentHandler : NSObject &amp;lt;GBIntentHandler&amp;gt;
+@end
+
+@implementation MyCustomIntentHandler
+
+- (BOOL)handleIntent:(GBIntent *)intent {
+
+    if (intent.type != GBIntentTypeCustom)
+        return false;
+
+    GBCustomIntent \*customIntent = (GBCustomIntent *)intent;
+    NSString *action = [customIntent.extra objectForKey:@&amp;quot;action&amp;quot;];
+    if(![action isEqualToString:@&amp;quot;open_view&amp;quot;])
+        return false;
+
+    NSString *view = [customIntent.extra objectForKey:@&amp;quot;view&amp;quot;];
+
+    // TODO viewに対応する画面を開く処理
+
+    return true;
+}
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こうして定義したクラスを GrowthbeatCore クラスの setIntentHandlers: に設定することで、利用可能となります。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;NSMutableArray *intentHandlers = [NSMutableArray array];
+[intentHandlers addObject:[[GBUrlIntentHandler alloc] init]];
+[intentHandlers addObject:[[GBNoopIntentHandler alloc] init]];
+[intentHandlers addObject:[[MyCustomIntentHandler alloc] init]];
+[[GrowthbeatCore sharedInstance] setIntentHandlers:intentHandlers];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;growth-push-sdkからの乗り換え方法について:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;Growth Push SDKからの乗り換え方法について&lt;/h1&gt;
+
+&lt;h2 id=&#34;前準備:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;前準備&lt;/h2&gt;
+
+&lt;p&gt;GrowthPushのApplicationIdから、GrowthbeatのApplicationIdに移行されるた
+め、&lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt;にアクセスして、ApplicationId、SDKキー（CredentialID）を確認します。&lt;/p&gt;
+
+&lt;h2 id=&#34;実装方法:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;実装方法&lt;/h2&gt;
+
+&lt;h3 id=&#34;sdkの初期化:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;SDKの初期化&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GrowthPush SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // EasyGrowthPushクラス利用時
+    [EasyGrowthPush setApplicationId:kYourApplicationId secret:@&amp;quot;YOU_APP_SECRET&amp;quot; environment:kGrowthPushEnvironment debug:YES];
+
+    // GrowthPushクラス利用時
+    [GrowthPush setApplicationId:kYourApplicationId secret:@&amp;quot;YOU_APP_SECRET&amp;quot; environment:kGrowthPushEnvironment debug:YES];
+    [GrowthPush requestDeviceToken];
+    [GrowthPush setDeviceTags];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+	// Growthbeat SDKの初期化
+	[[Growthbeat sharedInstance] initializeWithApplicationId:@&amp;quot;YOUR_APPLICATION_ID&amp;quot; credentialId:@&amp;quot;YOUR_CREDENTIAL_ID&amp;quot;];
+	// デバイストークンを明示的に要求
+	[[GrowthPush sharedInstance] requestDeviceTokenWithEnvironment:kGrowthPushEnvironment];
+
+	// deviceTagの取得
+	[[GrowthPush sharedInstance] setDeviceTags];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;アプリ起動時:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;アプリ起動時&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void)applicationDidBecomeActive:(UIApplication *)application {
+	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
+	// バッチの削除
+	[[GrowthPush sharedInstance] clearBadge];
+
+	// Launchイベントの取得
+	[[GrowthPush sharedInstance] trackEvent:@&amp;quot;Launch&amp;quot;];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;デバイストークンの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;デバイストークンの取得&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;- (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+	// デバイストークンをGrowhPushに送信
+	[[GrowthPush sharedInstance] setDeviceToken:deviceToken];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;タグ-イベントの取得:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;タグ・イベントの取得&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GrowthPush SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;// タグの取得
+[GrowthPush setTag:@&amp;quot;TAG_NAME&amp;quot;];
+[GrowthPush setTag:@&amp;quot;TAG_NAME&amp;quot; value:@&amp;quot;TAG_VALUE&amp;quot;];
+// イベントの取得
+[GrowthPush trackEvent:@&amp;quot;EVENT_NAME&amp;quot;];
+[GrowthPush trackEvent:@&amp;quot;EVENT_NAME&amp;quot; value:@&amp;quot;EVENT_VALUE&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat SDK&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-objc&#34;&gt;// タグの取得
+[[GrowthPush sharedInstance] setTag:@&amp;quot;TAG_NAME&amp;quot;];
+[[GrowthPush sharedInstance] setTag:@&amp;quot;TAG_NAME&amp;quot; value:@&amp;quot;TAG_VALUE&amp;quot;];
+// イベントの取得
+[[GrowthPush sharedInstance] trackEvent:@&amp;quot;EVENT_NAME&amp;quot;];
+[[GrowthPush sharedInstance] trackEvent:@&amp;quot;EVENT_NAME&amp;quot; value:@&amp;quot;EVENT_VALUE&amp;quot;];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;備考:94d9a081cd1256334373c8ca6fb6276c&#34;&gt;備考&lt;/h1&gt;
+
+&lt;p&gt;SDK導入について、ご不明な点などございます場合は、Growthbeat&lt;a href=&#34;https://growthbeat.com/inquiry&#34;&gt;お問い合わせフォーム&lt;/a&gt;からお問い合わせください。また &lt;a href=&#34;http://support.growthbeat.com/sdk/ios/release/&#34;&gt;リリースノート&lt;/a&gt;もご参照ください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/android/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/android/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-3:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.3&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link デバイスフィンガープリントに対応いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push SDKからの乗り換え方法を追加しました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;バグ対応&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Messageで、ポップアップのActivityが消えない問題を修正しました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-2:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.2&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Pushでカスタムアイコンを設定できるようにしました。&lt;/li&gt;
+&lt;li&gt;Growth Pushのダイアログ表示を管理画面から変更できるように変更しました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;カスタムアイコン表示の実装方法を記載しました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Messageの配信パターン、ウォークスルーをサポートしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iOSのみの実装方法の記載となります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link導入方法を追加&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-2:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.2&lt;/h2&gt;
+
+&lt;p&gt;**バグフィックス&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Pushデバイストークン送信方法を変更いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;変更点&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push一部メソッドを変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push導入方法追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;変更点&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat, Growth Analytics一部メソッド変更を修正&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;- Growth Push導入方法を追加いたしました。
+- Growthbeat, Growth Analyticsのメソッド変更点**を修正いたしました。&lt;/p&gt;
+
+&lt;h2 id=&#34;バージョン-1-0-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Analyticsカスタムタグ・イベントについて追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0&lt;/h2&gt;
+
+&lt;p&gt;Growthbeat メジャーバージョンSDKリリースいたしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat, Growth Analytics, Growth Messageの導入方法を記載&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/api/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/api/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-1-0-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメントリリース&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/cocos2dx/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/cocos2dx/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-3:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.3&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Cocos SDKをリリースしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;導入方法について掲載しました。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/ios/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/ios/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-3:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.3&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link デバイスフィンガープリントに対応いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push SDKからの乗り換え方法を追加しました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-2:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.2&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Messageの配信パターン、バナーをサポートしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Messageの配信パターン、ウォークスルーをサポートしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;iOSのみの実装方法の記載となります。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-2-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.2.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Link導入方法を追加&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-2:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.2&lt;/h2&gt;
+
+&lt;p&gt;**バグフィックス&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Pushデバイストークン送信方法を変更いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;変更点&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push一部メソッドを変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;バージョン-1-1-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.1.0&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push導入方法追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;変更点&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat, Growth Analytics一部メソッド変更を修正&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;- Growth Push導入方法を追加いたしました。
+- Growthbeat, Growth Analyticsのメソッド変更点を修正いたしました。&lt;/p&gt;
+
+&lt;h2 id=&#34;バージョン-1-0-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0.1&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;新機能&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Analyticsカスタムタグ・イベントについて追加いたしました。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0&lt;/h2&gt;
+
+&lt;p&gt;Growthbeat メジャーバージョンSDKリリースいたしました。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ドキュメント&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growthbeat, Growth Analytics, Growth Messageの導入方法を記載&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/unity/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/unity/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-1-0-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0.1&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Push一部メソッドを変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-1-0-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 1.0.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ドキュメントリリース&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>リリースノート</title>
+      <link>http://support.growthbeat.com/sdk/web/release/</link>
+      <pubDate>Mon, 14 Sep 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/web/release/</guid>
+      <description>
+
+&lt;h1 id=&#34;リリースノート:6cd007d62737e5a12b005b4414d7b899&#34;&gt;リリースノート&lt;/h1&gt;
+
+&lt;h2 id=&#34;バージョン-0-1-1:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 0.1.1&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Growth Analyticsについての内容を更新&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;バージョン-0-1-0:6cd007d62737e5a12b005b4414d7b899&#34;&gt;バージョン 0.1.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ドキュメントβ版&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Web Gudeliene</title>
+      <link>http://support.growthbeat.com/sdk/web/guide/</link>
+      <pubDate>Wed, 15 Jul 2015 14:32:58 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/web/guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;概要:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;概要&lt;/h1&gt;
+
+&lt;p&gt;グロースハックツールプラットホーム &lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt; の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。&lt;/p&gt;
+
+&lt;p&gt;現在、下記サービスを提供しています：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;サービス名&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Growthbeat&lt;/td&gt;
+&lt;td&gt;ユーザー総合管理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Push&lt;/td&gt;
+&lt;td&gt;プッシュ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Analytics&lt;/td&gt;
+&lt;td&gt;総合分析・解析&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Message&lt;/td&gt;
+&lt;td&gt;ポップアップ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Link&lt;/td&gt;
+&lt;td&gt;ディープリンクツール&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。&lt;/p&gt;
+
+&lt;h2 id=&#34;sdkについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDKについて&lt;/h2&gt;
+
+&lt;p&gt;各種 SDK は &lt;a href=&#34;https://github.com/SIROK&#34;&gt;GitHub&lt;/a&gt; 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios&#34;&gt;Growthbeat iOS SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android&#34;&gt;Growthbeat Android SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-unity&#34;&gt;Growthbeat Unity SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx&#34;&gt;Growthbeat Growthbeat Cocos2D-X SDK SDK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sdk機能:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK機能&lt;/h3&gt;
+
+&lt;p&gt;1つの SDK で Growthbeat 全てのサービスの機能が利用できます。&lt;em&gt;Note Growth Message, Growth Pushは、現在開発中です。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK導入について&lt;/h2&gt;
+
+&lt;h3 id=&#34;導入方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;導入方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-javascript/releases/tag/latest&#34;&gt;最新版Web SDK ダウンロードページ &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTML のscript タグで SDK を読み込みます：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt; &amp;lt;script src=&amp;quot;path/to/growthbeat.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;実装方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;p&gt;SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;API キー（REST API を使用時の認証に必須となるキー）&lt;/li&gt;
+&lt;li&gt;SDK キー（SDK の認証のために必須となるキー）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから &lt;strong&gt;マイページ&lt;/strong&gt; をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます&lt;/p&gt;
+
+&lt;p&gt;また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Growthbeat Unity Gudeliene</title>
+      <link>http://support.growthbeat.com/sdk/unity/guide/</link>
+      <pubDate>Sun, 07 Jun 2015 00:00:00 +0900</pubDate>
+      
+      <guid>http://support.growthbeat.com/sdk/unity/guide/</guid>
+      <description>
+
+&lt;h1 id=&#34;概要:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;概要&lt;/h1&gt;
+
+&lt;p&gt;グロースハックツールプラットホーム &lt;a href=&#34;https://growthbeat.com/&#34;&gt;Growthbeat&lt;/a&gt; の SDK 導入マニュアルです。Growthbeat の各サービスをアプリ内で利用するための技術仕様や導入の仕方について解説いたします。&lt;/p&gt;
+
+&lt;p&gt;現在、下記サービスを提供しています：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;サービス名&lt;/th&gt;
+&lt;th&gt;機能&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Growthbeat&lt;/td&gt;
+&lt;td&gt;ユーザー総合管理&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Push&lt;/td&gt;
+&lt;td&gt;プッシュ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Analytics&lt;/td&gt;
+&lt;td&gt;総合分析・解析&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Message&lt;/td&gt;
+&lt;td&gt;ポップアップ通知&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Growth Link&lt;/td&gt;
+&lt;td&gt;ディープリンクツール&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Growthbeat を利用するにはウェブページから新規登録をしていただくか、担当者より発行された情報からログインをしてご利用いただけます。&lt;/p&gt;
+
+&lt;h2 id=&#34;sdkについて:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDKについて&lt;/h2&gt;
+
+&lt;p&gt;各種 SDK は &lt;a href=&#34;https://github.com/SIROK&#34;&gt;GitHub&lt;/a&gt; 上で開発され、オープンソースとして公開されております。そのままアプリへ導入することも可能です。SDK を変更しご使用いただくことは可能となっております。しかし公開されている SDK のソース以外の変更を行われた場合の、アプリの不具合や動作については保証し兼ねますのでご了承ください。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat は現在 iOS, Android, Unity に対応しております。Cocos-2D-X も対応予定はしておりますので別途ご相談ください。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-ios&#34;&gt;Growthbeat iOS SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-android&#34;&gt;Growthbeat Android SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-unity&#34;&gt;Growthbeat Unity SDK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/SIROK/growthbeat-cocos2dx&#34;&gt;Growthbeat Growthbeat Cocos2D-X SDK SDK&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;sdk機能:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK機能&lt;/h3&gt;
+
+&lt;p&gt;1つの SDK で Growthbeat 全てのサービスの機能が利用できます。(Growth Link のご利用には別途 SDK の導入が必要です)&lt;/p&gt;
+
+&lt;h2 id=&#34;sdk導入について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;SDK導入について&lt;/h2&gt;
+
+&lt;h3 id=&#34;導入方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;導入方法&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Unity&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;導入したいプロジェクトに growthbeat.unitypackage をインポートします。&lt;/p&gt;
+
+&lt;h3 id=&#34;依存について:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;依存について&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;iOS&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Growthbeat.framework　は下記 Framework が必須となります：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Foundation.framework&lt;/li&gt;
+&lt;li&gt;UIKit.framework&lt;/li&gt;
+&lt;li&gt;CoreGraphics.framework&lt;/li&gt;
+&lt;li&gt;SystemConfiguration.framework&lt;/li&gt;
+&lt;li&gt;AdSupport.framework&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Android&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;growthbeat.jar は下記設定が必須となります：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;ライブラリプロジェクトとして google_play_service_lib をビルドパスに設定&lt;/li&gt;
+&lt;li&gt;AndroidManifest.xml の &lt;code&gt;&amp;lt;application&amp;gt;&lt;/code&gt; 内に以下を追加&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;meta-data
+    android:name=&amp;quot;com.google.android.gms.version&amp;quot;
+    android:value=&amp;quot;@integer/google_play_services_version&amp;quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;実装方法:8c27d0d0b409c1de1867fdc9a128c72c&#34;&gt;実装方法&lt;/h3&gt;
+
+&lt;p&gt;SDK利用時にアプリケーション ID と SDKキー を使用して認証をします。&lt;/p&gt;
+
+&lt;p&gt;Growthbeat 管理画面からアプリケーション ID と SDK キーを取得します。アカウント作成時に API キー（REST API を使用時の認証に必須となるキー）と SDK キー（SDK の認証のために必須となるキー）が用意されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;API キー（REST API を使用時の認証に必須となるキー）&lt;/li&gt;
+&lt;li&gt;SDK キー（SDK の認証のために必須となるキー）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;各サービスのヘッダーのアカウント名をクリックしします。そして、表示されるメニューから &lt;strong&gt;マイページ&lt;/strong&gt; をお選びください。Growthbeat マイページから API キー と SDKキーを見ることができます&lt;/p&gt;
+
+&lt;p&gt;また、アプリケーション ID は Growthbeat のマイページから任意のアプリケーションを選択し、アプリケーション ID を控えてください。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

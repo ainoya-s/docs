@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://support.growthbeat.com/</loc>
+    <lastmod>2015-09-28T14:32:58+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/cocos2dx/guide/</loc>
+    <lastmod>2015-09-28T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/android/guide/</loc>
+    <lastmod>2015-09-27T23:50:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/ios/guide/</loc>
+    <lastmod>2015-09-27T23:47:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/help/get-log/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/android/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/help/report-number/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/android/tutorial/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/api/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/cocos2dx/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/cocos2dx/tutorial/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/ios/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/ios/tutorial/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/unity/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/unity/tutorial/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/web/release/</loc>
+    <lastmod>2015-09-14T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/web/guide/</loc>
+    <lastmod>2015-07-15T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/unity/guide/</loc>
+    <lastmod>2015-06-07T00:00:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/api/guide/</loc>
+    <lastmod>2015-05-19T23:50:00+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/api/tutorial/</loc>
+    <lastmod>2015-05-19T14:32:58+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://support.growthbeat.com/sdk/web/tutorial/</loc>
+    <lastmod>2015-05-19T14:32:58+09:00</lastmod>
+  </url>
+  
+</urlset>

@@ -1,0 +1,5598 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Growthbeat API | Growthbeat | docs">
+  <meta property="og:url" content="http://support.growthbeat.com/sdk/api/tutorial/">
+  <meta property="og:description" content="Growthbeat API について説明します">
+  
+  <meta property="article:author" content="" />
+  <meta property="fb:app_id" content="" />
+  <meta property="og:site_name" content="Growthbeat | docs">
+
+  <title>
+      
+        Growthbeat API | Growthbeat | docs
+      
+  </title>
+
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link rel="stylesheet" href="http://support.growthbeat.com/css/main.css">
+</head>
+
+<body>
+
+
+
+  
+
+
+
+
+  
+
+
+<div class="wrapper">
+
+
+
+<header class="navbar-header" role="banner">
+  <div class="container">
+    <nav class="header-nav">
+      <h1 class="logo">
+        <a class="link"href="https://growthbeat.com/">
+          <img src="http://support.growthbeat.com//img/lp_growthbeat_logo_big.png" alt="Growthbeat logo">
+        </a>
+      </h1>
+
+      <div class="sighup">
+        <a class="btn" role="button" href="https://growthbeat.com/register">会員登録（無料）</a>
+      </div>
+      <div class="login">
+        <a class="link" href="https://growthbeat.com/login">ログイン</a>
+      </div>
+      <div class="feature">
+        <a class="link" href="https://growthbeat.com/features">ツール紹介</a>
+      </div>
+      <div class="about">
+        <a class="link"  href="https://growthbeat.com/about">Growthbeatについて</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="navbar-subheader">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/">サポートページ</a>
+      </li>
+      <li class="item">
+        <a class="link" href="http://support.growthbeat.com/sdk/">SDKドキュメント</a>
+      </li>
+      
+        <li class="item"><a class="link">チュートリアル</a></li>
+      
+      
+      
+    </ul>
+  </div>
+</section>
+
+
+
+<div class="content">
+  <div class="container">
+
+<div class="page">
+  <h1 class="title">
+    
+      チュートリアル
+　　 
+    <span class="updated">最終更新日 Tue, May 19, 2015</span>
+  </h1>
+  <a class="edit" href="https://github.com/growthbeat/docs/blob/master/content/sdk/api/tutorial.md">Edit on GitHub</a>
+</div>
+
+
+<section class="row markdown">
+    <div class="column column-sidebar">
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#growthbeat-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat API</a></li>
+<li><a href="#account-api:94d9a081cd1256334373c8ca6fb6276c">Account API</a>
+<ul>
+<li><a href="#accountレスポンス:94d9a081cd1256334373c8ca6fb6276c">Accountレスポンス</a></li>
+<li><a href="#アカウント取得:94d9a081cd1256334373c8ca6fb6276c">アカウント取得</a>
+<ul>
+<li><a href="#リクエスト:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#アカウントリストの取得:94d9a081cd1256334373c8ca6fb6276c">アカウントリストの取得</a>
+<ul>
+<li><a href="#リクエスト-1:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-1:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-1:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-1:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#新規アカウント作成:94d9a081cd1256334373c8ca6fb6276c">新規アカウント作成</a>
+<ul>
+<li><a href="#リクエスト-2:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-2:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-2:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-2:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#アカウント更新:94d9a081cd1256334373c8ca6fb6276c">アカウント更新</a>
+<ul>
+<li><a href="#リクエスト-3:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-3:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-3:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-3:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#application-api:94d9a081cd1256334373c8ca6fb6276c">Application API</a>
+<ul>
+<li><a href="#applicationレスポンス:94d9a081cd1256334373c8ca6fb6276c">Applicationレスポンス</a></li>
+<li><a href="#アプリケーションの取得:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの取得</a>
+<ul>
+<li><a href="#リクエスト-4:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-4:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-4:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-4:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#アプリケーション一覧:94d9a081cd1256334373c8ca6fb6276c">アプリケーション一覧</a>
+<ul>
+<li><a href="#リクエスト-5:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-5:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-5:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-5:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#アプリケーションの作成:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの作成</a>
+<ul>
+<li><a href="#リクエスト-6:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-6:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-6:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-6:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#アプリケーションの更新:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの更新</a>
+<ul>
+<li><a href="#リクエスト-7:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-7:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-7:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-7:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#client-api:94d9a081cd1256334373c8ca6fb6276c">Client API</a>
+<ul>
+<li><a href="#clientレスポンス:94d9a081cd1256334373c8ca6fb6276c">Clientレスポンス</a></li>
+<li><a href="#クライアント取得:94d9a081cd1256334373c8ca6fb6276c">クライアント取得</a>
+<ul>
+<li><a href="#リクエスト-8:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-8:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-8:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-8:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#クライアント一覧取得:94d9a081cd1256334373c8ca6fb6276c">クライアント一覧取得</a>
+<ul>
+<li><a href="#リクエスト-9:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-9:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-9:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-9:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#クライアント作成:94d9a081cd1256334373c8ca6fb6276c">クライアント作成</a>
+<ul>
+<li><a href="#リクエスト-10:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-10:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-10:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-10:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#connection-api:94d9a081cd1256334373c8ca6fb6276c">Connection API</a>
+<ul>
+<li><a href="#connectionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Connectionレスポンス</a></li>
+</ul></li>
+<li><a href="#consumption-api:94d9a081cd1256334373c8ca6fb6276c">Consumption API</a>
+<ul>
+<li><a href="#cpnsumptionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Cpnsumptionレスポンス</a></li>
+<li><a href="#コンサンプションの作成:94d9a081cd1256334373c8ca6fb6276c">コンサンプションの作成</a>
+<ul>
+<li><a href="#リクエスト-11:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-11:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-11:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-11:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#credential-api:94d9a081cd1256334373c8ca6fb6276c">Credential API</a>
+<ul>
+<li><a href="#credentialレスポンス:94d9a081cd1256334373c8ca6fb6276c">Credentialレスポンス</a></li>
+<li><a href="#クレデンシャルの取得:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの取得</a>
+<ul>
+<li><a href="#リクエスト-12:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-12:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-12:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-12:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#クレデンシャル一覧:94d9a081cd1256334373c8ca6fb6276c">クレデンシャル一覧</a>
+<ul>
+<li><a href="#リクエスト-13:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-13:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-13:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-13:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#クレデンシャルの作成:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの作成</a>
+<ul>
+<li><a href="#リクエスト-14:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-14:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-14:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-14:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#クレデンシャルの取得-1:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの取得</a>
+<ul>
+<li><a href="#リクエスト-15:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-15:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-15:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-15:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#permission-api:94d9a081cd1256334373c8ca6fb6276c">Permission API</a>
+<ul>
+<li><a href="#permissionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Permissionレスポンス</a></li>
+<li><a href="#パーミッション一覧:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</a>
+<ul>
+<li><a href="#リクエスト-16:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-16:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-16:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-16:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#パーミッション一覧-1:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</a>
+<ul>
+<li><a href="#リクエスト-17:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-17:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-17:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-17:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#パーミッション一覧-2:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</a>
+<ul>
+<li><a href="#リクエスト-18:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-18:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-18:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-18:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#パーミッション作成:94d9a081cd1256334373c8ca6fb6276c">パーミッション作成</a>
+<ul>
+<li><a href="#リクエスト-19:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-19:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-19:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-19:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#パーミッション削除:94d9a081cd1256334373c8ca6fb6276c">パーミッション削除</a>
+<ul>
+<li><a href="#リクエスト-20:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-20:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-20:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-20:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#パーミッション権限の有無取得:94d9a081cd1256334373c8ca6fb6276c">パーミッション権限の有無取得</a>
+<ul>
+<li><a href="#リクエスト-21:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-21:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-21:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-21:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#plan-api:94d9a081cd1256334373c8ca6fb6276c">Plan API</a>
+<ul>
+<li><a href="#planレスポンス:94d9a081cd1256334373c8ca6fb6276c">Planレスポンス</a></li>
+<li><a href="#プラン取得:94d9a081cd1256334373c8ca6fb6276c">プラン取得</a>
+<ul>
+<li><a href="#リクエスト-22:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-22:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-22:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-22:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#session-api:94d9a081cd1256334373c8ca6fb6276c">Session API</a>
+<ul>
+<li><a href="#sessionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Sessionレスポンス</a></li>
+<li><a href="#セッションの取得:94d9a081cd1256334373c8ca6fb6276c">セッションの取得</a>
+<ul>
+<li><a href="#リクエスト-23:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-23:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-23:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-23:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#user-api:94d9a081cd1256334373c8ca6fb6276c">User API</a>
+<ul>
+<li><a href="#userレスポンス:94d9a081cd1256334373c8ca6fb6276c">Userレスポンス</a></li>
+<li><a href="#ユーザー取得:94d9a081cd1256334373c8ca6fb6276c">ユーザー取得</a>
+<ul>
+<li><a href="#リクエスト-24:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-24:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-24:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-24:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#ユーザー一覧取得:94d9a081cd1256334373c8ca6fb6276c">ユーザー一覧取得</a>
+<ul>
+<li><a href="#リクエスト-25:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-25:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-25:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-25:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#ユーザー作成:94d9a081cd1256334373c8ca6fb6276c">ユーザー作成</a>
+<ul>
+<li><a href="#リクエスト-26:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-26:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-26:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-26:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#growth-analytics-api:94d9a081cd1256334373c8ca6fb6276c">Growth Analytics API</a></li>
+<li><a href="#clientevents-api:94d9a081cd1256334373c8ca6fb6276c">ClientEvents API</a>
+<ul>
+<li><a href="#clienteventレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientEventレスポンス</a>
+<ul>
+<li><a href="#クライアント毎のイベント一覧取得:94d9a081cd1256334373c8ca6fb6276c">クライアント毎のイベント一覧取得</a></li>
+<li><a href="#リクエスト-27:94d9a081cd1256334373c8ca6fb6276c">リクエスト</a></li>
+<li><a href="#パラメーター-27:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-27:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#curl例:94d9a081cd1256334373c8ca6fb6276c">curl例</a></li>
+</ul></li>
+<li><a href="#クライアントにイベントトラッキングを作成:94d9a081cd1256334373c8ca6fb6276c">クライアントにイベントトラッキングを作成</a>
+<ul>
+<li><a href="#パラメーター-28:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-28:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-27:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#clientsegments-api:94d9a081cd1256334373c8ca6fb6276c">ClientSegments API</a>
+<ul>
+<li><a href="#clientsegmentレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientSegmentレスポンス</a></li>
+<li><a href="#クライアントのセグメントを取得:94d9a081cd1256334373c8ca6fb6276c">クライアントのセグメントを取得</a>
+<ul>
+<li><a href="#パラメーター-29:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-29:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-28:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#clienttags-api:94d9a081cd1256334373c8ca6fb6276c">ClientTags API</a>
+<ul>
+<li><a href="#clienttagレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientTagレスポンス</a></li>
+<li><a href="#クライアントのタグ作成-更新:94d9a081cd1256334373c8ca6fb6276c">クライアントのタグ作成・更新</a>
+<ul>
+<li><a href="#パラメーター-30:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-30:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-29:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#タグidに紐づく一覧を取得:94d9a081cd1256334373c8ca6fb6276c">タグIDに紐づく一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-31:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-31:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-30:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#datapoint-api:94d9a081cd1256334373c8ca6fb6276c">DataPoint API</a>
+<ul>
+<li><a href="#datapointレスポンス:94d9a081cd1256334373c8ca6fb6276c">DataPointレスポンス</a></li>
+<li><a href="#データポイント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">データポイント一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-32:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-32:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-31:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#events-api:94d9a081cd1256334373c8ca6fb6276c">Events API</a>
+<ul>
+<li><a href="#eventレスポンス:94d9a081cd1256334373c8ca6fb6276c">Eventレスポンス</a></li>
+<li><a href="#イベントを取得:94d9a081cd1256334373c8ca6fb6276c">イベントを取得</a>
+<ul>
+<li><a href="#パラメーター-33:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-33:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-32:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#イベント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">イベント一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-34:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-34:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-33:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#イベントを更新:94d9a081cd1256334373c8ca6fb6276c">イベントを更新</a>
+<ul>
+<li><a href="#パラメーター-35:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-35:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-34:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#イベントを削除:94d9a081cd1256334373c8ca6fb6276c">イベントを削除</a>
+<ul>
+<li><a href="#パラメーター-36:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-36:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-35:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#metrics-api:94d9a081cd1256334373c8ca6fb6276c">Metrics API</a>
+<ul>
+<li><a href="#metricレスポンス:94d9a081cd1256334373c8ca6fb6276c">Metricレスポンス</a></li>
+<li><a href="#メトリックを取得:94d9a081cd1256334373c8ca6fb6276c">メトリックを取得</a>
+<ul>
+<li><a href="#パラメーター-37:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-37:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-36:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#メトリック一覧を取得:94d9a081cd1256334373c8ca6fb6276c">メトリック一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-38:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-38:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-37:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#メトリックの更新:94d9a081cd1256334373c8ca6fb6276c">メトリックの更新</a>
+<ul>
+<li><a href="#パラメーター-39:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-39:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-38:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#メトリックの削除:94d9a081cd1256334373c8ca6fb6276c">メトリックの削除</a>
+<ul>
+<li><a href="#パラメーター-40:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-40:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-39:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#segments-api:94d9a081cd1256334373c8ca6fb6276c">Segments API</a>
+<ul>
+<li><a href="#segment:94d9a081cd1256334373c8ca6fb6276c">Segment</a></li>
+<li><a href="#セグメント取得:94d9a081cd1256334373c8ca6fb6276c">セグメント取得</a>
+<ul>
+<li><a href="#パラメーター-41:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-41:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-40:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#セグメント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">セグメント一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-42:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-42:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-41:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#セグメントを更新:94d9a081cd1256334373c8ca6fb6276c">セグメントを更新</a>
+<ul>
+<li><a href="#パラメーター-43:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-43:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-42:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#セグメントを削除:94d9a081cd1256334373c8ca6fb6276c">セグメントを削除</a>
+<ul>
+<li><a href="#パラメーター-44:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-44:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-43:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tags-api:94d9a081cd1256334373c8ca6fb6276c">Tags API</a>
+<ul>
+<li><a href="#tag:94d9a081cd1256334373c8ca6fb6276c">Tag</a></li>
+<li><a href="#タグを取得:94d9a081cd1256334373c8ca6fb6276c">タグを取得</a>
+<ul>
+<li><a href="#パラメーター-45:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-45:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-44:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#タグ一覧を取得:94d9a081cd1256334373c8ca6fb6276c">タグ一覧を取得</a>
+<ul>
+<li><a href="#パラメーター-46:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-46:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-45:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#タグを更新:94d9a081cd1256334373c8ca6fb6276c">タグを更新</a>
+<ul>
+<li><a href="#パラメーター-47:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-47:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-46:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+<li><a href="#タグを削除:94d9a081cd1256334373c8ca6fb6276c">タグを削除</a>
+<ul>
+<li><a href="#パラメーター-48:94d9a081cd1256334373c8ca6fb6276c">パラメーター</a></li>
+<li><a href="#必要な権限-48:94d9a081cd1256334373c8ca6fb6276c">必要な権限</a></li>
+<li><a href="#例-47:94d9a081cd1256334373c8ca6fb6276c">例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#備考:94d9a081cd1256334373c8ca6fb6276c">備考</a></li>
+</ul>
+</nav>
+    </div>
+    <div class="column column-main">
+      <div class="typeset">
+        
+
+<h1 id="growthbeat-api:94d9a081cd1256334373c8ca6fb6276c">Growthbeat API</h1>
+
+<h1 id="account-api:94d9a081cd1256334373c8ca6fb6276c">Account API</h1>
+
+<p>Growthbeatでは、APIやSDKの認証のために必要となる対象をAccountを表しています。</p>
+
+<h2 id="accountレスポンス:94d9a081cd1256334373c8ca6fb6276c">Accountレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>アカウントID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>アカウント名</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>アカウント作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="アカウント取得:94d9a081cd1256334373c8ca6fb6276c">アカウント取得</h2>
+
+<p>アカウントの取得</p>
+
+<h3 id="リクエスト:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/accounts/{accountId">https://api.growthbeat.com/1/accounts/{accountId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetAccount</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/accounts/akfbW0ewZ4IAGLtZ?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Subaccount for Growthbeat&quot;,
+	&quot;id&quot;:&quot;akfbW0ewZ4IAGLtZ&quot;,
+	&quot;created&quot;:&quot;2014-06-26T06:44:56+0000&quot;
+}
+</code></pre>
+
+<h2 id="アカウントリストの取得:94d9a081cd1256334373c8ca6fb6276c">アカウントリストの取得</h2>
+
+<h3 id="リクエスト-1:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/accounts">https://api.growthbeat.com/1/accounts</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-1:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-1:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetAccount</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-1:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/accounts?id=akfbW0ewZ4IAGLtZ&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+    {
+        &quot;name&quot;: &quot;Root&quot;,
+        &quot;id&quot;: &quot;OrSP1ttjq3h1htZ4&quot;,
+        &quot;created&quot;: &quot;2014-10-01T07:19:57+0000&quot;
+    },
+    {
+        &quot;name&quot;: &quot;Permitter&quot;,
+        &quot;id&quot;: &quot;OrSR3rZuXbiVxhAk&quot;,
+        &quot;created&quot;: &quot;2014-10-01T07:28:01+0000&quot;
+    },
+    {
+        &quot;name&quot;: &quot;Growthbeat&quot;,
+        &quot;id&quot;: &quot;OrSS8ZMyFQ3UmmV4&quot;,
+        &quot;created&quot;: &quot;2014-10-01T07:32:17+0000&quot;
+    },
+    {
+        &quot;name&quot;: &quot;GrowthPush master account&quot;,
+        &quot;id&quot;: &quot;OrT7YwUo9DenXqVd&quot;,
+        &quot;created&quot;: &quot;2014-10-01T19:16:50+0000&quot;
+    },
+    ...(略)
+		}
+	]
+</code></pre>
+
+<h2 id="新規アカウント作成:94d9a081cd1256334373c8ca6fb6276c">新規アカウント作成</h2>
+
+<p>作成したアカウントに指定したアクション権限を付与します</p>
+
+<h3 id="リクエスト-2:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/accounts">https://api.growthbeat.com/1/accounts</a></td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-2:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>アカウント名</td>
+<td>空の文字列</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-2:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<p>リソース内のaccountIdはアカウントのクレデンシャル用</p>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:CreateAccount</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-2:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/accounts' -d 'name=Account for production' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Account for production&quot;,
+	&quot;id&quot;:&quot;Wcgc1MjCoj4eHhnh&quot;,
+	&quot;created&quot;:&quot;2014-08-21T15:26:31+0000&quot;
+}
+</code></pre>
+
+<h2 id="アカウント更新:94d9a081cd1256334373c8ca6fb6276c">アカウント更新</h2>
+
+<h3 id="リクエスト-3:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/accounts/{accountId">https://api.growthbeat.com/1/accounts/{accountId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-3:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>アカウント名</td>
+<td>空の文字列</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-3:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:UpdateAccount</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-3:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'http://api.growthbeat.local:8085/1/accounts/PD27QThig5d8olR6' -d 'name=update name' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;update name&quot;,
+	&quot;id&quot;:&quot;PD27QThig5d8olR6&quot;,
+	&quot;created&quot;:&quot;2015-05-18T11:02:19+0000&quot;
+}
+</code></pre>
+
+<h1 id="application-api:94d9a081cd1256334373c8ca6fb6276c">Application API</h1>
+
+<p>アプリケーションに、端末やトラッキングデータなどの様々なデータが蓄積されます。</p>
+
+<p>基本的には、iOS / Androidのプラットホーム全て１つのアプリケーションとして使うことが可能です。</p>
+
+<h2 id="applicationレスポンス:94d9a081cd1256334373c8ca6fb6276c">Applicationレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>アプリケーションID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>アプリケーション名</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="アプリケーションの取得:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの取得</h2>
+
+<h3 id="リクエスト-4:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/applications/{applicationId">https://api.growthbeat.com/1/applications/{applicationId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-4:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-4:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:Growthbeat:GetApplication</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-4:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/applications/LBYtXQ26k6pHRZZB?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Default app&quot;,
+	&quot;id&quot;:&quot;LBYtXQ26k6pHRZZB&quot;,
+	&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;
+}
+</code></pre>
+
+<h2 id="アプリケーション一覧:94d9a081cd1256334373c8ca6fb6276c">アプリケーション一覧</h2>
+
+<h3 id="リクエスト-5:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/applications">https://api.growthbeat.com/1/applications</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-5:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-5:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:ListApplication</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-5:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/applications/?accountId='L6rmAwrpJvMjowGu'&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+    {&quot;name&quot;:&quot;Default app&quot;,&quot;id&quot;:&quot;LBYtXQ26k6pHRZZB&quot;,&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;},
+    {&quot;name&quot;:&quot;Default app&quot;,&quot;id&quot;:&quot;x8CkiXLSyZ61FOcG&quot;,&quot;created&quot;:&quot;2014-06-26T06:44:56+0000&quot;}
+]
+</code></pre>
+
+<h2 id="アプリケーションの作成:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの作成</h2>
+
+<h3 id="リクエスト-6:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/applications">https://api.growthbeat.com/1/applications</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-6:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>アカウント名</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-6:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application</td>
+<td>Action:Growthbeat:CreateApplication</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-6:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/applications' -d 'name=Account for production' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Account for production&quot;,
+	&quot;id&quot;:&quot;57ztw5jLJKqm3zlV&quot;,
+	&quot;created&quot;:&quot;2014-08-26T02:23:08+0000&quot;
+}
+</code></pre>
+
+<h2 id="アプリケーションの更新:94d9a081cd1256334373c8ca6fb6276c">アプリケーションの更新</h2>
+
+<h3 id="リクエスト-7:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/applications/{applicationId">https://api.growthbeat.com/1/applications/{applicationId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-7:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>アプリケーション名</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-7:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:Growthbeat:UpdateApplication</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-7:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT 'https://api.growthbeat.com/1/applications/LBYtXQ26k6pHRZZB' -d 'name=Account for production' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Account for production&quot;,
+	&quot;id&quot;:&quot;LBYtXQ26k6pHRZZB&quot;,
+	&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;
+}
+</code></pre>
+
+<h1 id="client-api:94d9a081cd1256334373c8ca6fb6276c">Client API</h1>
+
+<p>端末を表します。</p>
+
+<h2 id="clientレスポンス:94d9a081cd1256334373c8ca6fb6276c">Clientレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>クライアントID</td>
+</tr>
+
+<tr>
+<td>application</td>
+<td>アプリケーション</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>クライアント作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="クライアント取得:94d9a081cd1256334373c8ca6fb6276c">クライアント取得</h2>
+
+<h3 id="リクエスト-8:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/clients/{clientId">https://api.growthbeat.com/1/clients/{clientId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-8:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-8:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:Growthbeat:GetClient</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-8:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/clients/5FCgfMiXq8r2goLj?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;id&quot;:&quot;5FCgfMiXq8r2goLj&quot;,
+	&quot;created&quot;:&quot;2014-06-26T06:46:16+0000&quot;,
+	&quot;application&quot;:{
+		&quot;name&quot;:&quot;My365&quot;,
+		&quot;id&quot;:&quot;dy6VlRMnN3juhW9L&quot;,
+		&quot;created&quot;:&quot;2014-06-26T06:46:02+0000&quot;
+	}
+}
+</code></pre>
+
+<h2 id="クライアント一覧取得:94d9a081cd1256334373c8ca6fb6276c">クライアント一覧取得</h2>
+
+<h3 id="リクエスト-9:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/clients">https://api.growthbeat.com/1/clients</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-9:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>applicationId</td>
+<td>アプリケーションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート順</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>一回の取得上限数</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-9:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:Growthbeat:ListClient</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-9:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/clients?applicationId=dy6VlRMnN3juhW9L&amp;clientId=5FCgfMiXq2goLj&amp;order=ascending&amp;limit=100&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;id&quot;:&quot;5FCgfMiXq8r2goLj&quot;,&quot;created&quot;:&quot;2014-06-26T06:46:16+0000&quot;,&quot;application&quot;:{&quot;name&quot;:&quot;My365&quot;,&quot;id&quot;:&quot;dy6VlRMnN3juhW9L&quot;,&quot;created&quot;:&quot;2014-06-26T06:46:02+0000&quot;}},
+	{&quot;id&quot;:&quot;a0sSoL0ZWfucxHma&quot;,&quot;created&quot;:&quot;2014-06-26T06:46:17+0000&quot;,&quot;application&quot;:{&quot;name&quot;:&quot;My365&quot;,&quot;id&quot;:&quot;dy6VlRMnN3juhW9L&quot;,&quot;created&quot;:&quot;2014-06-26T06:46:02+0000&quot;}}
+
+]
+</code></pre>
+
+<h2 id="クライアント作成:94d9a081cd1256334373c8ca6fb6276c">クライアント作成</h2>
+
+<h3 id="リクエスト-10:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/clients">https://api.growthbeat.com/1/clients</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-10:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>applicationId</td>
+<td>アプリケーションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-10:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:Growthbeat:CreateClient</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-10:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/clients' -d 'applicationId=LBYtXQ26k6pHRZZB' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;id&quot;:&quot;sp0vUsS9vxAehlHc&quot;,
+	&quot;created&quot;:&quot;2014-08-26T07:34:38+0000&quot;,
+	&quot;application&quot;:{
+		&quot;name&quot;:&quot;Account for production&quot;,
+		&quot;id&quot;:&quot;LBYtXQ26k6pHRZZB&quot;,
+		&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;
+	}
+}
+</code></pre>
+
+<h1 id="connection-api:94d9a081cd1256334373c8ca6fb6276c">Connection API</h1>
+
+<p>Growthbeat各サービスの利用を許可しているかを表します。</p>
+
+<h2 id="connectionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Connectionレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>コネクションID</td>
+</tr>
+
+<tr>
+<td>account</td>
+<td>コネクション用アカウント</td>
+</tr>
+
+<tr>
+<td>service</td>
+<td>コネクション用サービス</td>
+</tr>
+
+<tr>
+<td>childAccount</td>
+<td>connectionの子アカウント</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>コネクション作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="consumption-api:94d9a081cd1256334373c8ca6fb6276c">Consumption API</h1>
+
+<p>リクエスト数を表します。</p>
+
+<h2 id="cpnsumptionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Cpnsumptionレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>count</td>
+<td>1度のリクエストに対するカウント</td>
+</tr>
+
+<tr>
+<td>account</td>
+<td>コンサンプションアカウント</td>
+</tr>
+
+<tr>
+<td>action</td>
+<td>コンサンプションのアクション</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>コンサンプション作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="コンサンプションの作成:94d9a081cd1256334373c8ca6fb6276c">コンサンプションの作成</h2>
+
+<h3 id="リクエスト-11:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/consumptions">https://api.growthbeat.com/1/consumptions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-11:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>actionId</td>
+<td>アクションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>count</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-11:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Service:{serviceId}</td>
+<td>Action:Growthbeat:CreateConsumption</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-11:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/consumptions' -d 'accountId=akfbW0ewZ4IAGLtZ' -d 'actionId=Action:Growthbeat:GetAccount' -d 'count=1' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;created&quot;:&quot;2014-08-26T10:03:37+0000&quot;,
+	&quot;count&quot;:1,
+	&quot;account&quot;:{
+		&quot;name&quot;:&quot;Subaccount for Growthbeat&quot;,
+		&quot;id&quot;:&quot;akfbW0ewZ4IAGLtZ&quot;,
+		&quot;created&quot;:&quot;2014-06-26T06:44:56+0000&quot;
+	},
+	&quot;action&quot;:{
+		&quot;name&quot;:&quot;GetAccount&quot;,
+		&quot;id&quot;:&quot;Action:Growthbeat:GetAccount&quot;,
+		&quot;created&quot;:&quot;2014-05-29T04:39:40+0000&quot;
+	}
+}
+</code></pre>
+
+<h1 id="credential-api:94d9a081cd1256334373c8ca6fb6276c">Credential API</h1>
+
+<p>認証用の鍵となります。複数生成することができます。</p>
+
+<h2 id="credentialレスポンス:94d9a081cd1256334373c8ca6fb6276c">Credentialレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>クレデンシャルID</td>
+</tr>
+
+<tr>
+<td>account</td>
+<td>クレデンシャル用アカウント</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成時刻</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="クレデンシャルの取得:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの取得</h2>
+
+<h3 id="リクエスト-12:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/credentials/{credentialId">https://api.growthbeat.com/1/credentials/{credentialId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-12:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-12:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetCredential</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-12:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/credentials/nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;id&quot;:&quot;nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY&quot;,
+	&quot;created&quot;:&quot;2014-05-27T06:17:05+0000&quot;,
+	&quot;account&quot;:{
+		&quot;name&quot;:&quot;Root Account&quot;,
+		&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+		&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+	}
+}
+</code></pre>
+
+<h2 id="クレデンシャル一覧:94d9a081cd1256334373c8ca6fb6276c">クレデンシャル一覧</h2>
+
+<h3 id="リクエスト-13:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/credentials">https://api.growthbeat.com/1/credentials</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-13:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-13:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:ListCredential</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-13:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/credentials?accountId='L6rmAwrpJvMjowGu'&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;id&quot;:&quot;nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY&quot;,
+		&quot;created&quot;:&quot;2014-05-27T06:17:05+0000&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;Root Account&quot;,
+			&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+			&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+		}
+	}
+]
+</code></pre>
+
+<h2 id="クレデンシャルの作成:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの作成</h2>
+
+<h3 id="リクエスト-14:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/credentials">https://api.growthbeat.com/1/credentials</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-14:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-14:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:CreateCredential</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-14:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/credentials' -d 'accountId=L6rmAwrpJvMjowGu' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;id&quot;:&quot;qrsshfX9sItzaSQJ7T0js9sUYQkkKexJ&quot;,
+	&quot;created&quot;:&quot;2014-08-26T12:32:13+0000&quot;,
+	&quot;account&quot;:{
+		&quot;name&quot;:&quot;Root Account&quot;,
+		&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+		&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+	}
+}
+</code></pre>
+
+<h2 id="クレデンシャルの取得-1:94d9a081cd1256334373c8ca6fb6276c">クレデンシャルの取得</h2>
+
+<h3 id="リクエスト-15:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/credentials">https://api.growthbeat.com/1/credentials</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-15:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>sessionId</td>
+<td>セッションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-15:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Service:{serviceId}</td>
+<td>Action:Growthbeat:GetCredential</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-15:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/credentials?sessionId=30630PW1HIIy8pcdkPzuJzAxDzbxG4rv&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;id&quot;:&quot;3wr8sYcxZweD5ohp6vzfRiQKQilxhlhH&quot;,
+		&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;Subaccount for Growthbeat&quot;,
+			&quot;id&quot;:&quot;xoCKaD10WHqoRLNw&quot;,
+			&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;
+		}
+	}
+]
+</code></pre>
+
+<h1 id="permission-api:94d9a081cd1256334373c8ca6fb6276c">Permission API</h1>
+
+<p>権限を表します。特定のアプリケーションまたはアカウントに、実行権限を付与したり削除することが可能です。</p>
+
+<h2 id="permissionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Permissionレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>account</td>
+<td>権限を付与したアカウント</td>
+</tr>
+
+<tr>
+<td>targetAccount</td>
+<td>権限を付与されたアカウント</td>
+</tr>
+
+<tr>
+<td>resource</td>
+<td>対象リソース</td>
+</tr>
+
+<tr>
+<td>action</td>
+<td>対象実行</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日時</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="パーミッション一覧:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</h2>
+
+<h3 id="リクエスト-16:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/permissions">https://api.growthbeat.com/1/permissions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-16:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-16:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:ListPermission</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-16:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/permissions?accountId=L6rmAwrpJvMjowGu&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;created&quot;:&quot;2014-05-27T13:36:25+0000&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;Root Account&quot;,
+			&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+			&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+		},
+		&quot;targetAccount&quot;:{
+			&quot;name&quot;:&quot;Growthbeat Master Account&quot;,
+			&quot;id&quot;:&quot;qRkucFch8owN2PWs&quot;,
+			&quot;created&quot;:&quot;2014-06-01T02:23:46+0000&quot;
+		},
+		&quot;resource&quot;:{
+			&quot;name&quot;:&quot;Resource&quot;,
+			&quot;id&quot;:&quot;Resource&quot;,
+			&quot;created&quot;:&quot;2014-06-01T01:22:29+0000&quot;
+		},
+
+	　（中略）
+	　
+	}
+]
+</code></pre>
+
+<h2 id="パーミッション一覧-1:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</h2>
+
+<h3 id="リクエスト-17:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/permissions">https://api.growthbeat.com/1/permissions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-17:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>targetAccountId</td>
+<td>ターゲットアカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-17:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{targetAccountId}</td>
+<td>Action:Growthbeat:ListPermission</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-17:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/permissions?targetAccountId=L6rmAwrpJvMjowGu&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;created&quot;:&quot;2014-05-27T13:36:25+0000&quot;,
+		&quot;account&quot;:null,
+		&quot;targetAccount&quot;:{
+			&quot;name&quot;:&quot;Root Account&quot;,
+			&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+			&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+		},
+		&quot;resource&quot;:{
+			&quot;name&quot;:&quot;Resource&quot;,
+			&quot;id&quot;:&quot;Resource&quot;,
+			&quot;created&quot;:&quot;2014-06-01T01:22:29+0000&quot;
+		},
+
+	　（中略）
+
+	}
+]
+</code></pre>
+
+<h2 id="パーミッション一覧-2:94d9a081cd1256334373c8ca6fb6276c">パーミッション一覧</h2>
+
+<h3 id="リクエスト-18:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/permissions">https://api.growthbeat.com/1/permissions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-18:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>付与元アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>targetAccountId</td>
+<td>付与先アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-18:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:ListPermission</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-18:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/permissions?accountId=DFhnn09qoQQiG1YX&amp;targetAccountId=qRkucFch8owN2PWs&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;created&quot;:&quot;2014-05-27T13:36:25+0000&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;Default Permission Account&quot;,
+			&quot;id&quot;:&quot;DFhnn09qoQQiG1YX&quot;,
+			&quot;created&quot;:&quot;2014-06-01T02:23:46+0000&quot;
+		},
+		&quot;targetAccount&quot;:{
+			&quot;name&quot;:&quot;Growthbeat Master Account&quot;,
+			&quot;id&quot;:&quot;qRkucFch8owN2PWs&quot;,
+			&quot;created&quot;:&quot;2014-06-01T02:23:46+0000&quot;
+		},
+		&quot;resource&quot;:{
+			&quot;name&quot;:&quot;Resource&quot;,
+			&quot;id&quot;:&quot;Resource&quot;,
+			&quot;created&quot;:&quot;2014-06-01T01:22:29+0000&quot;
+		},
+		&quot;action&quot;:{
+			&quot;name&quot;:&quot;Action&quot;,
+			&quot;id&quot;:&quot;Action&quot;,
+			&quot;created&quot;:&quot;2014-06-01T01:15:44+0000&quot;
+		}
+	}
+]
+</code></pre>
+
+<h2 id="パーミッション作成:94d9a081cd1256334373c8ca6fb6276c">パーミッション作成</h2>
+
+<h3 id="リクエスト-19:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/permissions">https://api.growthbeat.com/1/permissions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-19:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>付与元アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>targetAccountId</td>
+<td>付与先アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>resourceId</td>
+<td>対象リソースID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>actionId</td>
+<td>対象アクションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-19:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:CreatePermission</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-19:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.growthbeat.com/1/permissions' -d 'accountId=L6rmAwrpJvMjowGu' -d 'targetAccountId=qRkucFch8owN2PWs' -d 'resourceId=Resource:Growthbeat:Account:L6rmAwrpJvMjowGu' -d 'actionId=Action:Growthbeat:GetAccount' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;created&quot;:&quot;2014-08-26T14:12:25+0000&quot;,
+	&quot;account&quot;:{
+		&quot;name&quot;:&quot;Root Account&quot;,
+		&quot;id&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+		&quot;created&quot;:&quot;2014-05-27T06:15:19+0000&quot;
+	},
+	&quot;targetAccount&quot;:{
+		&quot;name&quot;:&quot;Growthbeat Master Account&quot;,
+		&quot;id&quot;:&quot;qRkucFch8owN2PWs&quot;,
+		&quot;created&quot;:&quot;2014-06-01T02:23:46+0000&quot;
+	},
+	&quot;resource&quot;:{
+		&quot;name&quot;:&quot;L6rmAwrpJvMjowGu&quot;,
+		&quot;id&quot;:&quot;Resource:Growthbeat:Account:L6rmAwrpJvMjowGu&quot;,
+		&quot;created&quot;:&quot;2014-05-29T04:39:40+0000&quot;
+	},
+	&quot;action&quot;:{
+		&quot;name&quot;:&quot;GetAccount&quot;,
+		&quot;id&quot;:&quot;Action:Growthbeat:GetAccount&quot;,
+		&quot;created&quot;:&quot;2014-05-29T04:39:40+0000&quot;
+	}
+}
+</code></pre>
+
+<h2 id="パーミッション削除:94d9a081cd1256334373c8ca6fb6276c">パーミッション削除</h2>
+
+<h3 id="リクエスト-20:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/permissions">https://api.growthbeat.com/1/permissions</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-20:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>付与元アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>targetAccountId</td>
+<td>付与先アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>resourceId</td>
+<td>対象リソースID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>actionId</td>
+<td>対象アクションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-20:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:DeletePermission</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-20:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -i -X DELETE -H 'Accept: application/json' 'https://api.growthbeat.com/1/permissions?accountId=L6rmAwrpJvMjowGu&amp;targetAccountId=knpjsN0ectt634v0&amp;resourceId=Resource&amp;actionId=Action:GrowthPush&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>HTTP/1.1 204 No Content
+Server: Apache-Coyote/1.1
+Date: Tue, 26 Aug 2014 14:48:28 GMT
+</code></pre>
+
+<h2 id="パーミッション権限の有無取得:94d9a081cd1256334373c8ca6fb6276c">パーミッション権限の有無取得</h2>
+
+<h3 id="リクエスト-21:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/authorize">https://api.growthbeat.com/1/authorize</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-21:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>resourceId</td>
+<td>対象リソースID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>actionId</td>
+<td>対象アクションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-21:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<p>権限の確認となるためなし。</p>
+
+<h3 id="例-21:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -i -X POST -H 'Accept: application/json' 'https://api.growthbeat.com/1/authorize' -d 'resourceId=Resource' -d 'actionId=Action:Growthbeat' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Tue, 26 Aug 2014 15:46:26 GMT
+
+true
+</code></pre>
+
+<h1 id="plan-api:94d9a081cd1256334373c8ca6fb6276c">Plan API</h1>
+
+<p>Growthbeatのプランを取得することができます。</p>
+
+<h2 id="planレスポンス:94d9a081cd1256334373c8ca6fb6276c">Planレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>Plan ID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>プラン名</td>
+</tr>
+
+<tr>
+<td>capacity</td>
+<td>リクエスト数上限</td>
+</tr>
+
+<tr>
+<td>price</td>
+<td>価格</td>
+</tr>
+
+<tr>
+<td>grade</td>
+<td>プランのグレード</td>
+</tr>
+
+<tr>
+<td>opened</td>
+<td>プランの公開状況</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>プラン作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="プラン取得:94d9a081cd1256334373c8ca6fb6276c">プラン取得</h2>
+
+<h3 id="リクエスト-22:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/plans">https://api.growthbeat.com/1/plans</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-22:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-22:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<p>権限なしで実行できます。</p>
+
+<h3 id="例-22:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/plans?accountId=L6rmAwrpJvMjowGu&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Enterprise 1T&quot;,
+	&quot;id&quot;:&quot;swEwwZYLiqlXY1Z4&quot;,
+	&quot;created&quot;:&quot;2014-07-15T05:43:35+0000&quot;,
+	&quot;price&quot;:0,
+	&quot;grade&quot;:&quot;large&quot;,
+	&quot;opened&quot;:false,
+	&quot;capacity&quot;:10000000000000
+}
+</code></pre>
+
+<h1 id="session-api:94d9a081cd1256334373c8ca6fb6276c">Session API</h1>
+
+<p>管理画面にて、認証が許可されたときに、期限付きで発行される認証IDを表します。</p>
+
+<h2 id="sessionレスポンス:94d9a081cd1256334373c8ca6fb6276c">Sessionレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>アカウントID</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>セッション作成時間</td>
+</tr>
+
+<tr>
+<td>account</td>
+<td>アカウント</td>
+</tr>
+
+<tr>
+<td>service</td>
+<td>サービス</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="セッションの取得:94d9a081cd1256334373c8ca6fb6276c">セッションの取得</h2>
+
+<p>セッションIDからセッションを取得</p>
+
+<h3 id="リクエスト-23:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/sessions/{sessionId">https://api.growthbeat.com/1/sessions/{sessionId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-23:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-23:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetSession</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-23:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/sessions/8pE0v2AngPUibjlf5Nw3OHdHkFc7DJGt?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;id&quot;:&quot;8pE0v2AngPUibjlf5Nw3OHdHkFc7DJGt&quot;,
+	&quot;created&quot;:&quot;2014-09-28T22:05:48+0000&quot;,
+	&quot;account&quot;:{
+		&quot;id&quot;:&quot;6qt4K7DNIzKFEtRF&quot;,
+		&quot;created&quot;:&quot;2014-06-26T06:44:55+0000&quot;,
+		&quot;name&quot;:&quot;SIROK&quot;
+	},
+	&quot;service&quot;:{
+		&quot;icon&quot;:null,
+		&quot;banner&quot;:null,
+		&quot;logo&quot;:null,
+		&quot;namespace&quot;:&quot;Growthbeat&quot;,
+		&quot;domain&quot;:&quot;growthbeat.local&quot;,
+		&quot;id&quot;:&quot;wTvYPtGWuyKKMvyy&quot;,
+		&quot;created&quot;:&quot;2014-06-01T02:32:50+0000&quot;,
+		&quot;name&quot;:&quot;Growthbeat&quot;,
+		&quot;url&quot;:&quot;http://growthbeat.local:8085/&quot;,
+		&quot;account&quot;:null
+	}
+}
+</code></pre>
+
+<h1 id="user-api:94d9a081cd1256334373c8ca6fb6276c">User API</h1>
+
+<p>Growthbeat各サービスの管理画面にログインできるユーザーを表します。</p>
+
+<h2 id="userレスポンス:94d9a081cd1256334373c8ca6fb6276c">Userレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>mail</td>
+<td>メールアドレス</td>
+</tr>
+
+<tr>
+<td>thumbnail</td>
+<td>ユーザーアイコンURL</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>ユーザー名</td>
+</tr>
+
+<tr>
+<td>company</td>
+<td>会社名</td>
+</tr>
+
+<tr>
+<td>phone</td>
+<td>電話番号</td>
+</tr>
+
+<tr>
+<td>account</td>
+<td>アカウント</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>ユーザー作成時間</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="ユーザー取得:94d9a081cd1256334373c8ca6fb6276c">ユーザー取得</h2>
+
+<h3 id="リクエスト-24:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/users">https://api.growthbeat.com/1/users</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-24:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-24:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetUser</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-24:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -i -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/users?accountId=L6rmAwrpJvMjowGu&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Length: 0
+Date: Tue, 26 Aug 2014 15:43:07 GMT
+</code></pre>
+
+<h2 id="ユーザー一覧取得:94d9a081cd1256334373c8ca6fb6276c">ユーザー一覧取得</h2>
+
+<h3 id="リクエスト-25:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/users">https://api.growthbeat.com/1/users</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-25:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>accountId</td>
+<td>アカウントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>applicationId</td>
+<td>アプリケーションID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-25:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Account:{accountId}</td>
+<td>Action:Growthbeat:GetUser</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-25:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -i -X GET -H 'Accept: application/json' 'https://api.growthbeat.com/1/users?accountId=L6rmAwrpJvMjowGu&amp;applicationId= OrT9IvW8OfjT3l8v&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{
+		&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;,
+		&quot;subscription&quot;:true,
+		&quot;mail&quot;:&quot;hogehoge@co.jp&quot;,
+		&quot;company&quot;:&quot;bar&quot;,
+		&quot;phone&quot;:&quot;0120-123-456&quot;,
+		&quot;thumbnail&quot;:&quot;http://www.gravatar.com/avatar/3c69f10a57b6634a8d6edcb36d7ba521.jpg?d=identicon&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;foo&quot;,
+			&quot;id&quot;:&quot;4J84zhZGEkOQjCKf&quot;,
+			&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;
+		}
+	},
+	{
+		&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;,
+		&quot;subscription&quot;:true,
+		&quot;mail&quot;:&quot;hogehoge@co.jp&quot;,
+		&quot;company&quot;:&quot;bar&quot;,
+		&quot;phone&quot;:&quot;0120-123-456&quot;,
+		&quot;thumbnail&quot;:&quot;http://www.gravatar.com/avatar/3c69f10a57b6634a8d6edcb36d7ba521.jpg?d=identicon&quot;,
+		&quot;account&quot;:{
+			&quot;name&quot;:&quot;foo&quot;,
+			&quot;id&quot;:&quot;4J84zhZGEkOQjCKf&quot;,
+			&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;
+		}
+	},
+	...(略)
+	}
+]
+</code></pre>
+
+<h2 id="ユーザー作成:94d9a081cd1256334373c8ca6fb6276c">ユーザー作成</h2>
+
+<h3 id="リクエスト-26:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.growthbeat.com/1/users">https://api.growthbeat.com/1/users</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-26:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>mail</td>
+<td>メールアドレス</td>
+<td></td>
+</tr>
+
+<tr>
+<td>password</td>
+<td>パスワード</td>
+<td></td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>ユーザー名</td>
+<td>空文字</td>
+</tr>
+
+<tr>
+<td>company</td>
+<td>会社名</td>
+<td>空文字</td>
+</tr>
+
+<tr>
+<td>phone</td>
+<td>電話番号</td>
+<td>空文字</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証用秘密ID</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-26:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<p>ユーザー作成のための必要な権限はありません。</p>
+
+<h3 id="例-26:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' 'https://api.growthbeat.com/1/users' -d 'mail=hogehoge@co.jp' -d 'password=hogehoge' -d 'name=foo' -d 'company=bar' -d 'phone=0120-123-456' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;,
+	&quot;subscription&quot;:true,
+	&quot;mail&quot;:&quot;hogehoge@co.jp&quot;,
+	&quot;company&quot;:&quot;bar&quot;,
+	&quot;phone&quot;:&quot;0120-123-456&quot;,
+	&quot;thumbnail&quot;:&quot;http://www.gravatar.com/avatar/3c69f10a57b6634a8d6edcb36d7ba521.jpg?d=identicon&quot;,
+	&quot;account&quot;:{
+		&quot;name&quot;:&quot;foo&quot;,
+		&quot;id&quot;:&quot;4J84zhZGEkOQjCKf&quot;,
+		&quot;created&quot;:&quot;2014-08-26T15:52:17+0000&quot;
+	}
+}
+</code></pre>
+
+<h1 id="growth-analytics-api:94d9a081cd1256334373c8ca6fb6276c">Growth Analytics API</h1>
+
+<h1 id="clientevents-api:94d9a081cd1256334373c8ca6fb6276c">ClientEvents API</h1>
+
+<p>クライアントのトラッキングイベントについてのAPIです。</p>
+
+<h2 id="clienteventレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientEventレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>ID</td>
+</tr>
+
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+</tr>
+
+<tr>
+<td>eventId</td>
+<td>イベントID</td>
+</tr>
+
+<tr>
+<td>properties</td>
+<td>データのプロパティ</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>トラッキング作成時刻</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="クライアント毎のイベント一覧取得:94d9a081cd1256334373c8ca6fb6276c">クライアント毎のイベント一覧取得</h3>
+
+<p>クライアントが持つイベントリスト取得をします。</p>
+
+<h3 id="リクエスト-27:94d9a081cd1256334373c8ca6fb6276c">リクエスト</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/client_events">https://api.analytics.growthbeat.com/1/client_events</a></td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-27:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>eventId</td>
+<td>イベントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>begin</td>
+<td>範囲時間の開始時刻</td>
+<td></td>
+</tr>
+
+<tr>
+<td>end</td>
+<td>範囲時間の終了時刻</td>
+<td></td>
+</tr>
+
+<tr>
+<td>exclusiveId</td>
+<td>このID以降の取得</td>
+<td>(オプション)</td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>１回の取得の件数上限</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-27:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListClientEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="curl例:94d9a081cd1256334373c8ca6fb6276c">curl例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/client_events?clientId=Oy1FwLQJXXQWRrxo&amp;eventId=Event:LBYtXQ26k6pHRZZB:Custom:Win&amp;begin=2015-03-01T00%3A00%3A00%2B0000&amp;end=2015-04-01T00%3A00%3A00%2B0000&amp;exclusiveId=P6Ouhbk6kmLgJRVZ&amp;order=ascending&amp;limit=5&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;properties&quot;:{&quot;opponent&quot;:&quot;user_P6ODrb1HBZeIu0Oq&quot;},&quot;id&quot;:&quot;P6OulcA0txE16of4&quot;,&quot;created&quot;:&quot;2015-03-09T03:14:08+0000&quot;,&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;},
+	{&quot;properties&quot;:{&quot;opponent&quot;:&quot;CPU&quot;},&quot;id&quot;:&quot;P6OuojrNioIwSRPu&quot;,&quot;created&quot;:&quot;2015-03-09T03:14:20+0000&quot;,&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;},
+	{&quot;properties&quot;:{&quot;opponent&quot;:&quot;CPU&quot;},&quot;id&quot;:&quot;P6Ouqa5odJ8phyOe&quot;,&quot;created&quot;:&quot;2015-03-09T03:14:27+0000&quot;,&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;},
+	{&quot;properties&quot;:{&quot;opponent&quot;:&quot;user_P6ODl6a7EqFl4Xxm&quot;},&quot;id&quot;:&quot;P6Ouszpyh4hD7wrp&quot;,&quot;created&quot;:&quot;2015-03-09T03:14:36+0000&quot;,&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;},
+	{&quot;properties&quot;:{&quot;opponent&quot;:&quot;CPU&quot;},&quot;id&quot;:&quot;P6OuueeeQ9QEgDrB&quot;,&quot;created&quot;:&quot;2015-03-09T03:14:42+0000&quot;,&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;}
+]
+</code></pre>
+
+<h2 id="クライアントにイベントトラッキングを作成:94d9a081cd1256334373c8ca6fb6276c">クライアントにイベントトラッキングを作成</h2>
+
+<p>クライアントにイベントトラッキングを作成します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/client_events">https://api.analytics.growthbeat.com/1/client_events</a></td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-28:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>eventId</td>
+<td>イベントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>properties</td>
+<td>プロパティのキー</td>
+<td>(optional)</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-28:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:CreateClientEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-27:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/client_events' -d 'clientId=Oy1FwLQJXXQWRrxo' -d 'eventId=Event:LBYtXQ26k6pHRZZB:Custom:Win' -d 'properties[opponent]=CPU' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;properties&quot;:{
+		&quot;opponent&quot;:&quot;CPU&quot;
+	},
+	&quot;id&quot;:&quot;P5iQN7NLW8iY7W5t&quot;,
+	&quot;created&quot;:&quot;2015-03-02T00:56:14+0000&quot;,
+	&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;,
+	&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;
+}
+</code></pre>
+
+<h1 id="clientsegments-api:94d9a081cd1256334373c8ca6fb6276c">ClientSegments API</h1>
+
+<p>クライアントのセグメントについてのAPIです。</p>
+
+<h2 id="clientsegmentレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientSegmentレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+</tr>
+
+<tr>
+<td>segmentId</td>
+<td>セグメントID</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="クライアントのセグメントを取得:94d9a081cd1256334373c8ca6fb6276c">クライアントのセグメントを取得</h2>
+
+<p>クライアントIDとセグメントIDに紐づくデータを返します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/client_segments">https://api.analytics.growthbeat.com/1/client_segments</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-29:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>segmentId</td>
+<td>セグメントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-29:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:GetClientSegment</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-28:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/client_segments?clientId=Oy1FwLQJXXQWRrxo&amp;segmentId=Segment:LBYtXQ26k6pHRZZB:Default:All&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;,
+	&quot;segmentId&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Default:All&quot;
+}
+</code></pre>
+
+<h1 id="clienttags-api:94d9a081cd1256334373c8ca6fb6276c">ClientTags API</h1>
+
+<p>クライアントが持つタグについてのAPIです。</p>
+
+<h2 id="clienttagレスポンス:94d9a081cd1256334373c8ca6fb6276c">ClientTagレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+</tr>
+
+<tr>
+<td>tagId</td>
+<td>タグID</td>
+</tr>
+
+<tr>
+<td>value</td>
+<td>タグの値</td>
+</tr>
+
+<tr>
+<td>updated</td>
+<td>更新日時</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="クライアントのタグ作成-更新:94d9a081cd1256334373c8ca6fb6276c">クライアントのタグ作成・更新</h2>
+
+<p>タグを作成・更新します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>POST</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/client_tags">https://api.analytics.growthbeat.com/1/client_tags</a></td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-30:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>clientId</td>
+<td>クライアントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>tagId</td>
+<td>タグID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>value</td>
+<td>タグの値</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-30:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:CreateClientTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-29:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/client_tags' -d 'clientId=Oy1FwLQJXXQWRrxo' -d 'tagId=Tag:LBYtXQ26k6pHRZZB:Default:Level' -d 'value=15' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;value&quot;:&quot;15&quot;,
+	&quot;updated&quot;:&quot;2015-03-02T03:44:18+0000&quot;,
+	&quot;tagId&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:Level&quot;,
+	&quot;clientId&quot;:&quot;Oy1FwLQJXXQWRrxo&quot;
+}
+</code></pre>
+
+<h2 id="タグidに紐づく一覧を取得:94d9a081cd1256334373c8ca6fb6276c">タグIDに紐づく一覧を取得</h2>
+
+<p>タグIDに紐づく、クライアントタグを取得します。セグメントを指定することでクライアントを抽出したデータを取得することも可能です。</p>
+
+<h3 id="パラメーター-31:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<p>|キー|値|デフォルト値|
+|&mdash;-|&ndash;|&mdash;&mdash;&mdash;|
+|tagId|タグID||
+|segmentQuery|セグメントクエリ|(オプション)|</p>
+
+<h3 id="必要な権限-31:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListClientTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-30:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X POST -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/client_tags' -d 'tagId=Tag:LBYtXQ26k6pHRZZB:Default:AdvertisingId' -d 'segmentQuery=' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code></code></pre>
+
+<h1 id="datapoint-api:94d9a081cd1256334373c8ca6fb6276c">DataPoint API</h1>
+
+<p>集計された値を表します。</p>
+
+<h2 id="datapointレスポンス:94d9a081cd1256334373c8ca6fb6276c">DataPointレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>category</td>
+<td>値のカテゴリ(日付や特定のキーが入る)</td>
+</tr>
+
+<tr>
+<td>value</td>
+<td>該当カテゴリの集計された値</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="データポイント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">データポイント一覧を取得</h2>
+
+<p>クエリと指定時間、間隔で集計された値を返します</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/data_points">https://api.analytics.growthbeat.com/1/data_points</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-32:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>dataPointQuery</td>
+<td>データポイントクエリ</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-32:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<p>データポイント内に含まれた、タグ・イベント・セグメントの使用に権限が必要となる場合があります。</p>
+
+<h3 id="例-31:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/data_points?dataPointQuery=%7B%22type%22%3A%22metric%22%2C%22begin%22%3A%7B%22type%22%3A%22absolute%22%2C%22time%22%3A%222015-01-01T00%3A00%3A00%2B0000%22%7D%2C%22end%22%3A%7B%22type%22%3A%22absolute%22%2C%22time%22%3A%222015-01-10T00%3A00%3A00%2B0000%22%7D%2C%22period%22%3A86400000%2C%22metricQuery%22%3A%7B%22type%22%3A%22metric%22%2C%22direction%22%3A%22up%22%2C%22metricId%22%3A%22Metric%3ALBYtXQ26k6pHRZZB%3ADefault%3AActiveUser%22%7D%7D&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;value&quot;:421.0,&quot;category&quot;:&quot;2015-01-01T09:00:00+0000&quot;},
+	{&quot;value&quot;:420.0,&quot;category&quot;:&quot;2015-01-02T09:00:00+0000&quot;},
+	{&quot;value&quot;:399.0,&quot;category&quot;:&quot;2015-01-03T09:00:00+0000&quot;},
+	{&quot;value&quot;:408.0,&quot;category&quot;:&quot;2015-01-04T09:00:00+0000&quot;},
+	{&quot;value&quot;:418.0,&quot;category&quot;:&quot;2015-01-05T09:00:00+0000&quot;},
+	{&quot;value&quot;:424.0,&quot;category&quot;:&quot;2015-01-06T09:00:00+0000&quot;},
+	{&quot;value&quot;:416.0,&quot;category&quot;:&quot;2015-01-07T09:00:00+0000&quot;},
+	{&quot;value&quot;:398.0,&quot;category&quot;:&quot;2015-01-08T09:00:00+0000&quot;},
+	{&quot;value&quot;:393.0,&quot;category&quot;:&quot;2015-01-09T09:00:00+0000&quot;}
+]
+</code></pre>
+
+<h1 id="events-api:94d9a081cd1256334373c8ca6fb6276c">Events API</h1>
+
+<p>トラッキングデータのラベルを表します。</p>
+
+<h2 id="eventレスポンス:94d9a081cd1256334373c8ca6fb6276c">Eventレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>イベントID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>イベント名</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>イベント説明文</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日時</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="イベントを取得:94d9a081cd1256334373c8ca6fb6276c">イベントを取得</h2>
+
+<p>イベントIDから特定のイベントを取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/events/{eventId">https://api.analytics.growthbeat.com/1/events/{eventId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-33:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-33:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:GetEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-32:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/events/Event:LBYtXQ26k6pHRZZB:Default:Open?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Open&quot;,
+	&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Open&quot;,
+	&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,
+	&quot;description&quot;:&quot;Open the app&quot;
+}
+</code></pre>
+
+<h2 id="イベント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">イベント一覧を取得</h2>
+
+<p>イベントの一覧を取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/events">https://api.analytics.growthbeat.com/1/events</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-34:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>parentEventId</td>
+<td>親イベントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>page</td>
+<td>ページ番号</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>1回の取得上限</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-34:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-33:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/events?parentEventId=Event:LBYtXQ26k6pHRZZB&amp;order=ascending&amp;page=1&amp;limit=5&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;name&quot;:&quot;Custom&quot;,&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Custom&quot;},
+	{&quot;name&quot;:&quot;Quest&quot;,&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Questo&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Quest&quot;},
+	{&quot;name&quot;:&quot;Default&quot;,&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Default&quot;},
+	{&quot;name&quot;:&quot;Close&quot;,&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Close&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Close the app&quot;},
+	{&quot;name&quot;:&quot;Install&quot;,&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Install&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Install the app&quot;}
+]
+</code></pre>
+
+<h2 id="イベントを更新:94d9a081cd1256334373c8ca6fb6276c">イベントを更新</h2>
+
+<p>新しくイベントを作成するまたは、存在する場合イベントを更新します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/events/{eventId">https://api.analytics.growthbeat.com/1/events/{eventId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-35:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>イベント名</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>イベント説明文</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-35:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:UpdateEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-34:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/events/Event:LBYtXQ26k6pHRZZB:Custom:Win' -d 'name=Win' -d 'description=Win the battle' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Win&quot;,
+	&quot;id&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Custom:Win&quot;,
+	&quot;created&quot;:&quot;2015-03-02T00:35:16+0000&quot;,
+	&quot;description&quot;:&quot;Win the battle&quot;
+}
+</code></pre>
+
+<h2 id="イベントを削除:94d9a081cd1256334373c8ca6fb6276c">イベントを削除</h2>
+
+<p>イベントを削除します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/events/{eventId">https://api.analytics.growthbeat.com/1/events/{eventId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-36:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-36:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:DeleteEvent</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-35:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X DELETE -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/events/Event:LBYtXQ26k6pHRZZB:Custom:Win' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<h1 id="metrics-api:94d9a081cd1256334373c8ca6fb6276c">Metrics API</h1>
+
+<p>トラッキングイベントやセグメントを組み合わせた指標として利用できます。</p>
+
+<h2 id="metricレスポンス:94d9a081cd1256334373c8ca6fb6276c">Metricレスポンス</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>メトリックID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>メトリック名</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>メトリック説明文</td>
+</tr>
+
+<tr>
+<td>query</td>
+<td>メトリッククエリ</td>
+</tr>
+
+<tr>
+<td>color</td>
+<td>メトリックカラーコード</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日時</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="メトリックを取得:94d9a081cd1256334373c8ca6fb6276c">メトリックを取得</h2>
+
+<p>メトリックIDから特定のメトリックを取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/metrics/{metricId">https://api.analytics.growthbeat.com/1/metrics/{metricId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-37:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-37:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:GetMetric</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-36:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/metrics/Metric:LBYtXQ26k6pHRZZB:Default:ActiveUser?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;ActiveUser&quot;,
+	&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Default:ActiveUser&quot;,
+	&quot;query&quot;:{
+		&quot;type&quot;:&quot;event&quot;,
+		&quot;direction&quot;:&quot;up&quot;,
+		&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Open&quot;,
+		&quot;calculationQuery&quot;:{&quot;type&quot;:&quot;unique&quot;},
+		&quot;filterQuery&quot;:{&quot;type&quot;:&quot;time&quot;,&quot;begin&quot;:{&quot;type&quot;:&quot;relative&quot;,&quot;origin&quot;:&quot;begin&quot;,&quot;time&quot;:0},&quot;end&quot;:{&quot;type&quot;:&quot;relative&quot;,&quot;origin&quot;:&quot;end&quot;,&quot;time&quot;:0}}
+	},
+	&quot;description&quot;:&quot;The unique user&quot;,
+	&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,
+	&quot;color&quot;:null
+}
+</code></pre>
+
+<h2 id="メトリック一覧を取得:94d9a081cd1256334373c8ca6fb6276c">メトリック一覧を取得</h2>
+
+<p>メトリック一覧を取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/metrics">https://api.analytics.growthbeat.com/1/metrics</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-38:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>parentMetricId</td>
+<td>親メトリックID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート順</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>page</td>
+<td>ページ番号</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>1回の取得上限数</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-38:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListMetric</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-37:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/metrics?parentMetricId=Metric:LBYtXQ26k6pHRZZB&amp;order=ascending&amp;page=1&amp;limit=5&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;name&quot;:&quot;Custom&quot;,&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Custom&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Custom&quot;,&quot;color&quot;:null},
+	{&quot;name&quot;:&quot;TutorialCompleted&quot;,&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Custom:TutorialCompleted&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-02-11T07:54:36+0000&quot;,&quot;description&quot;:&quot;Unique users who completed tutorial&quot;,&quot;color&quot;:null},
+	{&quot;name&quot;:&quot;Default&quot;,&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Default&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Default&quot;,&quot;color&quot;:null},
+	{&quot;name&quot;:&quot;ARPPU&quot;,&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Default:ARPPU&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:37+0000&quot;,&quot;description&quot;:&quot;Average revenue per pay user&quot;,&quot;color&quot;:null},
+	{&quot;name&quot;:&quot;ARPU&quot;,&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Default:ARPU&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:37+0000&quot;,&quot;description&quot;:&quot;Average revenue per user&quot;,&quot;color&quot;:null}
+]
+</code></pre>
+
+<h2 id="メトリックの更新:94d9a081cd1256334373c8ca6fb6276c">メトリックの更新</h2>
+
+<p>メトリック新規作成、または存在する場合は更新します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/metrics/{metricId">https://api.analytics.growthbeat.com/1/metrics/{metricId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-39:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>メトリック名</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>メトリック説明文</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>query</td>
+<td>メトリッククエリ</td>
+<td></td>
+</tr>
+
+<tr>
+<td>color</td>
+<td>メトリックカラーコード</td>
+<td>(オプション)</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-39:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:UpdateMetric</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-38:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/metrics/Metric:LBYtXQ26k6pHRZZB:Custom:Install' -d 'name=Install' -d 'description=Install users count' -d 'query={&quot;type&quot;:&quot;event&quot;,&quot;direction&quot;:&quot;up&quot;,&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Install&quot;,&quot;calculationQuery&quot;:{&quot;type&quot;:&quot;count&quot;},&quot;filterQuery&quot;:null}' -d 'color=0' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Install&quot;,
+	&quot;id&quot;:&quot;Metric:LBYtXQ26k6pHRZZB:Custom:Install&quot;,
+	&quot;query&quot;:{
+		&quot;type&quot;:&quot;event&quot;,
+		&quot;direction&quot;:&quot;up&quot;,
+		&quot;eventId&quot;:&quot;Event:LBYtXQ26k6pHRZZB:Default:Install&quot;,
+		&quot;calculationQuery&quot;:{&quot;type&quot;:&quot;count&quot;},
+		&quot;filterQuery&quot;:null
+	},
+	&quot;description&quot;:&quot;Install users count&quot;,
+	&quot;created&quot;:&quot;2015-03-02T04:07:16+0000&quot;,
+	&quot;color&quot;:0
+}
+</code></pre>
+
+<h2 id="メトリックの削除:94d9a081cd1256334373c8ca6fb6276c">メトリックの削除</h2>
+
+<p>メトリックの削除</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/metrics/{metricId">https://api.analytics.growthbeat.com/1/metrics/{metricId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-40:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>Credential ID for authentication</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-40:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:DeleteMetric</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-39:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X DELETE -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/metrics/Metric:LBYtXQ26k6pHRZZB:Custom:Install' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<h1 id="segments-api:94d9a081cd1256334373c8ca6fb6276c">Segments API</h1>
+
+<p>タグやトラッキングイベントを組み合わせ、対象となるクライアントを抽出できます。</p>
+
+<h2 id="segment:94d9a081cd1256334373c8ca6fb6276c">Segment</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>セグメントID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>セグメント名</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>セグメント説明文</td>
+</tr>
+
+<tr>
+<td>query</td>
+<td>セグメントクエリ</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="セグメント取得:94d9a081cd1256334373c8ca6fb6276c">セグメント取得</h2>
+
+<p>セグメントIDから特定のセグメントを取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/segments/{segmentId">https://api.analytics.growthbeat.com/1/segments/{segmentId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-41:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-41:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:GetSegment</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-40:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/segments/Segment:LBYtXQ26k6pHRZZB:Default:All?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;All&quot;,
+	&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Default:All&quot;,
+	&quot;query&quot;:{
+		&quot;type&quot;:&quot;application&quot;,
+		&quot;note&quot;:null,
+		&quot;applicationId&quot;:&quot;LBYtXQ26k6pHRZZB&quot;
+	},
+	&quot;created&quot;:&quot;2015-01-22T05:28:31+0000&quot;,
+	&quot;description&quot;:&quot;All users&quot;
+}
+</code></pre>
+
+<h2 id="セグメント一覧を取得:94d9a081cd1256334373c8ca6fb6276c">セグメント一覧を取得</h2>
+
+<p>セグメント一覧を取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/segments">https://api.analytics.growthbeat.com/1/segments</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-42:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>parentSegmentId</td>
+<td>親セグメントID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>page</td>
+<td>ページ番号</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>１回の取得上限数</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPI</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-42:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListSegment</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-41:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/segments?parentSegmentId=Segment:LBYtXQ26k6pHRZZB&amp;order=ascending&amp;page=1&amp;limit=5&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;name&quot;:&quot;Custom&quot;,&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Custom&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Custom&quot;},
+	{&quot;name&quot;:&quot;HeavyUser&quot;,&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Custom:HeavyUser&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-02-11T12:18:12+0000&quot;,&quot;description&quot;:&quot;Heavy users&quot;},
+	{&quot;name&quot;:&quot;Default&quot;,&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Default&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Default&quot;},
+	{&quot;name&quot;:&quot;All&quot;,&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Default:All&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:28:31+0000&quot;,&quot;description&quot;:&quot;All users&quot;},
+	{&quot;name&quot;:&quot;ContinuosOpenUser&quot;,&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Default:ContinuosOpenUser&quot;,&quot;query&quot;:null,&quot;created&quot;:&quot;2015-01-22T05:28:54+0000&quot;,&quot;description&quot;:&quot;Users who open the app continuously.&quot;}
+]
+</code></pre>
+
+<h2 id="セグメントを更新:94d9a081cd1256334373c8ca6fb6276c">セグメントを更新</h2>
+
+<p>セグメントを新規作成または、存在する場合は更新します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/segments/{segmentId">https://api.analytics.growthbeat.com/1/segments/{segmentId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-43:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>セグメント名</td>
+<td>(Empty string)</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>セグメント説明文</td>
+<td>(Empty string)</td>
+</tr>
+
+<tr>
+<td>query</td>
+<td>セグメントクエリ</td>
+<td></td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPI</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-43:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:UpdateSegment</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-42:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/segments/Segment:LBYtXQ26k6pHRZZB:Custom:Level5OrMore' -d 'name=Level 5 or more' -d 'description=The users whose level is more than 5' -d 'query={&quot;type&quot;:&quot;tag&quot;,&quot;tagId&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:Level&quot;,&quot;operator&quot;:&quot;greater_equal&quot;,&quot;value&quot;:&quot;5&quot;}' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Level 5 or more&quot;,
+	&quot;id&quot;:&quot;Segment:LBYtXQ26k6pHRZZB:Custom:Level5OrMore&quot;,
+	&quot;query&quot;:{
+		&quot;type&quot;:&quot;tag&quot;,
+		&quot;note&quot;:null,
+		&quot;tagId&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:Level&quot;,
+		&quot;operator&quot;:&quot;greater_equal&quot;,
+		&quot;value&quot;:&quot;5&quot;
+	},
+	&quot;description&quot;:&quot;The users whose level is more than 5&quot;,
+	&quot;created&quot;:&quot;2015-03-02T03:58:40+0000&quot;
+}
+</code></pre>
+
+<h2 id="セグメントを削除:94d9a081cd1256334373c8ca6fb6276c">セグメントを削除</h2>
+
+<p>セグメントを削除します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/segments/{segmentId">https://api.analytics.growthbeat.com/1/segments/{segmentId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-44:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPI</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-44:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:DeleteSegment</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-43:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X DELETE -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/segments/Segment:LBYtXQ26k6pHRZZB:Custom:Level5OrMore' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<h1 id="tags-api:94d9a081cd1256334373c8ca6fb6276c">Tags API</h1>
+
+<p>属性情報のラベルを表します。</p>
+
+<h2 id="tag:94d9a081cd1256334373c8ca6fb6276c">Tag</h2>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>タグID</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>タグ名</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>タグ説明文</td>
+</tr>
+
+<tr>
+<td>created</td>
+<td>作成日時</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="タグを取得:94d9a081cd1256334373c8ca6fb6276c">タグを取得</h2>
+
+<p>タグIDから特定のタグを取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/tags/{tagId">https://api.analytics.growthbeat.com/1/tags/{tagId</a>}</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-45:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-45:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:GetTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-44:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/tags/Tag:LBYtXQ26k6pHRZZB:Default:Level?credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Level&quot;,
+	&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:Level&quot;,
+	&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,
+	&quot;description&quot;:&quot;Level of the user&quot;
+}
+</code></pre>
+
+<h2 id="タグ一覧を取得:94d9a081cd1256334373c8ca6fb6276c">タグ一覧を取得</h2>
+
+<p>タグ一覧を取得します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>GET</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/tags">https://api.analytics.growthbeat.com/1/tags</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-46:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>parentTagId</td>
+<td>親タグID</td>
+<td></td>
+</tr>
+
+<tr>
+<td>order</td>
+<td>ソート順</td>
+<td>ascending</td>
+</tr>
+
+<tr>
+<td>page</td>
+<td>ページ番号</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>limit</td>
+<td>1回の取得上限</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-46:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:ListTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-45:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X GET -H 'Accept: application/json' 'https://api.analytics.growthbeat.com/1/tags?parentTagId=Tag:LBYtXQ26k6pHRZZB&amp;order=ascending&amp;page=1&amp;limit=5&amp;credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>[
+	{&quot;name&quot;:&quot;Custom&quot;,&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Custom&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Custom&quot;},
+	{&quot;name&quot;:&quot;Gender&quot;,&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Custom:Gender&quot;,&quot;created&quot;:&quot;2015-02-11T08:07:01+0000&quot;,&quot;description&quot;:&quot;Gender&quot;},
+	{&quot;name&quot;:&quot;Default&quot;,&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Default&quot;},
+	{&quot;name&quot;:&quot;FrindCount&quot;,&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:FriendCount&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;The number of friends&quot;},
+	{&quot;name&quot;:&quot;Level&quot;,&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Default:Level&quot;,&quot;created&quot;:&quot;2015-01-22T05:27:27+0000&quot;,&quot;description&quot;:&quot;Level&quot;}
+]
+</code></pre>
+
+<h2 id="タグを更新:94d9a081cd1256334373c8ca6fb6276c">タグを更新</h2>
+
+<p>タグを新規作成、または存在する場合更新をします。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>PUT</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/tags/{tagId">https://api.analytics.growthbeat.com/1/tags/{tagId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-47:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>デフォルト値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>name</td>
+<td>タグ名</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>タグ説明文</td>
+<td>(空文字列)</td>
+</tr>
+
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-47:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:UpdateTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-46:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X PUT -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/tags/Tag:LBYtXQ26k6pHRZZB:Custom:CurrentStage' -d 'name=Crrent stage' -d 'description=The stage user is currently playing' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<pre><code>{
+	&quot;name&quot;:&quot;Crrent stage&quot;,
+	&quot;id&quot;:&quot;Tag:LBYtXQ26k6pHRZZB:Custom:CurrentStage&quot;,
+	&quot;created&quot;:&quot;2015-03-02T00:45:48+0000&quot;,
+	&quot;description&quot;:&quot;The stage user is currently playing&quot;
+}
+</code></pre>
+
+<h2 id="タグを削除:94d9a081cd1256334373c8ca6fb6276c">タグを削除</h2>
+
+<p>タグを削除します。</p>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Method</td>
+<td>DELETE</td>
+</tr>
+
+<tr>
+<td>URL</td>
+<td><a href="https://api.analytics.growthbeat.com/1/tags/{tagId">https://api.analytics.growthbeat.com/1/tags/{tagId</a>}</td>
+</tr>
+
+<tr>
+<td>Content-Type</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="パラメーター-48:94d9a081cd1256334373c8ca6fb6276c">パラメーター</h3>
+
+<table>
+<thead>
+<tr>
+<th>キー</th>
+<th>値</th>
+<th>Default</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>credentialId</td>
+<td>認証のためのAPIキー</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="必要な権限-48:94d9a081cd1256334373c8ca6fb6276c">必要な権限</h3>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Resource:Growthbeat:Application:{applicationId}</td>
+<td>Action:GrowthAnalytics:DeleteTag</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="例-47:94d9a081cd1256334373c8ca6fb6276c">例</h3>
+
+<pre><code>curl -X DELETE -H 'Accept: application/json' -H 'Content-Type: application/x-www-form-urlencoded' 'https://api.analytics.growthbeat.com/1/tags/Tag:LBYtXQ26k6pHRZZB:Custom:CurrentStage' -d 'credentialId=nMdZa0PfT1rmxHEh4MTnpfG6ncxtiTgY'
+</code></pre>
+
+<h1 id="備考:94d9a081cd1256334373c8ca6fb6276c">備考</h1>
+
+<p><a href="http://support.growthbeat.com/sdk/ios/release/">リリースノート</a>もご参照ください。</p>
+
+      </div>
+    </div>
+</section>
+
+
+  </div>
+</div>
+
+
+<footer class="footer">
+  <small class="copyright">Designed by SIROK</small>
+</footer>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('pre code, code').each(function(i, block) {
+    hljs.highlightBlock(block)
+  })
+});
+</script>
+
+
+</div>
+</body>
+</html>
